@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bia & Nhậu Vĩnh Yên</title>
+    <meta
+      name="description"
+      content="Trang giới thiệu quán bia, quán nhậu ở thành phố Vĩnh Yên, Vĩnh Phúc với thông tin địa chỉ, đánh giá và tính khoảng cách từ vị trí của bạn."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css?v=20260821b" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <nav class="topbar">
+          <div class="brand">
+            <span class="brand-badge">VY</span>
+            <div>
+              <p class="brand-title" id="brandTitle">Bia & Nhậu Vĩnh Yên</p>
+              <p class="brand-subtitle" id="brandSubtitle">Khám phá quán ngon gần bạn</p>
+            </div>
+          </div>
+          <div class="topbar-actions">
+            <div class="language-switcher" aria-label="Chọn ngôn ngữ">
+              <button class="language-button active" data-lang="vi" type="button">VI</button>
+              <button class="language-button" data-lang="en" type="button">EN</button>
+              <button class="language-button" data-lang="zh" type="button">中文</button>
+            </div>
+            <a class="ghost-button" href="#danh-sach" id="topCta">Xem danh sách quán</a>
+          </div>
+        </nav>
+
+        <section class="hero-content">
+          <div class="hero-copy">
+            <span class="eyebrow" id="heroEyebrow">Website giới thiệu địa điểm ăn nhậu tại Vĩnh Yên</span>
+            <h1 id="heroTitle">Tìm quán bia, quán nhậu phù hợp theo vị trí của bạn</h1>
+            <p class="hero-text" id="heroText">
+              Xem nhanh thông tin quán, địa chỉ, giờ mở cửa, đánh giá tham khảo và
+              khoảng cách từ vị trí hiện tại của bạn đến từng quán ở thành phố Vĩnh Yên.
+            </p>
+
+            <div class="hero-actions">
+              <button class="primary-button" id="locateButton" type="button">
+                Dùng vị trí của tôi
+              </button>
+              <a class="secondary-button" href="#gioi-thieu" id="howItWorksButton">Cách hoạt động</a>
+            </div>
+
+            <div class="status-card" id="locationStatus" aria-live="polite">
+              Chưa lấy vị trí. Bấm vào nút phía trên để tính khoảng cách đến từng quán.
+            </div>
+          </div>
+
+          <aside class="hero-panel">
+            <div class="panel-card">
+              <p class="panel-label" id="panelLabel">Tổng quan</p>
+              <h2 id="panelTitle">Những gì người dùng có thể xem</h2>
+              <ul class="feature-list" id="featureList">
+                <li>Danh sách quán trong khu vực Vĩnh Yên</li>
+                <li>Địa chỉ, số điện thoại, giờ mở cửa</li>
+                <li>Điểm đánh giá và số lượt review tham khảo</li>
+                <li>Khoảng cách từ vị trí hiện tại đến quán</li>
+              </ul>
+            </div>
+          </aside>
+        </section>
+      </header>
+
+      <main>
+        <section class="intro-section" id="gioi-thieu">
+          <article class="intro-card">
+            <p class="section-label" id="introLabel">Dành cho người đi ăn cùng bạn bè</p>
+            <h2 id="introTitle">Giao diện đơn giản, dễ xem trên điện thoại</h2>
+            <p id="introText">
+              Trang được thiết kế theo kiểu danh sách nổi bật, ưu tiên trải nghiệm nhanh:
+              tìm kiếm theo tên quán, lọc theo loại món và sắp xếp theo đánh giá hoặc
+              khoảng cách sau khi người dùng cho phép chia sẻ vị trí.
+            </p>
+          </article>
+
+          <article class="intro-card">
+            <p class="section-label" id="statsLabel">Tính năng nổi bật</p>
+            <div class="stat-grid">
+              <div>
+                <strong id="venueCount">0</strong>
+                <span id="statVenueCountText">quán trong dữ liệu mẫu</span>
+              </div>
+              <div>
+                <strong id="statTapTitle">1 chạm</strong>
+                <span id="statTapText">để lấy vị trí hiện tại</span>
+              </div>
+              <div>
+                <strong id="statFastTitle">Nhanh</strong>
+                <span id="statFastText">lọc theo quán hải sản, dê, lẩu, nhậu</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="filter-section">
+          <div class="filter-heading">
+            <div>
+              <p class="section-label" id="filterLabel">Công cụ khám phá</p>
+              <h2 id="danh-sach">Lọc và tìm quán</h2>
+            </div>
+            <p class="filter-note" id="filterNote">
+              Khi đã cho phép truy cập vị trí, bạn có thể sắp xếp theo quán gần nhất.
+            </p>
+          </div>
+
+          <div class="filter-bar">
+            <label class="field">
+              <span id="searchLabel">Tìm theo tên quán</span>
+              <input
+                type="search"
+                id="searchInput"
+                placeholder="Ví dụ: Hải Sản Hương Lê"
+              />
+            </label>
+
+            <label class="field">
+              <span id="categoryLabel">Loại quán</span>
+              <select id="categoryFilter">
+                <option value="all">Tất cả</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span id="sortLabel">Sắp xếp</span>
+              <select id="sortSelect">
+                <option value="rating">Đánh giá cao</option>
+                <option value="distance">Gần bạn nhất</option>
+                <option value="reviews">Nhiều review</option>
+                <option value="name">Tên A-Z</option>
+              </select>
+            </label>
+          </div>
+        </section>
+
+        <section class="highlight-grid" id="highlightGrid"></section>
+
+        <section class="venue-section">
+          <div class="result-header">
+            <h2 id="resultTitle">Danh sách quán</h2>
+            <p id="resultText">Đang tải dữ liệu quán...</p>
+          </div>
+          <div class="venue-grid" id="venueGrid"></div>
+        </section>
+
+        <section class="info-section">
+          <article class="info-card">
+            <p class="section-label" id="geoNoteLabel">Lưu ý khi dùng định vị</p>
+            <p id="geoNoteText">
+              Trình duyệt cần được chạy qua `localhost` hoặc một website có `https`
+              để lấy vị trí ổn định. Nếu mở file trực tiếp, một số trình duyệt có thể
+              không cho phép truy cập vị trí hiện tại.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <p class="section-label" id="futureLabel">Mở rộng sau này</p>
+            <p id="futureText">
+              Bạn có thể bổ sung trang chi tiết quán, biểu mẫu đánh giá từ người dùng,
+              bản đồ tương tác hoặc phần quản trị để tự thêm và chỉnh sửa quán.
+            </p>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <template id="venueCardTemplate">
+      <article class="venue-card">
+        <div class="venue-media">
+          <div class="venue-image-wrap">
+            <img class="venue-image" alt="" loading="lazy" />
+          </div>
+          <div class="menu-panel">
+            <div class="menu-panel-head">
+              <h4 class="menu-panel-title"></h4>
+              <p class="menu-panel-note"></p>
+            </div>
+            <div class="menu-gallery"></div>
+            <ul class="menu-highlight-list"></ul>
+          </div>
+        </div>
+
+        <div class="card-top">
+          <div>
+            <p class="venue-category"></p>
+            <h3 class="venue-name"></h3>
+          </div>
+          <span class="venue-rating"></span>
+        </div>
+
+        <p class="venue-description"></p>
+
+        <div class="meta-list">
+          <div>
+            <span>Địa chỉ</span>
+            <strong class="venue-address"></strong>
+          </div>
+          <div>
+            <span>Giờ mở cửa</span>
+            <strong class="venue-hours"></strong>
+          </div>
+          <div>
+            <span>Liên hệ</span>
+            <strong class="venue-phone"></strong>
+          </div>
+          <div>
+            <span>Khoảng cách</span>
+            <strong class="venue-distance"></strong>
+          </div>
+        </div>
+
+        <div class="tag-list"></div>
+
+        <div class="review-line">
+          <span class="review-count"></span>
+          <span class="source-line"></span>
+        </div>
+
+        <div class="card-actions">
+          <a class="card-button" target="_blank" rel="noreferrer">Chỉ đường</a>
+          <a class="card-button alt" target="_blank" rel="noreferrer">Nguồn thông tin</a>
+          <button class="card-button review-btn" type="button">⭐ Đánh giá quán</button>
+        </div>
+        <div class="user-reviews-section"></div>
+      </article>
+    </template>
+
+    <!-- Modal Đánh Giá từ Người Dùng -->
+    <div id="reviewModal" class="modal-backdrop" style="display: none;">
+      <div class="modal-box">
+        <h3 id="modalVenueTitle">Viết đánh giá cho quán</h3>
+        <form id="reviewForm">
+          <input type="hidden" id="modalVenueId" />
+          <label class="field">
+            <span>Tên của bạn:</span>
+            <input type="text" id="reviewerName" required placeholder="Nhập tên của bạn..." />
+          </label>
+          <label class="field">
+            <span>Đánh giá sao (1-5★):</span>
+            <select id="reviewerRating">
+              <option value="5">⭐⭐⭐⭐⭐ (5/5) - Rất tuyệt</option>
+              <option value="4" selected>⭐⭐⭐⭐ (4/5) - Tốt / Ngon</option>
+              <option value="3">⭐⭐⭐ (3/5) - Bình thường</option>
+              <option value="2">⭐⭐ (2/5) - Chưa hài lòng</option>
+              <option value="1">⭐ (1/5) - Tệ</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Nhận xét của bạn:</span>
+            <textarea id="reviewerComment" rows="3" required placeholder="Chia sẻ trải nghiệm về món ăn, thái độ phục vụ hay giá cả..."></textarea>
+          </label>
+          <div class="modal-actions">
+            <button class="secondary-button" type="button" id="closeModalBtn">Hủy</button>
+            <button class="primary-button" type="submit">Gửi đánh giá</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="./app.js?v=20260821b"></script>
+  </body>
+</html>

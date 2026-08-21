@@ -1,0 +1,514 @@
+[
+  {
+    "id": "huong-que",
+    "name": "Nhà Hàng Hương Quê",
+    "categoryKey": "garden-pub",
+    "description": {
+      "vi": "Không gian rộng, phù hợp nhóm đông người và các buổi gặp mặt, liên hoan tại khu vực Vĩnh Yên.",
+      "en": "A spacious venue for large groups, meetups and casual celebrations in Vinh Yen.",
+      "zh": "空间宽敞，适合多人聚会、聚餐和在永安市举办联欢活动。"
+    },
+    "address": "Đ. Nguyễn Tất Thành, Trại Thuỷ, Vĩnh Yên, Vĩnh Phúc 15000",
+    "phone": "0982 886 883",
+    "hours": "08:00 - 23:00",
+    "rating": 4,
+    "reviewCount": 597,
+    "lat": 21.3242818,
+    "lng": 105.6121795,
+    "tags": [
+      "garden",
+      "groups",
+      "nguyenTatThanh"
+    ],
+    "imageUrl": "https://p16-cc-image-search-sign-sg.ibyteimg.com/tos-alisg-i-h9hire4aei-sg/image/4cbfeb69a362a65e503da0464c7517d8~tplv-h9hire4aei-image.jpeg?rk3s=add9cc80&x-expires=1792469812&x-signature=z5oobrxaaCeaTvIrAsscCuUnghE%3D",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [
+        "Chả cá",
+        "Nem chua nướng",
+        "Thịt rang cháy cạnh",
+        "Cá kho tộ",
+        "Rau muống xào tỏi"
+      ],
+      "en": [
+        "Grilled fish cakes",
+        "Grilled fermented pork rolls",
+        "Crispy stir-fried pork",
+        "Clay-pot braised fish",
+        "Morning glory with garlic"
+      ],
+      "zh": [
+        "炸鱼饼",
+        "烤酸肉卷",
+        "焦边炒肉",
+        "砂锅炖鱼",
+        "蒜蓉空心菜"
+      ]
+    },
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%C4%90.+Nguy%E1%BB%85n+T%E1%BA%A5t+Th%C3%A0nh%2C+Tr%E1%BA%A1i+Thu%E1%BB%B7%2C+V%C4%A9nh+Y%C3%AAn%2C+V%C4%A9nh+Ph%C3%BAc+15000&hl=vi",
+    "sourceLabel": "Ẩm thực Bình Xuyên",
+    "sourceUrl": "https://amthucbinhxuyen.com/post/danh-sach-15-quan-nhau-tai-vinh-yen-vinh-phuc.p2455"
+  },
+  {
+    "id": "long-thanh",
+    "name": "Nhà hàng Long Thành",
+    "categoryKey": "family-pub",
+    "description": {
+      "vi": "Điểm ăn uống quen thuộc trên trục Nguyễn Tất Thành, hợp cho bữa tối gia đình hoặc tiếp khách.",
+      "en": "A familiar dining stop on Nguyen Tat Thanh street, suitable for family dinners and business meals.",
+      "zh": "位于阮必成路的常见聚餐地点，适合家庭晚餐和接待聚会。"
+    },
+    "address": "33 Nguyễn Tất Thành, Tích Sơn, Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0211 3716 388",
+    "hours": "08:00 - 22:00",
+    "rating": 3.8,
+    "reviewCount": 243,
+    "lat": 21.3098535,
+    "lng": 105.5838032,
+    "tags": [
+      "family",
+      "business",
+      "tichSon"
+    ],
+    "imageUrl": "https://p16-cc-image-search-sign-sg.ibyteimg.com/tos-alisg-i-h9hire4aei-sg/image/bb56053b431197dbb7d01f7bbd63e463~tplv-h9hire4aei-image.jpeg?rk3s=add9cc80&x-expires=1792474429&x-signature=%2BMgFvoaowaF438VX47JNlGfUkJg%3D",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [
+        "Cá giòn",
+        "Canh cá chua",
+        "Chim quay",
+        "Món baba",
+        "Hải sản tươi chọn tại bể"
+      ],
+      "en": [
+        "Crispy fish",
+        "Sour fish soup",
+        "Roasted pigeon",
+        "Soft-shell turtle dishes",
+        "Fresh seafood from the tank"
+      ],
+      "zh": [
+        "脆鱼",
+        "酸鱼汤",
+        "烤乳鸽",
+        "甲鱼菜品",
+        "现选海鲜"
+      ]
+    },
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=33+Nguy%E1%BB%85n+T%E1%BA%A5t+Th%C3%A0nh%2C+T%C3%ADch+S%C6%A1n%2C+V%C4%A9nh+Y%C3%AAn%2C+V%C4%A9nh+Ph%C3%BAc&hl=vi",
+    "sourceLabel": "Foody",
+    "sourceUrl": "https://www.foody.vn/vinh-phuc/nha-hang-long-thanh"
+  },
+  {
+    "id": "hai-san-ngon",
+    "name": "Nhà Hàng Hải Sản Ngon - Vĩnh Phúc",
+    "categoryKey": "seafood",
+    "description": {
+      "vi": "Chuyên hải sản trong khu đô thị, phù hợp cho nhóm bạn muốn tìm quán rộng rãi, nhiều món ăn biển.",
+      "en": "A seafood-focused venue in the urban area, suitable for groups wanting a spacious place with many ocean dishes.",
+      "zh": "位于新区的海鲜餐厅，适合想找宽敞场地和丰富海鲜菜品的朋友聚会。"
+    },
+    "address": "Khu đô thị Sông Hồng Thủ Đô, Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0946 356 688",
+    "hours": "08:00 - 22:00",
+    "rating": 4.1,
+    "reviewCount": 179,
+    "lat": 21.2882796,
+    "lng": 105.6197496,
+    "tags": [
+      "seafood",
+      "urban",
+      "spacious"
+    ],
+    "imageUrl": "https://p16-cc-image-search-sign-sg.ibyteimg.com/tos-alisg-i-h9hire4aei-sg/image/cf47cbf7cf734f9cef639df0161e3a77~tplv-h9hire4aei-image.jpeg?rk3s=add9cc80&x-expires=1792469812&x-signature=ea16dSqkiubeWSb56I449oiquGk%3D",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [
+        "Tôm sú",
+        "Cá hồi",
+        "Cá song",
+        "King Crab",
+        "Tôm hùm Alaska"
+      ],
+      "en": [
+        "Tiger prawns",
+        "Salmon",
+        "Grouper",
+        "King crab",
+        "Alaska lobster"
+      ],
+      "zh": [
+        "对虾",
+        "三文鱼",
+        "石斑鱼",
+        "帝王蟹",
+        "阿拉斯加龙虾"
+      ]
+    },
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Khu+%C4%91%C3%B4+th%E1%BB%8B+S%C3%B4ng+H%E1%BB%93ng+Th%E1%BB%A7+%C4%90%C3%B4%2C+V%C4%A9nh+Y%C3%AAn%2C+V%C4%A9nh+Ph%C3%BAc&hl=vi",
+    "sourceLabel": "Ẩm thực Bình Xuyên",
+    "sourceUrl": "https://amthucbinhxuyen.com/post/danh-sach-15-quan-nhau-tai-vinh-yen-vinh-phuc.p2455"
+  },
+  {
+    "id": "hoa-beo",
+    "name": "Hải Sản Hoà Béo",
+    "categoryKey": "seafood",
+    "description": {
+      "vi": "Quán hải sản ở Liên Bảo, hợp cho bữa nhậu nhẹt với bạn bè trong không gian tương đối thoáng.",
+      "en": "A seafood stop in Lien Bao that works well for relaxed drinks and food with friends.",
+      "zh": "位于连保坊的海鲜店，适合朋友轻松聚餐小酌。"
+    },
+    "address": "152 Nguyễn Công Trứ, Liên Bảo, Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0912 899 989",
+    "hours": "08:00 - 22:00",
+    "rating": 3.9,
+    "reviewCount": 103,
+    "lat": 21.3175226,
+    "lng": 105.6072627,
+    "tags": [
+      "seafood",
+      "lienBao",
+      "hotpot"
+    ],
+    "imageUrl": "https://p16-cc-image-search-sign-sg.ibyteimg.com/tos-alisg-i-h9hire4aei-sg/image/89481d06bb22802a071bb8a87d4b7eda~tplv-h9hire4aei-image.jpeg?rk3s=add9cc80&x-expires=1792469812&x-signature=uTIPNm5QgU4XKam%2F14o0mSkMuxE%3D",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [
+        "Lẩu hải sản",
+        "Nước dùng đậm đà",
+        "Các món hải sản tươi sống"
+      ],
+      "en": [
+        "Seafood hotpot",
+        "Rich broth",
+        "Fresh live seafood dishes"
+      ],
+      "zh": [
+        "海鲜火锅",
+        "汤底浓郁",
+        "新鲜活海鲜"
+      ]
+    },
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=152+Nguy%E1%BB%85n+C%C3%B4ng+Tr%E1%BB%A9%2C+Li%C3%AAn+B%E1%BA%A3o%2C+V%C4%A9nh+Y%C3%AAn%2C+V%C4%A9nh+Ph%C3%BAc&hl=vi",
+    "sourceLabel": "Ẩm thực Bình Xuyên",
+    "sourceUrl": "https://amthucbinhxuyen.com/post/danh-sach-15-quan-nhau-tai-vinh-yen-vinh-phuc.p2455"
+  },
+  {
+    "id": "hoa-lam",
+    "name": "Nhà hàng Hoa Lâm",
+    "categoryKey": "garden-pub",
+    "description": {
+      "vi": "Lựa chọn phù hợp cho những buổi tụ tập thoải mái, không gian mở và phục vụ các món nhậu quen thuộc.",
+      "en": "A comfortable option for casual gatherings with an open setting and familiar drinking dishes.",
+      "zh": "适合轻松聚会的选择，空间开放，提供常见下酒菜。"
+    },
+    "address": "Trại Giao, Vĩnh Yên, Vĩnh Phúc, Việt Nam",
+    "phone": "0915 611 666",
+    "hours": "09:00 - 22:00",
+    "rating": 4.5,
+    "reviewCount": 87,
+    "lat": 21.3170616,
+    "lng": 105.615091,
+    "tags": [
+      "garden",
+      "gathering",
+      "traiGiao"
+    ],
+    "imageUrl": "https://p16-cc-image-search-sign-sg.ibyteimg.com/tos-alisg-i-h9hire4aei-sg/image/25d5c5dfa1be7ccafc35d1ae7d8b0954~tplv-h9hire4aei-image.jpeg?rk3s=add9cc80&x-expires=1792469812&x-signature=8kdGQEw1z5KjYiSN41xqCRfnrIw%3D",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [
+        "Món nhậu tổng hợp",
+        "Không gian rộng",
+        "Phù hợp gặp mặt bạn bè"
+      ],
+      "en": [
+        "Shared drinking dishes",
+        "Spacious setting",
+        "Good for friend gatherings"
+      ],
+      "zh": [
+        "综合下酒菜",
+        "环境宽敞",
+        "适合朋友聚会"
+      ]
+    },
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tr%E1%BA%A1i+Giao%2C+V%C4%A9nh+Y%C3%AAn%2C+V%C4%A9nh+Ph%C3%BAc%2C+Vi%E1%BB%87t+Nam&hl=vi",
+    "sourceLabel": "Ẩm thực Bình Xuyên",
+    "sourceUrl": "https://amthucbinhxuyen.com/post/danh-sach-15-quan-nhau-tai-vinh-yen-vinh-phuc.p2455"
+  },
+  {
+    "id": "hoa-lu",
+    "name": "Hoa Lư Quán",
+    "categoryKey": "goat-pub",
+    "description": {
+      "vi": "Quán chuyên các món dê, hợp nhóm bạn thích kiểu nhậu truyền thống và không gian dễ ngồi lâu.",
+      "en": "A goat-specialty eatery for groups who enjoy traditional Vietnamese drinking meals.",
+      "zh": "主打羊肉菜，适合喜欢传统聚餐风格的朋友小聚。"
+    },
+    "address": "15-17 S11 Lạc Hồng, Liên Bảo, Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0986 178 222",
+    "hours": "07:00 - 22:00",
+    "rating": 3.7,
+    "reviewCount": 84,
+    "lat": 21.321612,
+    "lng": 105.6012525,
+    "tags": [
+      "goat",
+      "lienBao",
+      "gathering"
+    ],
+    "imageUrl": "https://p16-cc-image-search-sign-sg.ibyteimg.com/tos-alisg-i-h9hire4aei-sg/image/1b7fb9c8ca0e0e48139a4f91ca96600a~tplv-h9hire4aei-image.jpeg?rk3s=add9cc80&x-expires=1792469812&x-signature=OcGSUZOVTcXn9IgdHFID0sp5A1U%3D",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [
+        "Thịt dê",
+        "Cơm cháy",
+        "Các món dê nướng và lẩu"
+      ],
+      "en": [
+        "Goat meat",
+        "Crispy rice",
+        "Goat grill and hotpot dishes"
+      ],
+      "zh": [
+        "羊肉",
+        "锅巴",
+        "烤羊肉和羊肉火锅"
+      ]
+    },
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=15-17+S11+L%E1%BA%A1c+H%E1%BB%93ng%2C+Li%C3%AAn+B%E1%BA%A3o%2C+V%C4%A9nh+Y%C3%AAn%2C+V%C4%A9nh+Ph%C3%BAc&hl=vi",
+    "sourceLabel": "Ẩm thực Bình Xuyên",
+    "sourceUrl": "https://amthucbinhxuyen.com/post/danh-sach-15-quan-nhau-tai-vinh-yen-vinh-phuc.p2455"
+  },
+  {
+    "id": "huong-le",
+    "name": "HẢI SẢN HƯỜNG LÊ",
+    "categoryKey": "seafood",
+    "description": {
+      "vi": "Địa điểm hải sản tại Khai Quang, phù hợp cho người thích không gian hiện đại và thực đơn món biển.",
+      "en": "A seafood venue in Khai Quang for visitors who like a modern setting and varied ocean dishes.",
+      "zh": "位于开光坊的海鲜餐厅，适合喜欢现代环境和多样海鲜菜品的食客。"
+    },
+    "address": "88 Phan Chu Trinh, Khai Quang, Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0889 760 583",
+    "hours": "05:30 - 22:00",
+    "rating": 4.1,
+    "reviewCount": 82,
+    "lat": 21.3164938,
+    "lng": 105.6166593,
+    "tags": [
+      "seafood",
+      "khaiQuang",
+      "phanChuTrinh"
+    ],
+    "imageUrl": "https://p16-cc-image-search-sign-sg.ibyteimg.com/tos-alisg-i-h9hire4aei-sg/image/b97e13b0b62b375da1c6dbde2e461686~tplv-h9hire4aei-image.jpeg?rk3s=add9cc80&x-expires=1792474409&x-signature=Y%2BmmV3Sj3KAb553b2zyNo1ux8Ew%3D",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [
+        "Hàu",
+        "Tôm",
+        "Ngao",
+        "Lẩu hải sản",
+        "Tôm hùm và cua hoàng đế"
+      ],
+      "en": [
+        "Oysters",
+        "Prawns",
+        "Clams",
+        "Seafood hotpot",
+        "Lobster and king crab"
+      ],
+      "zh": [
+        "生蚝",
+        "大虾",
+        "蛤蜊",
+        "海鲜火锅",
+        "龙虾和帝王蟹"
+      ]
+    },
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=88+Phan+Chu+Trinh%2C+Khai+Quang%2C+V%C4%A9nh+Y%C3%AAn%2C+V%C4%A9nh+Ph%C3%BAc&hl=vi",
+    "sourceLabel": "Hotel84",
+    "sourceUrl": "https://hotel84.com/nha-hang/hai-san-huong-le.html"
+  },
+  {
+    "id": "lau-de-so-1",
+    "name": "LẨU DÊ SỐ 1 VĨNH YÊN",
+    "categoryKey": "goat-hotpot",
+    "description": {
+      "vi": "Quán dê trên trục Nguyễn Tất Thành, hợp cho nhóm thích lẩu và các món nhậu từ dê.",
+      "en": "A goat hotpot venue on Nguyen Tat Thanh street for groups who enjoy goat-based dishes.",
+      "zh": "位于阮必成路的羊肉火锅店，适合喜欢羊肉菜的聚会人群。"
+    },
+    "address": "16a Đ. Nguyễn Tất Thành, Liên Bảo, Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0985 209 884",
+    "hours": "Chưa rõ",
+    "rating": 4,
+    "reviewCount": 80,
+    "lat": 21.3226305,
+    "lng": 105.6027743,
+    "tags": [
+      "goat",
+      "hotpot",
+      "nguyenTatThanh"
+    ],
+    "imageUrl": "https://p16-cc-image-search-sign-sg.ibyteimg.com/tos-alisg-i-h9hire4aei-sg/image/a83861503d4446b067277942c13e10bf~tplv-h9hire4aei-image.jpeg?rk3s=add9cc80&x-expires=1792469812&x-signature=U2La2rFANXFZ8th6UMYxkoTUrL0%3D",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [
+        "Dê tái",
+        "Nầm nướng",
+        "Lẩu dê",
+        "Các món dê nhắm bia"
+      ],
+      "en": [
+        "Rare goat",
+        "Grilled udder",
+        "Goat hotpot",
+        "Goat dishes for beer"
+      ],
+      "zh": [
+        "凉拌羊肉",
+        "烤羊胸",
+        "羊肉火锅",
+        "适合配啤酒的羊肉菜"
+      ]
+    },
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=16a+%C4%90.+Nguy%E1%BB%85n+T%E1%BA%A5t+Th%C3%A0nh%2C+Li%C3%AAn+B%E1%BA%A3o%2C+V%C4%A9nh+Y%C3%AAn%2C+V%C4%A9nh+Ph%C3%BAc&hl=vi",
+    "sourceLabel": "Ẩm thực Bình Xuyên",
+    "sourceUrl": "https://amthucbinhxuyen.com/post/danh-sach-15-quan-nhau-tai-vinh-yen-vinh-phuc.p2455"
+  },
+  {
+    "id": "oc-nieu",
+    "name": "Ốc Niêu Quán",
+    "categoryKey": "snail-pub",
+    "description": {
+      "vi": "Một lựa chọn dễ đi cho người thích ốc và các món nhắm nhẹ, nằm trong khu vực trung tâm Vĩnh Yên.",
+      "en": "An easy-to-reach choice for people who enjoy snails and light shared dishes in central Vinh Yen.",
+      "zh": "位于永安市中心，适合喜欢螺类和轻松小吃的人前往。"
+    },
+    "address": "47 Phố Chiền, Ngô Quyền, Vĩnh Yên, Vĩnh Phúc, Việt Nam",
+    "phone": "0979 903 598",
+    "hours": "07:00 - 22:00",
+    "rating": 4,
+    "reviewCount": 74,
+    "lat": 21.3097729,
+    "lng": 105.596921,
+    "tags": [
+      "ngoQuyen",
+      "lightDrinks"
+    ],
+    "imageUrl": "./assets/restaurant-placeholder.svg",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [
+        "Móng tay xào bơ tỏi",
+        "Bạch tuộc nướng sa tế",
+        "Hàu phô mai nướng mỡ hành",
+        "Sò huyết rang me",
+        "Ốc hương rang muối"
+      ],
+      "en": [
+        "Razor clams with garlic butter",
+        "Grilled octopus with satay",
+        "Oysters with cheese and scallion oil",
+        "Blood cockles with tamarind",
+        "Salt-roasted sea snails"
+      ],
+      "zh": [
+        "黄油蒜香蛏子",
+        "沙嗲烤章鱼",
+        "芝士葱油烤生蚝",
+        "酸角炒血蚶",
+        "椒盐海螺"
+      ]
+    },
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=47+Ph%E1%BB%91+Chi%E1%BB%81n%2C+Ng%C3%B4+Quy%E1%BB%81n%2C+V%C4%A9nh+Y%C3%AAn%2C+V%C4%A9nh+Ph%C3%BAc%2C+Vi%E1%BB%87t+Nam&hl=vi",
+    "sourceLabel": "Ẩm thực Bình Xuyên",
+    "sourceUrl": "https://amthucbinhxuyen.com/post/danh-sach-25-quan-an-vat-tai-vinh-yen-vinh-phuc.p1897"
+  },
+  {
+    "id": "bia-hoi-ha-noi-kim-ngoc",
+    "name": "Bia Hơi Hà Nội Kim Ngọc",
+    "categoryKey": "draft-beer",
+    "description": {
+      "vi": "Quán bia hơi chuẩn vị Hà Nội cực kỳ đông khách, không gian thoáng rộng trên đường Kim Ngọc.",
+      "en": "Authentic Hanoi draft beer spot on Kim Ngoc street, spacious and popular among locals.",
+      "zh": "位于金玉街的河内鲜啤酒馆，空间宽敞，非常受当地人欢迎。"
+    },
+    "address": "45 Kim Ngọc, Ngô Quyền, Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0912 345 678",
+    "hours": "10:00 - 23:00",
+    "rating": 4.5,
+    "reviewCount": 180,
+    "lat": 21.3082,
+    "lng": 105.5995,
+    "tags": ["draftBeer", "kimNgoc", "popular"],
+    "imageUrl": "./assets/restaurant-placeholder.svg",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": ["Bia hơi Hà Nội", "Lạc luộc / Lạc rang", "Nem chua nướng", "Dồi sụn nướng", "Đậu phụ mắm tôm"],
+      "en": ["Hanoi Draft Beer", "Boiled Peanuts", "Grilled Fermented Pork Roll", "Grilled Cartilage Sausage", "Fried Tofu with Shrimp Paste"],
+      "zh": ["河内鲜啤酒", "煮花生", "烤酸肉", "烤软骨肠", "炸豆腐配虾酱"]
+    },
+    "directionsUrl": "https://www.google.com/maps/search/?api=1&query=45+Kim+Ng%C3%B4c+V%C4%A9nh+Y%C3%AAn",
+    "sourceLabel": "Địa phương",
+    "sourceUrl": ""
+  },
+  {
+    "id": "lau-nuong-chua-ha",
+    "name": "Lẩu Nướng Đêm KĐT Chùa Hà",
+    "categoryKey": "bbq-hotpot",
+    "description": {
+      "vi": "Địa điểm nhậu đêm lẩu nướng bình dân cực hot cho giới trẻ và bạn bè tại KĐT Chùa Hà仙.",
+      "en": "Popular budget night BBQ & Hotpot pub in Chua Ha Urban Area, Vinh Yen.",
+      "zh": "位于蔡河平民夜宵火锅烧烤店，深受年轻人和朋友聚会喜爱。"
+    },
+    "address": "KĐT Chùa Hà Tiên, Định Trung, Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0988 776 655",
+    "hours": "16:00 - 02:00",
+    "rating": 4.3,
+    "reviewCount": 142,
+    "lat": 21.3255,
+    "lng": 105.5921,
+    "tags": ["bbq", "hotpot", "chuaHa", "lateNight"],
+    "imageUrl": "./assets/restaurant-placeholder.svg",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": ["Bò nướng tảng", "Nầm nướng chao", "Lẩu thái chua cay", "Chân gà ngâm sả tắc", "Bia tươi"],
+      "en": ["Grilled Beef Slab", "Grilled Pork Udder", "Spicy & Sour Thai Hotpot", "Pickled Chicken Feet", "Draft Beer"],
+      "zh": ["烤牛肉", "烤猪乳房", "泰式酸辣火锅", "柠檬泡鸡爪", "扎啤"]
+    },
+    "directionsUrl": "https://www.google.com/maps/search/?api=1&query=Chua+Ha+Tien+Vinh+Yen",
+    "sourceLabel": "Địa phương",
+    "sourceUrl": ""
+  },
+  {
+    "id": "trau-giat-vinh-yen",
+    "name": "Quán Trâu Giật Đồng Quê",
+    "categoryKey": "family-pub",
+    "description": {
+      "vi": "Chuyên các món nhắm từ thịt trâu tươi giật trong ngày, món ăn đậm đà vị quê.",
+      "en": "Specializes in fresh local buffalo meat dishes, perfect for traditional drinking sessions.",
+      "zh": "主营每日新鲜水牛肉菜肴，地方 can 浓郁，适合配酒。"
+    },
+    "address": "102 Ngô Quyền, Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0977 123 456",
+    "hours": "09:00 - 22:30",
+    "rating": 4.4,
+    "reviewCount": 95,
+    "lat": 21.3112,
+    "lng": 105.5954,
+    "tags": ["buffalo", "ngoQuyen", "traditional"],
+    "imageUrl": "./assets/restaurant-placeholder.svg",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": ["Trâu giật nhúng mẻ", "Trâu xào lá lốt", "Sườn trâu nướng sả", "Bắp trâu ngâm mắm"],
+      "en": ["Buffalo Hotpot with Fermented Rice", "Stir-fried Buffalo with Piper Lolot", "Grilled Buffalo Ribs", "Fish-sauce Marinated Buffalo Shank"],
+      "zh": ["发酵米汤涮水牛肉", "假蒟炒水牛肉", "香茅烤水牛排", "鱼露浸水牛腱"]
+    },
+    "directionsUrl": "https://www.google.com/maps/search/?api=1&query=102+Ngo+Quyen+Vinh+Yen",
+    "sourceLabel": "Địa phương",
+    "sourceUrl": ""
+  }
+]

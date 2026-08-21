@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản trị dữ liệu quán</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css?v=20260821b" />
+    <link rel="stylesheet" href="./admin.css?v=20260821b" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero admin-hero">
+        <nav class="topbar">
+          <div class="brand">
+            <span class="brand-badge">AD</span>
+            <div>
+              <p class="brand-title">Quản trị dữ liệu quán</p>
+              <p class="brand-subtitle">
+                Duyệt quán mới, chỉnh sửa và tải file JSON về máy để publish
+              </p>
+            </div>
+          </div>
+          <div class="topbar-actions">
+            <a class="ghost-button" href="./index.html">Về trang web</a>
+          </div>
+        </nav>
+
+        <section class="admin-actions">
+          <div class="admin-card highlight-card">
+            <h2>⚡ Nhập nhanh từ Google Maps</h2>
+            <p class="muted">
+              Dán đường dẫn (Link) quán bất kỳ trên Google Maps để hệ thống tự động bóc tách Tên & Tọa độ đưa vào Danh sách chờ duyệt!
+            </p>
+            <div class="quick-import-form">
+              <input type="url" id="gmapsUrlInput" placeholder="https://maps.app.goo.gl/... hoặc https://www.google.com/maps/place/..." />
+              <button class="primary-button" id="importGmapsBtn" type="button">Tự động lấy thông tin</button>
+            </div>
+            <div id="importGmapsStatus" class="status-card" style="margin-top: 10px; display: none;"></div>
+          </div>
+
+          <div class="admin-card">
+            <h2>Nạp dữ liệu</h2>
+            <p class="muted">
+              Quản lý danh sách các quán đã duyệt hoặc danh sách chờ duyệt từ hệ thống.
+            </p>
+
+            <div class="admin-buttons">
+              <button class="primary-button" id="loadMasterBtn" type="button">
+                Nạp dữ liệu master
+              </button>
+              <button class="secondary-button" id="loadCandidatesBtn" type="button">
+                Nạp quán cần duyệt
+              </button>
+              <button class="ghost-button" id="refreshBtn" type="button">Tải lại</button>
+            </div>
+
+            <div class="status-card" id="adminStatus" aria-live="polite">
+              Chưa nạp dữ liệu.
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <h2>Tìm và lọc</h2>
+            <div class="filter-bar admin-filter">
+              <label class="field">
+                <span>Tìm theo tên / địa chỉ</span>
+                <input type="search" id="adminSearch" placeholder="Nhập từ khóa..." />
+              </label>
+              <label class="field">
+                <span>Chế độ</span>
+                <select id="adminMode">
+                  <option value="master">Danh sách đã duyệt (Master)</option>
+                  <option value="candidates">Quán cần duyệt (Pending Candidates)</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <h2>Đồng bộ GitHub</h2>
+            <p class="muted">
+              Sau khi Thêm/Sửa/Duyệt quán, bấm <strong>"Tải venues.json cho GitHub"</strong>, chép đè vào thư mục <code>data/published/venues.json</code> và thực hiện <code>git push</code> để người dùng toàn thế giới xem được!
+            </p>
+            <div class="admin-buttons">
+              <button class="primary-button" id="downloadMasterBtn" type="button">
+                Tải file master (.master.json)
+              </button>
+              <button class="secondary-button" id="downloadPublishedBtn" type="button">
+                Tải venues.json cho GitHub
+              </button>
+            </div>
+          </div>
+        </section>
+      </header>
+
+      <main class="admin-main">
+        <section class="result-header">
+          <h2 id="adminListTitle">Danh sách</h2>
+          <p id="adminListSubtitle" class="muted">Chưa có dữ liệu.</p>
+        </section>
+
+        <div class="admin-grid" id="adminGrid"></div>
+      </main>
+    </div>
+
+    <template id="candidateCardTemplate">
+      <article class="venue-card admin-venue-card">
+        <div class="card-top">
+          <div>
+            <p class="venue-category"></p>
+            <h3 class="venue-name"></h3>
+          </div>
+          <span class="venue-rating"></span>
+        </div>
+
+        <div class="meta-list">
+          <div>
+            <span>Nguồn</span>
+            <strong class="venue-source"></strong>
+          </div>
+          <div>
+            <span>Toạ độ</span>
+            <strong class="venue-coordinates"></strong>
+          </div>
+          <div>
+            <span>Giờ mở cửa</span>
+            <strong class="venue-hours"></strong>
+          </div>
+          <div>
+            <span>Trùng gần nhất</span>
+            <strong class="venue-bestmatch"></strong>
+          </div>
+        </div>
+
+        <div class="admin-edit">
+          <label class="field span-2">
+            <span>Tên quán</span>
+            <input class="admin-name" type="text" placeholder="Nhập tên quán..." />
+          </label>
+          <label class="field">
+            <span>ID (slug)</span>
+            <input class="admin-id" type="text" placeholder="vi-du: lau-de-abc" />
+          </label>
+          <label class="field">
+            <span>Loại quán</span>
+            <select class="admin-category">
+              <option value="family-pub">Quán ăn / nhậu</option>
+              <option value="garden-pub">Bia / quán nhậu</option>
+              <option value="seafood">Hải sản</option>
+              <option value="goat-pub">Dê - quán nhậu</option>
+              <option value="goat-hotpot">Dê - lẩu</option>
+              <option value="snail-pub">Ốc - quán nhậu</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Ảnh quán (URL)</span>
+            <input class="admin-image" type="url" placeholder="https://..." />
+          </label>
+          <label class="field">
+            <span>Điện thoại</span>
+            <input class="admin-phone" type="text" placeholder="098..." />
+          </label>
+          <label class="field span-2">
+            <span>Địa chỉ</span>
+            <input class="admin-address" type="text" placeholder="Nhập địa chỉ..." />
+          </label>
+        </div>
+
+        <div class="card-actions admin-actions-row">
+          <a class="card-button alt admin-open-source" target="_blank" rel="noreferrer"
+            >Mở nguồn</a
+          >
+          <a class="card-button alt admin-open-map" target="_blank" rel="noreferrer">Mở bản đồ</a>
+          <button class="card-button admin-promote" type="button">Thêm vào master</button>
+        </div>
+      </article>
+    </template>
+
+    <template id="masterCardTemplate">
+      <article class="venue-card admin-venue-card">
+        <div class="card-top">
+          <div>
+            <p class="venue-category"></p>
+            <h3 class="venue-name"></h3>
+          </div>
+          <span class="venue-rating"></span>
+        </div>
+
+        <p class="venue-description"></p>
+
+        <div class="admin-edit">
+          <label class="field">
+            <span>ID</span>
+            <input class="admin-id" type="text" />
+          </label>
+          <label class="field">
+            <span>Loại quán</span>
+            <select class="admin-category">
+              <option value="family-pub">Quán ăn / nhậu</option>
+              <option value="garden-pub">Bia / quán nhậu</option>
+              <option value="seafood">Hải sản</option>
+              <option value="goat-pub">Dê - quán nhậu</option>
+              <option value="goat-hotpot">Dê - lẩu</option>
+              <option value="snail-pub">Ốc - quán nhậu</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Điểm tham khảo</span>
+            <input class="admin-rating" type="number" step="0.1" min="0" max="5" />
+          </label>
+          <label class="field">
+            <span>Review tham khảo</span>
+            <input class="admin-reviews" type="number" step="1" min="0" />
+          </label>
+          <label class="field span-2">
+            <span>Tên quán</span>
+            <input class="admin-name" type="text" />
+          </label>
+          <label class="field span-2">
+            <span>Địa chỉ</span>
+            <input class="admin-address" type="text" />
+          </label>
+          <label class="field">
+            <span>Điện thoại</span>
+            <input class="admin-phone" type="text" />
+          </label>
+          <label class="field">
+            <span>Giờ mở cửa</span>
+            <input class="admin-hours" type="text" />
+          </label>
+          <label class="field span-2">
+            <span>Ảnh quán (URL)</span>
+            <input class="admin-image" type="url" />
+          </label>
+          <label class="field span-2">
+            <span>Tags (phân tách bằng dấu phẩy)</span>
+            <input class="admin-tags" type="text" placeholder="goat,hotpot,..." />
+          </label>
+        </div>
+
+        <div class="card-actions admin-actions-row">
+          <a class="card-button alt admin-open-map" target="_blank" rel="noreferrer">Mở bản đồ</a>
+          <button class="card-button admin-save" type="button">Lưu thay đổi</button>
+          <button class="card-button alt admin-delete" type="button">Xoá</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="./admin.js?v=20260821b"></script>
+  </body>
+</html>
+

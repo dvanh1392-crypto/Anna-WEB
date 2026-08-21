@@ -1,0 +1,32 @@
+{
+  "region": {
+    "name": "Vĩnh Yên",
+    "province": "Vĩnh Phúc",
+    "country": "Việt Nam",
+    "bbox": {
+      "south": 21.275,
+      "west": 105.565,
+      "north": 21.345,
+      "east": 105.64
+    },
+    "center": {
+      "lat": 21.3089,
+      "lng": 105.6049
+    }
+  },
+  "sources": [
+    {
+      "id": "osm-overpass",
+      "type": "overpass",
+      "enabled": true,
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "amenityTags": ["restaurant", "bar", "pub", "biergarten"]
+    }
+  ],
+  "publish": {
+    "masterFile": "h:\\web\\data\\master\\venues.master.json",
+    "publishedFile": "h:\\web\\data\\published\\venues.json",
+    "discoveryFile": "h:\\web\\data\\review\\osm-discovery.json",
+    "reviewQueueFile": "h:\\web\\data\\review\\pending-candidates.json"
+  }
+}

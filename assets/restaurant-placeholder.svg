@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
+  <rect width="1200" height="800" fill="#0F172A"/>
+  <rect x="60" y="60" width="1080" height="680" rx="36" fill="url(#paint0_linear)"/>
+  <rect x="130" y="150" width="940" height="430" rx="28" fill="#1E293B" stroke="#334155" stroke-width="4"/>
+  <rect x="200" y="230" width="160" height="220" rx="22" fill="#F59E0B" fill-opacity=".28"/>
+  <rect x="390" y="200" width="470" height="54" rx="18" fill="#E2E8F0" fill-opacity=".18"/>
+  <rect x="390" y="290" width="350" height="34" rx="14" fill="#E2E8F0" fill-opacity=".14"/>
+  <rect x="390" y="348" width="420" height="34" rx="14" fill="#E2E8F0" fill-opacity=".14"/>
+  <rect x="390" y="406" width="300" height="34" rx="14" fill="#E2E8F0" fill-opacity=".14"/>
+  <rect x="180" y="620" width="840" height="44" rx="16" fill="#E2E8F0" fill-opacity=".12"/>
+  <text x="600" y="690" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="34" text-anchor="middle">Chưa có ảnh quán công khai</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="115" y1="105" x2="1094" y2="706" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E293B"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+</svg>

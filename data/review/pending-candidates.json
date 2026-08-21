@@ -1,0 +1,95 @@
+[
+  {
+    "decision": "new_candidate",
+    "candidate": {
+      "id": "osm-node-4533697405",
+      "sourceType": "osm-overpass",
+      "sourceUrl": "https://www.openstreetmap.org/node/4533697405",
+      "sourceId": "4533697405",
+      "name": "HESED",
+      "categoryKey": "family-pub",
+      "address": "",
+      "phone": "",
+      "hours": "AM10:00~PM10:00",
+      "lat": 21.3223872,
+      "lng": 105.6009122,
+      "osmTags": {
+        "amenity": "restaurant",
+        "cuisine": "chinese",
+        "website": ""
+      },
+      "discoveredAt": "2026-08-21T09:54:00.952Z"
+    },
+    "bestMatch": {
+      "venueId": "hoa-lu",
+      "venueName": "Hoa Lư Quán",
+      "score": 25,
+      "distanceKm": 0.09312722825079182,
+      "reasons": [
+        "vị trí rất gần"
+      ]
+    }
+  },
+  {
+    "decision": "new_candidate",
+    "candidate": {
+      "id": "osm-node-5043010221",
+      "sourceType": "osm-overpass",
+      "sourceUrl": "https://www.openstreetmap.org/node/5043010221",
+      "sourceId": "5043010221",
+      "name": "Hiển Thiễn (hiển vy)",
+      "categoryKey": "family-pub",
+      "address": "",
+      "phone": "",
+      "hours": "",
+      "lat": 21.2792692,
+      "lng": 105.6106385,
+      "osmTags": {
+        "amenity": "restaurant",
+        "cuisine": "",
+        "website": ""
+      },
+      "discoveredAt": "2026-08-21T09:54:00.952Z"
+    },
+    "bestMatch": {
+      "venueId": "long-thanh",
+      "venueName": "Nhà hàng Long Thành",
+      "score": 6,
+      "distanceKm": 4.39263075372512,
+      "reasons": [
+        "cùng loại quán"
+      ]
+    }
+  },
+  {
+    "decision": "new_candidate",
+    "candidate": {
+      "id": "osm-node-5349208222",
+      "sourceType": "osm-overpass",
+      "sourceUrl": "https://www.openstreetmap.org/node/5349208222",
+      "sourceId": "5349208222",
+      "name": "nhà hàng cơm phố 2",
+      "categoryKey": "family-pub",
+      "address": "",
+      "phone": "",
+      "hours": "",
+      "lat": 21.3220871,
+      "lng": 105.6031503,
+      "osmTags": {
+        "amenity": "restaurant",
+        "cuisine": "",
+        "website": ""
+      },
+      "discoveredAt": "2026-08-21T09:54:00.952Z"
+    },
+    "bestMatch": {
+      "venueId": "lau-de-so-1",
+      "venueName": "LẨU DÊ SỐ 1 VĨNH YÊN",
+      "score": 25,
+      "distanceKm": 0.07188796570755521,
+      "reasons": [
+        "vị trí rất gần"
+      ]
+    }
+  }
+]
