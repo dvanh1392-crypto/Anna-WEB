@@ -10,7 +10,8 @@ const translations = {
     heroTitle: "Tìm quán bia, quán nhậu phù hợp theo vị trí của bạn",
     heroText:
       "Xem nhanh thông tin quán, địa chỉ, giờ mở cửa, đánh giá tham khảo, ảnh quán và khoảng cách từ vị trí hiện tại của bạn đến từng quán ở thành phố Vĩnh Yên.",
-    locateButton: "Dùng vị trí của tôi",
+    locateButton: "📍 Dùng vị trí của tôi",
+    heroExploreButton: "🔍 Khám phá ngay",
     howItWorksButton: "Cách hoạt động",
     panelLabel: "Tổng quan",
     panelTitle: "Những gì người dùng có thể xem",
@@ -70,12 +71,31 @@ const translations = {
     menuPanelHasImages: "Có {count} ảnh menu tham khảo công khai.",
     menuPanelNoImages: "Chưa tìm thấy ảnh menu công khai, dưới đây là món nổi bật để bạn tham khảo.",
     menuEmpty: "Chưa có ảnh menu công khai cho quán này.",
-    directions: "Chỉ đường",
-    sourceButton: "Nguồn thông tin",
+    directionsBtn: "📍 Chỉ đường Maps",
+    reviewBtn: "⭐ Đánh giá quán",
+    viewReviewsBtn: "💬 Xem đánh giá ({count})",
     fieldAddress: "Địa chỉ",
     fieldHours: "Giờ mở cửa",
     fieldPhone: "Liên hệ",
     fieldDistance: "Khoảng cách",
+    modalWriteTitle: "Viết đánh giá cho: {name}",
+    lblReviewerName: "Tên của bạn:",
+    phReviewerName: "Nhập tên của bạn...",
+    lblReviewerRating: "Đánh giá sao (1-5★):",
+    optRating5: "⭐⭐⭐⭐⭐ (5/5) - Rất tuyệt",
+    optRating4: "⭐⭐⭐⭐ (4/5) - Tốt / Ngon",
+    optRating3: "⭐⭐⭐ (3/5) - Bình thường",
+    optRating2: "⭐⭐ (2/5) - Chưa hài lòng",
+    optRating1: "⭐ (1/5) - Tệ",
+    lblReviewerComment: "Nhận xét của bạn:",
+    phReviewerComment: "Chia sẻ trải nghiệm về món ăn, thái độ phục vụ hay giá cả...",
+    btnCancel: "Hủy",
+    btnSubmitReview: "Gửi đánh giá",
+    modalAllTitle: "Tất cả đánh giá về {name}",
+    noReviewsYet: "Chưa có đánh giá nào từ thực khách cho quán này. Hãy là người đầu tiên để lại cảm nhận!",
+    writeReviewFromAllBtn: "➕ Đánh giá quán này",
+    reviewSuccessAlert: "🎉 Cảm ơn bạn đã gửi đánh giá thành công!",
+    recentTime: "Gần đây",
     locationIdle:
       "Chưa lấy vị trí. Bấm vào nút phía trên để tính khoảng cách đến từng quán.",
     locationUnsupported: "Trình duyệt này không hỗ trợ định vị vị trí hiện tại.",
@@ -105,7 +125,8 @@ const translations = {
     heroTitle: "Find beer spots and local eateries that match your location",
     heroText:
       "Quickly view venue details, addresses, opening hours, reference ratings, venue photos and the distance from your current location to each place in Vinh Yen city.",
-    locateButton: "Use my location",
+    locateButton: "📍 Use my location",
+    heroExploreButton: "🔍 Explore now",
     howItWorksButton: "How it works",
     panelLabel: "Overview",
     panelTitle: "What visitors can see",
@@ -165,12 +186,31 @@ const translations = {
     menuPanelHasImages: "{count} public menu images available.",
     menuPanelNoImages: "No public menu image was found, so the section below shows popular items instead.",
     menuEmpty: "No public menu image is currently available for this venue.",
-    directions: "Directions",
-    sourceButton: "Source",
+    directionsBtn: "📍 Get Directions",
+    reviewBtn: "⭐ Write Review",
+    viewReviewsBtn: "💬 View Reviews ({count})",
     fieldAddress: "Address",
     fieldHours: "Hours",
     fieldPhone: "Contact",
     fieldDistance: "Distance",
+    modalWriteTitle: "Write a review for: {name}",
+    lblReviewerName: "Your Name:",
+    phReviewerName: "Enter your name...",
+    lblReviewerRating: "Star Rating (1-5★):",
+    optRating5: "⭐⭐⭐⭐⭐ (5/5) - Excellent",
+    optRating4: "⭐⭐⭐⭐ (4/5) - Very Good",
+    optRating3: "⭐⭐⭐ (3/5) - Average",
+    optRating2: "⭐⭐ (2/5) - Poor",
+    optRating1: "⭐ (1/5) - Terrible",
+    lblReviewerComment: "Your Review:",
+    phReviewerComment: "Share your experience about food, service, or prices...",
+    btnCancel: "Cancel",
+    btnSubmitReview: "Submit Review",
+    modalAllTitle: "All Reviews for {name}",
+    noReviewsYet: "No customer reviews yet. Be the first to leave your thoughts!",
+    writeReviewFromAllBtn: "➕ Write a Review",
+    reviewSuccessAlert: "🎉 Thank you for submitting your review!",
+    recentTime: "Recently",
     locationIdle: "Location has not been used yet. Press the button above to calculate distances.",
     locationUnsupported: "This browser does not support geolocation.",
     locationLoading: "Getting your current location to calculate distances...",
@@ -197,7 +237,8 @@ const translations = {
     heroTitle: "按你的位置寻找合适的啤酒馆和聚餐餐厅",
     heroText:
       "快速查看店铺信息、地址、营业时间、参考评分、店铺照片，以及你当前位置到永安市各家店的距离。",
-    locateButton: "使用我的位置",
+    locateButton: "📍 使用我的位置",
+    heroExploreButton: "🔍 立即探索",
     howItWorksButton: "使用说明",
     panelLabel: "概览",
     panelTitle: "用户可以看到什么",
@@ -257,12 +298,31 @@ const translations = {
     menuPanelHasImages: "已找到 {count} 张公开菜单图片。",
     menuPanelNoImages: "暂未找到公开菜单图片，下面提供推荐菜品供你参考。",
     menuEmpty: "这家店目前没有公开菜单图片。",
-    directions: "导航",
-    sourceButton: "信息来源",
+    directionsBtn: "📍 地图导航",
+    reviewBtn: "⭐ 评价店铺",
+    viewReviewsBtn: "💬 查看评价 ({count})",
     fieldAddress: "地址",
     fieldHours: "营业时间",
     fieldPhone: "联系方式",
     fieldDistance: "距离",
+    modalWriteTitle: "撰写评价: {name}",
+    lblReviewerName: "您的姓名:",
+    phReviewerName: "请输入您的姓名...",
+    lblReviewerRating: "评分 (1-5★):",
+    optRating5: "⭐⭐⭐⭐⭐ (5/5) - 非常棒",
+    optRating4: "⭐⭐⭐⭐ (4/5) - 很好 / 美味",
+    optRating3: "⭐⭐⭐ (3/5) - 一般",
+    optRating2: "⭐⭐ (2/5) - 不满意",
+    optRating1: "⭐ (1/5) - 很差",
+    lblReviewerComment: "您的评价:",
+    phReviewerComment: "分享关于菜品、服务态度或价格的体验...",
+    btnCancel: "取消",
+    btnSubmitReview: "提交评价",
+    modalAllTitle: "{name} 的所有评价",
+    noReviewsYet: "暂无食客评价。成为第一个留下评价的人吧！",
+    writeReviewFromAllBtn: "➕ 评价这家店",
+    reviewSuccessAlert: "🎉 感谢您的评价！",
+    recentTime: "最近",
     locationIdle: "尚未获取位置。点击上方按钮后即可计算到每家店的距离。",
     locationUnsupported: "当前浏览器不支持定位功能。",
     locationLoading: "正在获取你的位置并计算距离...",
@@ -491,6 +551,7 @@ function updateStaticText() {
     heroEyebrow: t("heroEyebrow"),
     heroTitle: t("heroTitle"),
     heroText: t("heroText"),
+    heroExploreButton: t("heroExploreButton"),
     howItWorksButton: t("howItWorksButton"),
     panelLabel: t("panelLabel"),
     panelTitle: t("panelTitle"),
@@ -513,6 +574,17 @@ function updateStaticText() {
     geoNoteText: t("geoNoteText"),
     futureLabel: t("futureLabel"),
     futureText: t("futureText"),
+    lblReviewerName: t("lblReviewerName"),
+    lblReviewerRating: t("lblReviewerRating"),
+    optRating5: t("optRating5"),
+    optRating4: t("optRating4"),
+    optRating3: t("optRating3"),
+    optRating2: t("optRating2"),
+    optRating1: t("optRating1"),
+    lblReviewerComment: t("lblReviewerComment"),
+    closeModalBtn: t("btnCancel"),
+    submitReviewBtn: t("btnSubmitReview"),
+    writeReviewFromAllBtn: t("writeReviewFromAllBtn"),
   };
 
   Object.entries(staticBindings).forEach(([id, value]) => {
@@ -524,6 +596,12 @@ function updateStaticText() {
 
   locateButton.textContent = t("locateButton");
   searchInput.placeholder = t("searchPlaceholder");
+
+  const reviewerNameInput = document.getElementById("reviewerName");
+  if (reviewerNameInput) reviewerNameInput.placeholder = t("phReviewerName");
+
+  const reviewerCommentInput = document.getElementById("reviewerComment");
+  if (reviewerCommentInput) reviewerCommentInput.placeholder = t("phReviewerComment");
 
   const featureList = document.querySelector("#featureList");
   featureList.innerHTML = "";
@@ -750,13 +828,25 @@ function renderVenues() {
     // Nút Chỉ đường Maps
     const mapsBtn = fragment.querySelector(".primary-action-btn");
     if (mapsBtn) {
+      mapsBtn.textContent = t("directionsBtn");
       mapsBtn.href = venue.directionsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venue.name)}`;
     }
 
-    // Hiển thị số lượng đánh giá người dùng
-    const userReviewCountEl = fragment.querySelector(".user-review-count");
-    if (userReviewCountEl) {
-      userReviewCountEl.textContent = userReviews.length;
+    // Nút Đánh giá quán & Xem đánh giá
+    const reviewBtn = fragment.querySelector(".review-btn");
+    if (reviewBtn) {
+      reviewBtn.textContent = t("reviewBtn");
+      reviewBtn.addEventListener("click", () => {
+        openWriteReviewModal(venue);
+      });
+    }
+
+    const viewReviewsBtn = fragment.querySelector(".view-reviews-btn");
+    if (viewReviewsBtn) {
+      viewReviewsBtn.innerHTML = formatText(t("viewReviewsBtn"), { count: `<span class="user-review-count">${userReviews.length}</span>` });
+      viewReviewsBtn.addEventListener("click", () => {
+        openAllReviewsModal(venue);
+      });
     }
 
     // Xem trước 1 đánh giá mới nhất (nếu có)
@@ -771,29 +861,13 @@ function renderVenues() {
       `;
     }
 
-    // Xử lý sự kiện bấm Nút "⭐ Đánh giá quán"
-    const reviewBtn = fragment.querySelector(".review-btn");
-    if (reviewBtn) {
-      reviewBtn.addEventListener("click", () => {
-        openWriteReviewModal(venue);
-      });
-    }
-
-    // Xử lý sự kiện bấm Nút "💬 Xem tất cả đánh giá"
-    const viewReviewsBtn = fragment.querySelector(".view-reviews-btn");
-    if (viewReviewsBtn) {
-      viewReviewsBtn.addEventListener("click", () => {
-        openAllReviewsModal(venue);
-      });
-    }
-
     venueGrid.appendChild(fragment);
   });
 }
 
 function openWriteReviewModal(venue) {
   document.getElementById("modalVenueId").value = venue.id;
-  document.getElementById("modalVenueTitle").textContent = `Viết đánh giá cho: ${venue.name}`;
+  document.getElementById("modalVenueTitle").textContent = formatText(t("modalWriteTitle"), { name: venue.name });
   document.getElementById("reviewModal").style.display = "grid";
 }
 
@@ -803,24 +877,26 @@ function openAllReviewsModal(venue) {
   const list = document.getElementById("allReviewsList");
   const writeBtn = document.getElementById("writeReviewFromAllBtn");
 
-  title.textContent = `Tất cả đánh giá về ${venue.name}`;
+  title.textContent = formatText(t("modalAllTitle"), { name: venue.name });
   const storedReviewsKey = `reviews_${venue.id}`;
   const userReviews = JSON.parse(localStorage.getItem(storedReviewsKey) || "[]");
 
   if (userReviews.length === 0) {
     list.innerHTML = `
       <div class="empty-state">
-        Chưa có đánh giá nào từ thực khách cho quán này. Hãy là người đầu tiên để lại cảm nhận!
+        ${t("noReviewsYet")}
       </div>
     `;
   } else {
+    const langLocales = { vi: "vi-VN", en: "en-US", zh: "zh-CN" };
+    const locale = langLocales[state.language] || "vi-VN";
     list.innerHTML = userReviews.map(r => `
       <div class="review-card-full">
         <div class="review-card-header">
           <span class="review-card-author">${r.name}</span>
           <span class="review-card-rating">${"★".repeat(parseInt(r.rating) || 5)} (${r.rating}/5)</span>
         </div>
-        <div class="review-card-time">${r.date ? new Date(r.date).toLocaleString("vi-VN") : "Gần đây"}</div>
+        <div class="review-card-time">${r.date ? new Date(r.date).toLocaleString(locale) : t("recentTime")}</div>
         <p class="review-card-body">${r.comment}</p>
       </div>
     `).join("");
@@ -871,7 +947,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       reviewForm.reset();
       reviewModal.style.display = "none";
-      alert("🎉 Cảm ơn bạn đã gửi đánh giá thành công!");
+      alert(t("reviewSuccessAlert"));
       renderVenues();
     });
   }

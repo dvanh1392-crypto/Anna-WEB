@@ -50,7 +50,7 @@
               <button class="primary-button" id="locateButton" type="button">
                 📍 Dùng vị trí của tôi
               </button>
-              <a class="secondary-button" href="#danh-sach">🔍 Khám phá ngay</a>
+              <a class="secondary-button" href="#danh-sach" id="heroExploreButton">🔍 Khám phá ngay</a>
             </div>
 
             <div class="status-card" id="locationStatus" aria-live="polite">
@@ -211,26 +211,26 @@
         <form id="reviewForm">
           <input type="hidden" id="modalVenueId" />
           <label class="field">
-            <span>Tên của bạn:</span>
+            <span id="lblReviewerName">Tên của bạn:</span>
             <input type="text" id="reviewerName" required placeholder="Nhập tên của bạn..." />
           </label>
           <label class="field">
-            <span>Đánh giá sao (1-5★):</span>
+            <span id="lblReviewerRating">Đánh giá sao (1-5★):</span>
             <select id="reviewerRating">
-              <option value="5">⭐⭐⭐⭐⭐ (5/5) - Rất tuyệt</option>
-              <option value="4" selected>⭐⭐⭐⭐ (4/5) - Tốt / Ngon</option>
-              <option value="3">⭐⭐⭐ (3/5) - Bình thường</option>
-              <option value="2">⭐⭐ (2/5) - Chưa hài lòng</option>
-              <option value="1">⭐ (1/5) - Tệ</option>
+              <option value="5" id="optRating5">⭐⭐⭐⭐⭐ (5/5) - Rất tuyệt</option>
+              <option value="4" id="optRating4" selected>⭐⭐⭐⭐ (4/5) - Tốt / Ngon</option>
+              <option value="3" id="optRating3">⭐⭐⭐ (3/5) - Bình thường</option>
+              <option value="2" id="optRating2">⭐⭐ (2/5) - Chưa hài lòng</option>
+              <option value="1" id="optRating1">⭐ (1/5) - Tệ</option>
             </select>
           </label>
           <label class="field">
-            <span>Nhận xét của bạn:</span>
+            <span id="lblReviewerComment">Nhận xét của bạn:</span>
             <textarea id="reviewerComment" rows="3" required placeholder="Chia sẻ trải nghiệm về món ăn, thái độ phục vụ hay giá cả..."></textarea>
           </label>
           <div class="modal-actions">
             <button class="secondary-button" type="button" id="closeModalBtn">Hủy</button>
-            <button class="primary-button" type="submit">Gửi đánh giá</button>
+            <button class="primary-button" type="submit" id="submitReviewBtn">Gửi đánh giá</button>
           </div>
         </form>
       </div>
