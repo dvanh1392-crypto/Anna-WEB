@@ -224,19 +224,18 @@
 
         <div class="review-line">
           <span class="review-count"></span>
-          <span class="source-line"></span>
         </div>
 
         <div class="card-actions">
-          <a class="card-button" target="_blank" rel="noreferrer">Chỉ đường</a>
-          <a class="card-button alt" target="_blank" rel="noreferrer">Nguồn thông tin</a>
+          <a class="card-button primary-action-btn" target="_blank" rel="noreferrer">📍 Chỉ đường Maps</a>
           <button class="card-button review-btn" type="button">⭐ Đánh giá quán</button>
+          <button class="card-button view-reviews-btn alt" type="button">💬 Xem đánh giá (<span class="user-review-count">0</span>)</button>
         </div>
-        <div class="user-reviews-section"></div>
+        <div class="user-reviews-preview"></div>
       </article>
     </template>
 
-    <!-- Modal Đánh Giá từ Người Dùng -->
+    <!-- Modal Viết Đánh Giá từ Người Dùng -->
     <div id="reviewModal" class="modal-backdrop" style="display: none;">
       <div class="modal-box">
         <h3 id="modalVenueTitle">Viết đánh giá cho quán</h3>
@@ -268,6 +267,20 @@
       </div>
     </div>
 
-    <script src="./app.js?v=20260821b"></script>
+    <!-- Modal Xem Tất Cả Đánh Giá -->
+    <div id="allReviewsModal" class="modal-backdrop" style="display: none;">
+      <div class="modal-box modal-lg">
+        <div class="modal-header">
+          <h3 id="allReviewsTitle">Tất cả đánh giá từ thực khách</h3>
+          <button type="button" class="close-icon-btn" id="closeAllReviewsBtn">✕</button>
+        </div>
+        <div id="allReviewsList" class="all-reviews-container"></div>
+        <div class="modal-actions" style="margin-top: 16px;">
+          <button class="primary-button" type="button" id="writeReviewFromAllBtn">➕ Đánh giá quán này</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./app.js?v=20260826"></script>
   </body>
 </html>
