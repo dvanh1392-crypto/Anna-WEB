@@ -595,6 +595,8 @@ function updateStaticText() {
   });
 
   locateButton.textContent = t("locateButton");
+  const heroExploreBtn = document.getElementById("heroExploreButton");
+  if (heroExploreBtn) heroExploreBtn.textContent = t("heroExploreButton");
   searchInput.placeholder = t("searchPlaceholder");
 
   const reviewerNameInput = document.getElementById("reviewerName");
