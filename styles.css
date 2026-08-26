@@ -121,6 +121,12 @@ textarea {
   background: #ffffff;
   border: 2px solid var(--border);
   box-shadow: var(--shadow);
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .hero-content {
