@@ -1,17 +1,18 @@
 :root {
-  --bg: #f8fafc;
+  --bg: #f0fdf4;
   --bg-soft: #ffffff;
   --surface: #ffffff;
-  --surface-light: #f1f5f9;
-  --text: #0f172a;
-  --muted: #475569;
-  --accent: #d97706;
-  --accent-strong: #ea580c;
-  --accent-light: #fef3c7;
-  --green: #059669;
-  --border: #e2e8f0;
-  --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
-  --shadow-hover: 0 20px 30px -10px rgba(15, 23, 42, 0.14);
+  --surface-light: #ecfdf5;
+  --text: #064e3b;
+  --muted: #374151;
+  --accent: #059669;
+  --accent-strong: #047857;
+  --accent-light: #d1fae5;
+  --amber-star: #d97706;
+  --amber-light: #fef3c7;
+  --border: #a7f3d0;
+  --shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.08), 0 8px 10px -6px rgba(5, 150, 105, 0.04);
+  --shadow-hover: 0 20px 30px -10px rgba(5, 150, 105, 0.16);
 }
 
 * {
@@ -26,9 +27,9 @@ body {
   margin: 0;
   font-family: "Be Vietnam Pro", sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(251, 146, 60, 0.12), transparent 35%),
-    radial-gradient(circle at top right, rgba(52, 211, 153, 0.08), transparent 30%),
-    linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    radial-gradient(circle at top left, rgba(167, 243, 208, 0.4), transparent 40%),
+    radial-gradient(circle at top right, rgba(254, 243, 199, 0.4), transparent 35%),
+    linear-gradient(180deg, #f0fdf4 0%, #f7fee7 100%);
   color: var(--text);
 }
 
@@ -98,14 +99,14 @@ textarea {
   background: linear-gradient(135deg, var(--accent), var(--accent-strong));
   color: #ffffff;
   font-weight: 800;
-  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
 }
 
 .brand-title {
   margin: 0;
   font-weight: 800;
   font-size: 1.2rem;
-  color: #0f172a;
+  color: #064e3b;
 }
 
 .brand-subtitle {
@@ -115,16 +116,20 @@ textarea {
 }
 
 .hero {
-  padding: 32px;
+  padding: 36px;
   border-radius: 28px;
   background: #ffffff;
-  border: 1px solid var(--border);
+  border: 2px solid var(--border);
   box-shadow: var(--shadow);
 }
 
 .hero-content {
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1fr;
   align-items: center;
+}
+
+.hero-full {
+  width: 100%;
 }
 
 .eyebrow {

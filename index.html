@@ -38,7 +38,7 @@
         </nav>
 
         <section class="hero-content">
-          <div class="hero-copy">
+          <div class="hero-copy hero-full">
             <span class="eyebrow" id="heroEyebrow">Website giới thiệu địa điểm ăn nhậu tại Vĩnh Yên</span>
             <h1 id="heroTitle">Tìm quán bia, quán nhậu phù hợp theo vị trí của bạn</h1>
             <p class="hero-text" id="heroText">
@@ -48,41 +48,29 @@
 
             <div class="hero-actions">
               <button class="primary-button" id="locateButton" type="button">
-                Dùng vị trí của tôi
+                📍 Dùng vị trí của tôi
               </button>
-              <a class="secondary-button" href="#gioi-thieu" id="howItWorksButton">Cách hoạt động</a>
+              <a class="secondary-button" href="#danh-sach">🔍 Khám phá ngay</a>
             </div>
 
             <div class="status-card" id="locationStatus" aria-live="polite">
               Chưa lấy vị trí. Bấm vào nút phía trên để tính khoảng cách đến từng quán.
             </div>
           </div>
-
-          <aside class="hero-panel">
-            <div class="panel-card">
-              <p class="panel-label" id="panelLabel">Tổng quan</p>
-              <h2 id="panelTitle">Những gì người dùng có thể xem</h2>
-              <ul class="feature-list" id="featureList">
-                <li>Danh sách quán trong khu vực Vĩnh Yên</li>
-                <li>Địa chỉ, số điện thoại, giờ mở cửa</li>
-                <li>Điểm đánh giá và số lượt review tham khảo</li>
-                <li>Khoảng cách từ vị trí hiện tại đến quán</li>
-              </ul>
-            </div>
-          </aside>
         </section>
       </header>
 
       <main>
         <section class="intro-section" id="gioi-thieu">
           <article class="intro-card">
-            <p class="section-label" id="introLabel">Dành cho người đi ăn cùng bạn bè</p>
-            <h2 id="introTitle">Giao diện đơn giản, dễ xem trên điện thoại</h2>
-            <p id="introText">
-              Trang được thiết kế theo kiểu danh sách nổi bật, ưu tiên trải nghiệm nhanh:
-              tìm kiếm theo tên quán, lọc theo loại món và sắp xếp theo đánh giá hoặc
-              khoảng cách sau khi người dùng cho phép chia sẻ vị trí.
-            </p>
+            <p class="section-label" id="panelLabel">Tổng quan hệ thống</p>
+            <h2 id="panelTitle">Những gì người dùng có thể xem</h2>
+            <ul class="feature-list" id="featureList">
+              <li>Danh sách các quán bia hơi, quán nhậu, lẩu nướng tại Vĩnh Yên</li>
+              <li>Địa chỉ chi tiết, số điện thoại liên hệ và giờ mở cửa</li>
+              <li>Điểm đánh giá sao & nhận xét thực tế từ thực khách</li>
+              <li>Tự động tính khoảng cách từ vị trí hiện tại của bạn đến quán</li>
+            </ul>
           </article>
 
           <article class="intro-card">
@@ -152,25 +140,6 @@
             <p id="resultText">Đang tải dữ liệu quán...</p>
           </div>
           <div class="venue-grid" id="venueGrid"></div>
-        </section>
-
-        <section class="info-section">
-          <article class="info-card">
-            <p class="section-label" id="geoNoteLabel">Lưu ý khi dùng định vị</p>
-            <p id="geoNoteText">
-              Trình duyệt cần được chạy qua `localhost` hoặc một website có `https`
-              để lấy vị trí ổn định. Nếu mở file trực tiếp, một số trình duyệt có thể
-              không cho phép truy cập vị trí hiện tại.
-            </p>
-          </article>
-
-          <article class="info-card">
-            <p class="section-label" id="futureLabel">Mở rộng sau này</p>
-            <p id="futureText">
-              Bạn có thể bổ sung trang chi tiết quán, biểu mẫu đánh giá từ người dùng,
-              bản đồ tương tác hoặc phần quản trị để tự thêm và chỉnh sửa quán.
-            </p>
-          </article>
         </section>
       </main>
     </div>
