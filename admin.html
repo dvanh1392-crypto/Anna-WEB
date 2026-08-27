@@ -33,13 +33,26 @@
 
         <section class="admin-actions">
           <div class="admin-card highlight-card">
-            <h2>⚡ Nhập nhanh từ Google Maps</h2>
+            <h2>➕ Thêm quán ăn mới nhanh</h2>
             <p class="muted">
-              Dán đường dẫn (Link) quán bất kỳ trên Google Maps để hệ thống tự động bóc tách Tên & Tọa độ đưa vào Danh sách chờ duyệt!
+              Điền thông tin quán ăn mới bên dưới để thêm thẳng vào danh sách quản lý (Master):
             </p>
-            <div class="quick-import-form">
-              <input type="url" id="gmapsUrlInput" placeholder="https://maps.app.goo.gl/... hoặc https://www.google.com/maps/place/..." />
-              <button class="primary-button" id="importGmapsBtn" type="button">Tự động lấy thông tin</button>
+            <div class="quick-import-form" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+              <input type="text" id="manualNameInput" style="grid-column: span 2;" placeholder="Tên quán (Bắt buộc) - Ví dụ: Nhà hàng Hải Sản Hương Lê..." />
+              <input type="text" id="manualAddressInput" style="grid-column: span 2;" placeholder="Địa chỉ chi tiết - Ví dụ: 45 Kim Ngọc, Ngô Quyền, Vĩnh Yên..." />
+              <input type="text" id="manualPhoneInput" placeholder="Số điện thoại (Ví dụ: 0912 345 678)..." />
+              <input type="text" id="manualHoursInput" placeholder="Giờ mở cửa (Ví dụ: 09:00 - 23:00)..." />
+              <input type="number" step="0.1" min="1" max="5" id="manualRatingInput" placeholder="Điểm sao (VD: 4.5)..." />
+              <select id="manualCategoryInput">
+                <option value="family-pub">Quán ăn / nhậu gia đình</option>
+                <option value="garden-pub">Quán nhậu sân vườn</option>
+                <option value="seafood">Hải sản</option>
+                <option value="goat-pub">Dê - quán nhậu</option>
+                <option value="goat-hotpot">Dê - lẩu</option>
+                <option value="snail-pub">Ốc - quán nhậu</option>
+              </select>
+              <input type="url" id="gmapsUrlInput" style="grid-column: span 2;" placeholder="Link Google Maps (Nếu có) - Ví dụ: https://maps.app.goo.gl/..." />
+              <button class="primary-button" id="importGmapsBtn" type="button" style="grid-column: span 2;">➕ Thêm quán này vào Master</button>
             </div>
             <div id="importGmapsStatus" class="status-card" style="margin-top: 10px; display: none;"></div>
           </div>

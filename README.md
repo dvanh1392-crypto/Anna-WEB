@@ -34,29 +34,28 @@ Sau đó mở trình duyệt tại `http://localhost:8080`.
 - `data/review/osm-discovery.json`: quán phát hiện tự động từ nguồn mở OSM
 - `data/review/pending-candidates.json`: danh sách cần bạn xem lại trước khi nhập vào dữ liệu chính
 
-## Quy trình thêm quán không cần sửa code
+## Quy trình tự động cào quán từ Google Maps (Nhanh nhất ⚡)
 
-1. Tìm quán mới từ nguồn mở:
-
-```bash
-node pipeline/scripts/discover-osm.mjs
-```
-
-2. Tạo hàng chờ duyệt:
+1. Mở file `pipeline/links.txt` và dán danh sách link Google Maps (mỗi link 1 dòng).
+2. Chạy lệnh tự động cào Tên, Địa chỉ, Số điện thoại, Điểm sao & Tọa độ:
 
 ```bash
-node pipeline/scripts/build-review-queue.mjs
+node pipeline/scripts/import-gmaps.mjs
 ```
 
-3. Mở `data/review/pending-candidates.json`, chọn quán phù hợp rồi thêm vào `data/master/venues.master.json`
-
-4. Xuất bản dữ liệu cho website:
+3. Xuất dữ liệu bản công khai cho website:
 
 ```bash
 node pipeline/scripts/publish.mjs
 ```
 
-5. Tải lại website tại `http://localhost:8080`
+4. Đẩy lên GitHub:
+
+```bash
+git add .
+git commit -m "Cập nhật quán mới từ Google Maps"
+git push origin main
+```
 
 ## Dữ liệu mẫu
 

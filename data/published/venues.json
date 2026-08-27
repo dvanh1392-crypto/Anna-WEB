@@ -1,5 +1,174 @@
 [
   {
+    "id": "nha-hang-suoi-bia",
+    "name": "Nhà hàng suối bia",
+    "categoryKey": "family-pub",
+    "description": {
+      "vi": "Quán ăn nhậu ngon tại khu vực Vĩnh Yên, Vĩnh Phúc.",
+      "en": "Popular dining & drinking venue in Vinh Yen.",
+      "zh": "永安市特色餐馆。"
+    },
+    "address": "Tuệ Tĩnh, Vĩnh Phúc, Phú Thọ, Việt Nam",
+    "phone": "0987 045 153",
+    "hours": "09:00 - 23:00",
+    "rating": 4.5,
+    "reviewCount": 15,
+    "lat": 21.3089,
+    "lng": 105.6049,
+    "tags": [
+      "gathering",
+      "vinhYen"
+    ],
+    "imageUrl": "./assets/restaurant-placeholder.svg",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [
+        "Đặc sản theo mùa",
+        "Bia lạnh / Đồ uống",
+        "Món nhắm bình dân"
+      ],
+      "en": [
+        "Seasonal specialties",
+        "Cold drinks",
+        "Popular snacks"
+      ],
+      "zh": [
+        "时令特色菜",
+        "冷饮",
+        "平民下酒菜"
+      ]
+    },
+    "directionsUrl": "https://maps.app.goo.gl/3w73BYZ9QX5PyCHm9",
+    "sourceLabel": "Thêm thủ công",
+    "sourceUrl": "https://maps.app.goo.gl/3w73BYZ9QX5PyCHm9"
+  },
+  {
+    "id": "quan-nhau-hai-san-bui",
+    "name": "Quán nhậu Hải Sản Bụi",
+    "categoryKey": "garden-pub",
+    "description": {
+      "vi": "Quán ăn nhậu ngon tại khu vực Vĩnh Yên, Vĩnh Phúc.",
+      "en": "Popular dining & drinking venue in Vinh Yen.",
+      "zh": "永安市特色餐馆。"
+    },
+    "address": "Đ. Tôn Đức Thắng, Vĩnh Phúc, Phú Thọ, Việt Nam",
+    "phone": "0862 389 386",
+    "hours": "09:00 - 23:00",
+    "rating": 4.7,
+    "reviewCount": 11,
+    "lat": 21.3089,
+    "lng": 105.6049,
+    "tags": [
+      "gathering",
+      "vinhYen"
+    ],
+    "imageUrl": "./assets/restaurant-placeholder.svg",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [
+        "Đặc sản theo mùa",
+        "Bia lạnh / Đồ uống",
+        "Món nhắm bình dân"
+      ],
+      "en": [
+        "Seasonal specialties",
+        "Cold drinks",
+        "Popular snacks"
+      ],
+      "zh": [
+        "时令特色菜",
+        "冷饮",
+        "平民下酒菜"
+      ]
+    },
+    "directionsUrl": "https://maps.app.goo.gl/RMGWuEeiDJvUbc2s7",
+    "sourceLabel": "Thêm thủ công",
+    "sourceUrl": "https://maps.app.goo.gl/RMGWuEeiDJvUbc2s7"
+  },
+  {
+    "id": "co-xanh-quan-am-thuc-ong-que",
+    "name": "Cọ Xanh Quán - Ẩm Thực đồng quê",
+    "categoryKey": "garden-pub",
+    "description": {
+      "vi": "Quán ăn nhậu ngon tại khu vực Vĩnh Yên, Vĩnh Phúc.",
+      "en": "Popular dining & drinking venue in Vinh Yen.",
+      "zh": "永安市特色餐馆。"
+    },
+    "address": "26 Phan Đình Giót, Trại Giao, Vĩnh Phúc, Phú Thọ, Việt Nam",
+    "phone": "0912 345 678",
+    "hours": "09:00 - 23:00",
+    "rating": 4.5,
+    "reviewCount": 15,
+    "lat": 21.3089,
+    "lng": 105.6049,
+    "tags": [
+      "gathering",
+      "vinhYen"
+    ],
+    "imageUrl": "./assets/restaurant-placeholder.svg",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [
+        "Đặc sản theo mùa",
+        "Bia lạnh / Đồ uống",
+        "Món nhắm bình dân"
+      ],
+      "en": [
+        "Seasonal specialties",
+        "Cold drinks",
+        "Popular snacks"
+      ],
+      "zh": [
+        "时令特色菜",
+        "冷饮",
+        "平民下酒菜"
+      ]
+    },
+    "directionsUrl": "https://maps.app.goo.gl/5b8dpp4J3fUWGyqbA",
+    "sourceLabel": "Thêm thủ công",
+    "sourceUrl": "https://maps.app.goo.gl/5b8dpp4J3fUWGyqbA"
+  },
+  {
+    "id": "quan-moi-nhap-tu-maps",
+    "name": "Hải Sản Tú Trọc ",
+    "categoryKey": "seafood",
+    "description": {
+      "vi": "Địa điểm nhậu/ăn uống mới nhập từ Google Maps.",
+      "en": "New venue imported from Google Maps.",
+      "zh": "从谷歌地图导入的新地点。"
+    },
+    "address": "Khu vực Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0869696987",
+    "hours": "09:00 - 23:00",
+    "rating": 4.2,
+    "reviewCount": 15,
+    "lat": 21.3089,
+    "lng": 105.6049,
+    "tags": [
+      "googleMaps",
+      "imported"
+    ],
+    "imageUrl": "./assets/restaurant-placeholder.svg",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [
+        "Các món nhắm bình dân",
+        "Bia tươi / Bia hơi"
+      ],
+      "en": [
+        "Casual side dishes",
+        "Draft beer"
+      ],
+      "zh": [
+        "平民下酒菜",
+        "扎啤"
+      ]
+    },
+    "directionsUrl": "https://maps.app.goo.gl/Tj6Bt4sGXMtjKTgZ8",
+    "sourceLabel": "Google Maps",
+    "sourceUrl": "https://maps.app.goo.gl/Tj6Bt4sGXMtjKTgZ8"
+  },
+  {
     "id": "bia-hoi-ha-noi-kim-ngoc",
     "name": "Bia Hơi Hà Nội Kim Ngọc",
     "categoryKey": "draft-beer",

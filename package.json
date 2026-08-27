@@ -1,0 +1,15 @@
+{
+  "name": "vinh-yen-beer-web",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "import": "node pipeline/scripts/import-gmaps.mjs",
+    "publish": "node pipeline/scripts/publish.mjs"
+  },
+  "dependencies": {
+    "puppeteer": "^25.9.0"
+  },
+  "allowScripts": {
+    "puppeteer@25.9.0": true
+  }
+}

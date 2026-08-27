@@ -1,0 +1,15 @@
+# Danh sách link Google Maps các quán nhậu / nhà hàng cần tự động lấy dữ liệu
+# Mỗi link dán trên một dòng (Có thể dán link ngắn dạng https://maps.app.goo.gl/... hoặc link dài)
+
+https://maps.app.goo.gl/3w73BYZ9QX5PyCHm9
+https://maps.app.goo.gl/MfBPC3Wzc31bzLmx9
+https://maps.app.goo.gl/5b8dpp4J3fUWGyqbA
+https://maps.app.goo.gl/36U1GTPNTrXgZdPv8
+https://maps.app.goo.gl/mMHPXHKKym1ghSv39
+https://maps.app.goo.gl/44XFt6sfgB33WhdBA
+https://maps.app.goo.gl/9sdsYnkygRSsZsN8A
+https://maps.app.goo.gl/hGJvw73UWq8nt1a99
+https://maps.app.goo.gl/SgVVCBytVMUQVRPz8
+https://maps.app.goo.gl/iEccmnk9NEqyqJm57
+https://maps.app.goo.gl/cHemxkaXcJx5TQVR6
+https://maps.app.goo.gl/TFP4qaHAFVHMJaWR7

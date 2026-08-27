@@ -16,7 +16,7 @@
       "cuisine": "chinese",
       "website": ""
     },
-    "discoveredAt": "2026-08-27T06:33:48.786Z"
+    "discoveredAt": "2026-08-27T07:12:23.199Z"
   },
   {
     "id": "osm-node-5043010221",
@@ -35,7 +35,7 @@
       "cuisine": "",
       "website": ""
     },
-    "discoveredAt": "2026-08-27T06:33:48.787Z"
+    "discoveredAt": "2026-08-27T07:12:23.199Z"
   },
   {
     "id": "osm-node-5349208222",
@@ -54,6 +54,6 @@
       "cuisine": "",
       "website": ""
     },
-    "discoveredAt": "2026-08-27T06:33:48.787Z"
+    "discoveredAt": "2026-08-27T07:12:23.199Z"
   }
 ]

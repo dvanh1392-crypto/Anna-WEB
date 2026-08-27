@@ -37,6 +37,7 @@ function parseGmapsUrl(urlStr) {
   let lat = null;
   let lng = null;
   let name = "";
+  let address = "";
 
   try {
     const decodedUrl = decodeURIComponent(urlStr);
@@ -48,13 +49,21 @@ function parseGmapsUrl(urlStr) {
       lng = parseFloat(coordMatch[2]);
     }
 
-    // 2. Lấy tên quán từ /place/TEN_QUAN/
-    const placeMatch = decodedUrl.match(/\/place\/([^\/@?#]+)/);
-    if (placeMatch && placeMatch[1]) {
-      name = placeMatch[1].replace(/\+/g, " ").trim();
+    // 2. Lấy tên từ !1s...!2sTEN_QUAN (dạng link chia sẻ)
+    const shareMatch = decodedUrl.match(/!2s([^!]+)/);
+    if (shareMatch && shareMatch[1]) {
+      name = shareMatch[1].replace(/\+/g, " ").trim();
     }
 
-    // 3. Lấy tên quán từ /search/TEN_QUAN/
+    // 3. Lấy tên quán từ /place/TEN_QUAN/
+    if (!name) {
+      const placeMatch = decodedUrl.match(/\/place\/([^\/@?#]+)/);
+      if (placeMatch && placeMatch[1]) {
+        name = placeMatch[1].replace(/\+/g, " ").trim();
+      }
+    }
+
+    // 4. Lấy tên quán từ /search/TEN_QUAN/ hoặc query param q=
     if (!name) {
       const searchMatch = decodedUrl.match(/\/search\/([^\/@?#]+)/);
       if (searchMatch && searchMatch[1]) {
@@ -62,68 +71,83 @@ function parseGmapsUrl(urlStr) {
       }
     }
 
-    // 4. Lấy tên quán từ query param q=TEN_QUAN
-    if (!name) {
-      const qParam = new URL(urlStr).searchParams.get("q");
-      if (qParam && !qParam.match(/^-?\d+\.\d+,/)) {
-        name = qParam.replace(/\+/g, " ").trim();
-      }
+    // Nếu tên chứa phẩy (chứa địa chỉ) -> tách tên và địa chỉ
+    if (name.includes(",")) {
+      const parts = name.split(",");
+      name = parts[0].trim();
+      address = parts.slice(1).join(",").trim();
     }
   } catch (e) {
     console.error(e);
   }
 
-  return { name, lat, lng };
+  return { name, lat, lng, address };
 }
 
 if (importGmapsBtn) {
   importGmapsBtn.addEventListener("click", () => {
-    const url = gmapsUrlInput.value.trim();
-    if (!url) {
-      showImportStatus("Vui lòng dán đường dẫn Google Maps!", true);
+    const manualName = document.getElementById("manualNameInput")?.value.trim() || "";
+    const manualAddress = document.getElementById("manualAddressInput")?.value.trim() || "";
+    const manualPhone = document.getElementById("manualPhoneInput")?.value.trim() || "";
+    const manualHours = document.getElementById("manualHoursInput")?.value.trim() || "";
+    const manualRating = parseFloat(document.getElementById("manualRatingInput")?.value) || 4.5;
+    const manualCategory = document.getElementById("manualCategoryInput")?.value || "family-pub";
+    const url = gmapsUrlInput?.value.trim() || "";
+
+    if (!manualName && !url) {
+      showImportStatus("Vui lòng nhập Tên quán hoặc dán Đường dẫn Google Maps!", true);
       return;
     }
 
     const parsed = parseGmapsUrl(url);
-    const name = parsed.name || "Quán mới nhập từ Maps";
-    const id = name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || `quan-map-${Date.now()}`;
+    const finalName = manualName || parsed.name || "Quán ăn mới Vĩnh Yên";
+    const finalAddress = manualAddress || parsed.address || "TP. Vĩnh Yên, Vĩnh Phúc";
+    const id = finalName.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || `quan-map-${Date.now()}`;
 
-    const newCandidate = {
+    const newVenue = {
       id: id,
-      name: name,
-      categoryKey: "family-pub",
+      name: finalName,
+      categoryKey: manualCategory,
       description: {
-        vi: `Địa điểm nhậu/ăn uống mới nhập từ Google Maps.`,
-        en: `New venue imported from Google Maps.`,
-        zh: `从谷歌地图导入的新地点。`
+        vi: `Quán ăn nhậu tại khu vực Vĩnh Yên, Vĩnh Phúc.`,
+        en: `Dining & drinking venue in Vinh Yen.`,
+        zh: `永安市餐馆。`
       },
-      address: "Khu vực Vĩnh Yên, Vĩnh Phúc",
-      phone: "",
-      hours: "09:00 - 23:00",
-      rating: 4.2,
+      address: finalAddress,
+      phone: manualPhone || "Đang cập nhật",
+      hours: manualHours || "10:00 - 23:00",
+      rating: manualRating,
       reviewCount: 15,
       lat: parsed.lat || 21.3089,
       lng: parsed.lng || 105.6049,
-      tags: ["googleMaps", "imported"],
+      tags: ["gathering", "vinhYen"],
       imageUrl: "./assets/restaurant-placeholder.svg",
       menuImages: [],
       menuHighlights: {
-        vi: ["Các món nhắm bình dân", "Bia tươi / Bia hơi"],
-        en: ["Casual side dishes", "Draft beer"],
-        zh: ["平民下酒菜", "扎啤"]
+        vi: ["Đặc sản theo mùa", "Bia lạnh / Đồ uống"],
+        en: ["Seasonal specialties", "Cold drinks"],
+        zh: ["时令特色菜", "冷饮"]
       },
-      directionsUrl: url,
-      sourceLabel: "Google Maps",
+      directionsUrl: url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(finalName + " " + finalAddress)}`,
+      sourceLabel: "Thêm thủ công",
       sourceUrl: url
     };
 
-    pendingCandidates.unshift(newCandidate);
-    saveCandidatesToLocal();
-    gmapsUrlInput.value = "";
-    showImportStatus(`✅ Đã trích xuất & thêm "${name}" vào Danh sách chờ duyệt!`);
+    // Thêm trực tiếp vào MasterVenues (Danh sách chính)
+    masterVenues.unshift(newVenue);
+    saveMasterToLocal();
 
-    adminMode.value = "candidates";
-    currentMode = "candidates";
+    if (document.getElementById("manualNameInput")) document.getElementById("manualNameInput").value = "";
+    if (document.getElementById("manualAddressInput")) document.getElementById("manualAddressInput").value = "";
+    if (document.getElementById("manualPhoneInput")) document.getElementById("manualPhoneInput").value = "";
+    if (document.getElementById("manualHoursInput")) document.getElementById("manualHoursInput").value = "";
+    if (document.getElementById("manualRatingInput")) document.getElementById("manualRatingInput").value = "";
+    if (gmapsUrlInput) gmapsUrlInput.value = "";
+
+    showImportStatus(`🎉 Đã thêm thành công quán "${finalName}" vào Master! (Tổng số quán: ${masterVenues.length})`);
+
+    adminMode.value = "master";
+    currentMode = "master";
     renderList();
   });
 }
@@ -146,8 +170,13 @@ async function loadData() {
   if (savedMaster) {
     try {
       const localData = JSON.parse(savedMaster);
-      if (Array.isArray(localData) && localData.length > masterVenues.length) {
-        masterVenues = localData;
+      if (Array.isArray(localData)) {
+        // Gộp quán mới trong localStorage vào master file gốc nếu chưa có
+        localData.forEach(item => {
+          if (!masterVenues.some(m => m.id === item.id || m.name === item.name)) {
+            masterVenues.push(item);
+          }
+        });
       }
     } catch(e){}
   }
@@ -157,7 +186,7 @@ async function loadData() {
     try { pendingCandidates = JSON.parse(savedCandidates); } catch(e){}
   }
 
-  showStatus(`✅ Đã nạp đầy đủ ${masterVenues.length} quán từ venues.master.json và ${pendingCandidates.length} quán chờ duyệt.`);
+  showStatus(`✅ Đã nạp tổng cộng ${masterVenues.length} quán (cả cũ và mới) vào hệ thống!`);
   renderList();
 }
 
