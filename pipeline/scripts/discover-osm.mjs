@@ -106,7 +106,7 @@ function toCandidate(element) {
     categoryKey: guessCategory(tags),
     address: formatAddress(tags),
     phone: normalizePhone(tags.phone || tags["contact:phone"] || ""),
-    hours: tags.opening_hours || "",
+    openingHours: tags.opening_hours || "",
     lat,
     lng,
     osmTags: {
@@ -116,6 +116,10 @@ function toCandidate(element) {
     },
     discoveredAt: new Date().toISOString(),
   };
+}
+
+  const tags = element.tags || {};
+
 }
 
 const rawText = await postText(source.endpoint, buildQuery());

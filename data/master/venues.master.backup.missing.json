@@ -20,7 +20,7 @@
       "vinhYen"
     ],
     "imageUrl": "./assets/restaurant-placeholder.svg",
-    "directionsUrl": "https://www.google.com/maps/place/Hinochi+V%C4%A9nh+Y%C3%AAn+-+Buffet+L%E1%BA%A9u+N%C6%B0%E1%BB%9Bng+BBQ+%26+Hotpot/@21.315948,105.6012515,15z/data=!4m7!3m6!1s0x3134e5acd5d347f1:0x91b5a2802c3b8b55!8m2!3d21.3233147!4d105.6092097!15sChZxdcOhbiBs4bqpdSB2xKluaCB5w6puWhgiFnF1w6FuIGzhuql1IHbEqW5oIHnDqm6SAQpyZXN0YXVyYW50mgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJwYWVsWlVSa2haVmtKRVpXNWtWazFHU2pGVlZUbFhZVzVPTms0eVl4QULgAQD6AQQIABBH!16s%2Fg%2F11kps56vd0?entry=tts&g_ep=EgoyMDI2MDgyNC4wIPu8ASoASAFQAw%3D%3D&skid=f04e7ba9-3c5c-47dc-b805-e22327ff68ce",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.315948,105.6012515",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/cHemxkaXcJx5TQVR6",
     "menuImages": []
@@ -46,7 +46,7 @@
       "vinhYen"
     ],
     "imageUrl": "./assets/restaurant-placeholder.svg",
-    "directionsUrl": "https://www.google.com/maps/place/L%E1%BA%A9u+cua+%C4%91%E1%BB%93ng+V%C4%A9nh+Y%C3%AAn/@21.3107106,105.6112937,15z/data=!4m7!3m6!1s0x3134e58bbcc3c543:0x8d8328aa98822312!8m2!3d21.3116733!4d105.6189514!15sChZxdcOhbiBs4bqpdSB2xKluaCB5w6puWhgiFnF1w6FuIGzhuql1IHbEqW5oIHnDqm6SAQpyZXN0YXVyYW50mgEgQ2hSRFNVaE5NRzluUzBWSlEwRm5TVU5zY2pSd01SQULgAQD6AQQIABAb!16s%2Fg%2F11h84r04fp?entry=tts&g_ep=EgoyMDI2MDgyNC4wIPu8ASoASAFQAw%3D%3D&skid=f82d9a3b-89a5-49b0-a4b1-bcc11dda77f0",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3107106,105.6112937",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/iEccmnk9NEqyqJm57",
     "menuImages": []
@@ -72,7 +72,7 @@
       "vinhYen"
     ],
     "imageUrl": "./assets/restaurant-placeholder.svg",
-    "directionsUrl": "https://www.google.com/maps/place/Ch%E1%BA%A1n+Buffet+V%C4%A9nh+Y%C3%AAn+CS1/@21.3149885,105.6113795,15z/data=!4m7!3m6!1s0x3134e501c3246cd5:0x9697c82780798d74!8m2!3d21.317375!4d105.6210382!15sChZxdcOhbiBs4bqpdSB2xKluaCB5w6puWhgiFnF1w6FuIGzhuql1IHbEqW5oIHnDqm6SAQpyZXN0YXVyYW50mgEjQ2haRFNVaE5NRzluUzBWSlEwRm5TVU0zY1UxSVoweEJFQUXgAQD6AQQIYhA6!16s%2Fg%2F11ssb5j8sw?entry=tts&g_ep=EgoyMDI2MDgyNC4wIPu8ASoASAFQAw%3D%3D&skid=55cbf485-8fb8-4042-87e9-c763bbbf945a",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3149885,105.6113795",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/SgVVCBytVMUQVRPz8",
     "menuImages": []
@@ -98,7 +98,7 @@
       "vinhYen"
     ],
     "imageUrl": "./assets/restaurant-placeholder.svg",
-    "directionsUrl": "https://www.google.com/maps/place/L%E1%BA%A9u+%E1%BA%BEch+Huy%E1%BB%81n+Anh+V%C4%A9nh+Y%C3%AAn/@21.3211453,105.5968312,15z/data=!4m7!3m6!1s0x3134e5e4ae699ea5:0xb8f2d03641cc2c4e!8m2!3d21.328187!4d105.6013395!15sChZxdcOhbiBs4bqpdSB2xKluaCB5w6puWhgiFnF1w6FuIGzhuql1IHbEqW5oIHnDqm6SAQpyZXN0YXVyYW50mgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDIxc1YwNHdPVEJSVjFwWlpXcEdXVmRHUm01aWExWnBVbFU1UWsxSVl4QULgAQD6AQUIugEQPg!16s%2Fg%2F11xtcqv363?entry=tts&g_ep=EgoyMDI2MDgyNC4wIPu8ASoASAFQAw%3D%3D&skid=743ac622-8af7-48ef-ab9c-cd2b59e6771f",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3211453,105.5968312",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/hGJvw73UWq8nt1a99",
     "menuImages": []
@@ -124,7 +124,7 @@
       "vinhYen"
     ],
     "imageUrl": "./assets/restaurant-placeholder.svg",
-    "directionsUrl": "https://www.google.com/maps/place/SAY+BIA+88+V%C4%A9nh+Y%C3%AAn/@21.3115175,105.595817,14.3z/data=!4m7!3m6!1s0x3134e5001e4d42c7:0x2bf7a9595ec994d!8m2!3d21.3205582!4d105.6164489!15sChRxdcOhbiBiaWEgdsSpbmggecOqbloWIhRxdcOhbiBiaWEgdsSpbmggecOqbpIBC2JlZXJfZ2FyZGVumgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJ4V1dGRXphSFpYYkZvelRVUkpNbVF6UlhSUFdGcFJVbGQwY0dGWVl4QULgAQD6AQQIQRAl!16s%2Fg%2F11njl8851d?entry=tts&g_ep=EgoyMDI2MDgyNC4wIPu8ASoASAFQAw%3D%3D&skid=7fdd65f8-939c-4a61-9375-e05d5522af89",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3115175,105.595817",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/9sdsYnkygRSsZsN8A",
     "menuImages": []
@@ -150,7 +150,7 @@
       "vinhYen"
     ],
     "imageUrl": "./assets/restaurant-placeholder.svg",
-    "directionsUrl": "https://www.google.com/maps/place/Bia+Ph%C3%BAc+R%C3%A2u/@21.3115175,105.595817,14.3z/data=!4m7!3m6!1s0x3134e52eb6ad03b5:0xf1990d5628f2db39!8m2!3d21.3109967!4d105.608496!15sChRxdcOhbiBiaWEgdsSpbmggecOqbloWIhRxdcOhbiBiaWEgdsSpbmggecOqbpIBB2JyZXdwdWKaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVUXRka3BsTnpaM1JSQULgAQD6AQQIFxAv!16s%2Fg%2F11j_2fjk2_?entry=tts&g_ep=EgoyMDI2MDgyNC4wIPu8ASoASAFQAw%3D%3D&skid=06572cf5-d58b-401f-8705-1d46b31f8725",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3115175,105.595817",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/44XFt6sfgB33WhdBA",
     "menuImages": []
@@ -176,7 +176,7 @@
       "vinhYen"
     ],
     "imageUrl": "./assets/restaurant-placeholder.svg",
-    "directionsUrl": "https://www.google.com/maps/place/H%E1%BA%A3i+S%E1%BA%A3n+Bi%E1%BB%83n+%C4%90%C3%B4ng+V%C4%A9nh+Y%C3%AAn/@21.3087269,105.5836727,14.3z/data=!4m7!3m6!1s0x3134e5004124c23d:0x8721e76c39202133!8m2!3d21.3202799!4d105.5940887!15sChRxdcOhbiBiaWEgdsSpbmggecOqbloWIhRxdcOhbiBiaWEgdsSpbmggecOqbpIBCnJlc3RhdXJhbnSaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMjE0ZUZaV1RrZE5NRlpMVEZWa1VGTkZOV3hYVldRelpFaHdXRTVyUlJBQuABAPoBBAgAEEQ!16s%2Fg%2F11wfltbnw3?entry=tts&g_ep=EgoyMDI2MDgyNC4wIPu8ASoASAFQAw%3D%3D&skid=8f4361e6-965c-42c4-ae02-a997d8f0a56f",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3087269,105.5836727",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/mMHPXHKKym1ghSv39",
     "menuImages": []
@@ -202,7 +202,7 @@
       "vinhYen"
     ],
     "imageUrl": "./assets/restaurant-placeholder.svg",
-    "directionsUrl": "https://www.google.com/maps/place/H%E1%BA%A3i+s%E1%BA%A3n+T%C3%BA+Tr%E1%BB%8Dc/@21.3226518,105.5924541,15z/data=!3m1!4b1!4m6!3m5!1s0x3134fbf2a039a7c7:0x7dbbbffb0929ccf9!8m2!3d21.3226521!4d105.6027324!16s%2Fg%2F11y21rhn06?entry=tts&g_ep=EgoyMDI2MDgyNC4wIPu8ASoASAFQAw%3D%3D&skid=ea881dbc-c299-4f54-bd7c-6b034a002bb6",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3226518,105.5924541",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/36U1GTPNTrXgZdPv8",
     "menuImages": []
@@ -228,7 +228,7 @@
       "vinhYen"
     ],
     "imageUrl": "./assets/restaurant-placeholder.svg",
-    "directionsUrl": "https://www.google.com/maps/place/C%E1%BB%8D+Xanh+Qu%C3%A1n+-+%E1%BA%A8m+Th%E1%BB%B1c+%C4%91%E1%BB%93ng+qu%C3%AA/@21.3157013,105.6042278,15z/data=!3m1!4b1!4m6!3m5!1s0x3134e5bb5e36e3ef:0xd097e0312485b234!8m2!3d21.3157016!4d105.6145061!16s%2Fg%2F11txgqmkdv?entry=tts&g_ep=EgoyMDI2MDgyNC4wIPu8ASoASAFQAw%3D%3D&skid=6da53129-539e-4303-9233-3cc816328ae1",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3157013,105.6042278",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/5b8dpp4J3fUWGyqbA",
     "menuImages": []
@@ -254,7 +254,7 @@
       "vinhYen"
     ],
     "imageUrl": "./assets/restaurant-placeholder.svg",
-    "directionsUrl": "https://www.google.com/maps/place/Qu%C3%A1n+nh%E1%BA%ADu+H%E1%BA%A3i+S%E1%BA%A3n+B%E1%BB%A5i/@21.3166362,105.5935865,15z/data=!4m6!3m5!1s0x3134e51968f67f59:0xb471394de80fbd9!8m2!3d21.3156826!4d105.6300306!16s%2Fg%2F11xmxrqkr4?entry=tts&g_ep=EgoyMDI2MDgyNC4wIPu8ASoASAFQAw%3D%3D&skid=74b9f9d2-805e-4c22-9542-d8b16ed60145",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3166362,105.5935865",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/MfBPC3Wzc31bzLmx9",
     "menuImages": []
@@ -280,7 +280,7 @@
       "vinhYen"
     ],
     "imageUrl": "./assets/restaurant-placeholder.svg",
-    "directionsUrl": "https://www.google.com/maps/place/Nh%C3%A0+h%C3%A0ng+su%E1%BB%91i+bia/@21.3166362,105.5935865,15.12z/data=!4m7!3m6!1s0x3134e525dbc8f807:0xbeea30e8101105c0!8m2!3d21.3188493!4d105.6032789!15sChRxdcOhbiBiaWEgdsSpbmggecOqbloWIhRxdcOhbiBiaWEgdsSpbmggecOqbpIBCnJlc3RhdXJhbnTgAQA!16s%2Fg%2F11hz5xmtlh?entry=tts&g_ep=EgoyMDI2MDgyNC4wIPu8ASoASAFQAw%3D%3D&skid=10eea8a4-e80d-4263-9394-10e8c7483b7d",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3166362,105.5935865",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/3w73BYZ9QX5PyCHm9",
     "menuImages": []
@@ -321,7 +321,7 @@
         "冷饮"
       ]
     },
-    "directionsUrl": "https://www.google.com/maps/place/HYN+TAIWANESE+HOTPOT/@21.3167878,105.596956,15z/data=!3m1!4b1!4m6!3m5!1s0x3134e5611c9eadc1:0x9977e49529e36262!8m2!3d21.3167881!4d105.6072343!16s%2Fg%2F11rzbvxsd5?entry=tts&g_ep=EgoyMDI2MDgyNC4wIPu8ASoASAFQAw%3D%3D&skid=ec5ec097-0263-458a-a01c-e401d0c2bc32",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3167878,105.596956",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/TFP4qaHAFVHMJaWR7"
   },

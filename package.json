@@ -5,7 +5,9 @@
   "scripts": {
     "import": "node pipeline/scripts/import-gmaps.mjs",
     "fix-directions": "node pipeline/scripts/fix-directions.mjs",
-    "publish": "node pipeline/scripts/publish.mjs"
+    "fill-missing": "node pipeline/scripts/fill-missing-fields.mjs",
+    "publish": "node pipeline/scripts/publish.mjs",
+    "discover-osm": "node pipeline/scripts/discover-osm.mjs"
   },
   "dependencies": {
     "puppeteer": "^25.9.0"

@@ -60,6 +60,8 @@ function parseGmapsData(html, finalUrl) {
   let name = "";
   let address = "";
   let phone = "";
+  let hours = "10:00 - 23:00";
+  let imageUrl = "./assets/restaurant-placeholder.svg";
   let rating = 4.5;
   let reviewCount = 20;
   let lat = 21.3089;
@@ -84,10 +86,33 @@ function parseGmapsData(html, finalUrl) {
     address = ogDescMatch[1].trim();
   }
 
-  // 4. Số điện thoại Việt Nam
+  // 4. Ảnh đại diện thực tế từ og:image
+  const ogImgMatch = html.match(/<meta[^>]*property=["']og:image["'][^>]*content=["']([^"']+)["']/i);
+  if (ogImgMatch && ogImgMatch[1] && !ogImgMatch[1].includes("staticmap")) {
+    imageUrl = ogImgMatch[1];
+  }
+
+  // 5. Số điện thoại Việt Nam
   const phoneMatch = html.match(/(?:\+84|0)(?:3[2-9]|5[6|8|9]|7[0|6-9]|8[1-9]|9[0-9])[0-9]{7}/);
   if (phoneMatch) {
     phone = phoneMatch[0];
+  }
+
+  // 6. Bóc tách Giờ mở cửa thực tế nếu tìm thấy
+  const hoursMatch = html.match(/(?:Mở cửa|Open)\s*[:·]?\s*(\d{1,2}:\d{2}\s*[-–]\s*\d{1,2}:\d{2})/i);
+  if (hoursMatch && hoursMatch[1]) {
+    hours = hoursMatch[1];
+  }
+
+  // 7. Bóc tách Rating & Review count
+  const ratingMatch = html.match(/(\d\.\d)\s*stars/i) || html.match(/(\d\.\d)\s*sao/i) || html.match(/["'](\d\.\d)["'],\s*["']reviews["']/);
+  if (ratingMatch && ratingMatch[1]) {
+    rating = parseFloat(ratingMatch[1]);
+  }
+
+  const reviewsMatch = html.match(/(\d[\d.,]*)\s*reviews/i) || html.match(/(\d[\d.,]*)\s*bài đánh giá/i);
+  if (reviewsMatch && reviewsMatch[1]) {
+    reviewCount = parseInt(reviewsMatch[1].replace(/[.,]/g, "")) || 20;
   }
 
   // Lọc tên nếu dính ký tự phân cách của Google
@@ -97,14 +122,15 @@ function parseGmapsData(html, finalUrl) {
     if (!address && parts[1]) address = parts[1].trim();
   }
 
-  return { name, address, phone, rating, reviewCount, lat, lng };
+  return { name, address, phone, hours, imageUrl, rating, reviewCount, lat, lng };
 }
 
 function guessCategory(name = "") {
   const lower = name.toLowerCase();
-  if (lower.includes("hải sản") || lower.includes("ốc") || lower.includes("cua")) return "seafood";
+  if (lower.includes("hải sản") || lower.includes("ốc") || lower.includes("cua") || lower.includes("tôm")) return "seafood";
   if (lower.includes("dê")) return lower.includes("lẩu") ? "goat-hotpot" : "goat-pub";
   if (lower.includes("bia") || lower.includes("sân vườn")) return "garden-pub";
+  if (lower.includes("ốc")) return "snail-pub";
   return "family-pub";
 }
 
@@ -156,31 +182,37 @@ async function runImport() {
 
       const categoryKey = guessCategory(displayName);
 
+      const existingIndex = masterVenues.findIndex((v) => v.id === id || v.sourceUrl === url);
+      const existingVenue = existingIndex >= 0 ? masterVenues[existingIndex] : {};
+
       const venueData = {
         id: id || `venue-${i + 1}`,
         name: displayName,
         categoryKey,
-        description: {
+        description: existingVenue.description || {
           vi: `Quán ăn nhậu nổi tiếng tại khu vực Vĩnh Yên, Vĩnh Phúc.`,
           en: `Popular dining and beer venue in Vinh Yen.`,
           zh: `永安市特色餐馆。`,
         },
         address: displayAddress,
-        phone: data.phone || "0912 345 678",
-        hours: "10:00 - 23:00",
+        phone: data.phone || existingVenue.phone || "0912 345 678",
+        hours: data.hours || existingVenue.hours || "10:00 - 23:00",
         rating: data.rating,
         reviewCount: data.reviewCount,
         lat: data.lat,
         lng: data.lng,
-        tags: [categoryKey, "vinhYen"],
-        imageUrl: "./assets/restaurant-placeholder.svg",
-        menuImages: [],
+        tags: existingVenue.tags || [categoryKey, "vinhYen"],
+        imageUrl: data.imageUrl !== "./assets/restaurant-placeholder.svg" ? data.imageUrl : (existingVenue.imageUrl || data.imageUrl),
+        menuImages: existingVenue.menuImages || [],
+        menuHighlights: existingVenue.menuHighlights || {
+          vi: ["Món ăn đặc sản", "Đồ uống / Bia lạnh"],
+          en: ["House specialties", "Cold drinks"],
+          zh: ["招牌菜", "冷饮"],
+        },
         directionsUrl: finalUrl || url,
         sourceLabel: "Google Maps Crawler",
         sourceUrl: url,
       };
-
-      const existingIndex = masterVenues.findIndex((v) => v.id === venueData.id || v.sourceUrl === url);
 
       if (existingIndex >= 0) {
         console.log(`🔄 Cập nhật: "${displayName}"`);

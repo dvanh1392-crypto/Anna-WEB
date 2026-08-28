@@ -18,7 +18,7 @@
         "cuisine": "chinese",
         "website": ""
       },
-      "discoveredAt": "2026-08-27T06:35:29.633Z"
+      "discoveredAt": "2026-08-28T06:43:30.163Z"
     },
     "bestMatch": {
       "venueId": "hoa-lu",
@@ -49,13 +49,13 @@
         "cuisine": "",
         "website": ""
       },
-      "discoveredAt": "2026-08-27T06:35:29.634Z"
+      "discoveredAt": "2026-08-28T06:43:30.163Z"
     },
     "bestMatch": {
-      "venueId": "long-thanh",
-      "venueName": "Nhà hàng Long Thành",
+      "venueId": "quan-an-vinh-yen-11",
+      "venueName": "Quán ăn Vĩnh Yên #11",
       "score": 6,
-      "distanceKm": 4.39263075372512,
+      "distanceKm": 4.1928385567522914,
       "reasons": [
         "cùng loại quán"
       ]
@@ -80,7 +80,7 @@
         "cuisine": "",
         "website": ""
       },
-      "discoveredAt": "2026-08-27T06:35:29.634Z"
+      "discoveredAt": "2026-08-28T06:43:30.163Z"
     },
     "bestMatch": {
       "venueId": "lau-de-so-1",

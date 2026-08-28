@@ -23,7 +23,12 @@
     "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.315948,105.6012515",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/cHemxkaXcJx5TQVR6",
-    "menuImages": []
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
   },
   {
     "id": "quan-an-vinh-yen-10",
@@ -49,7 +54,12 @@
     "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3107106,105.6112937",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/iEccmnk9NEqyqJm57",
-    "menuImages": []
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
   },
   {
     "id": "quan-an-vinh-yen-9",
@@ -75,7 +85,12 @@
     "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3149885,105.6113795",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/SgVVCBytVMUQVRPz8",
-    "menuImages": []
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
   },
   {
     "id": "quan-an-vinh-yen-8",
@@ -101,7 +116,12 @@
     "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3211453,105.5968312",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/hGJvw73UWq8nt1a99",
-    "menuImages": []
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
   },
   {
     "id": "quan-an-vinh-yen-7",
@@ -127,7 +147,12 @@
     "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3115175,105.595817",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/9sdsYnkygRSsZsN8A",
-    "menuImages": []
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
   },
   {
     "id": "quan-an-vinh-yen-6",
@@ -153,7 +178,12 @@
     "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3115175,105.595817",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/44XFt6sfgB33WhdBA",
-    "menuImages": []
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
   },
   {
     "id": "quan-an-vinh-yen-5",
@@ -179,7 +209,12 @@
     "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3087269,105.5836727",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/mMHPXHKKym1ghSv39",
-    "menuImages": []
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
   },
   {
     "id": "quan-an-vinh-yen-4",
@@ -205,7 +240,12 @@
     "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3226518,105.5924541",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/36U1GTPNTrXgZdPv8",
-    "menuImages": []
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
   },
   {
     "id": "quan-an-vinh-yen-3",
@@ -231,7 +271,12 @@
     "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3157013,105.6042278",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/5b8dpp4J3fUWGyqbA",
-    "menuImages": []
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
   },
   {
     "id": "quan-an-vinh-yen-2",
@@ -257,7 +302,12 @@
     "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3166362,105.5935865",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/MfBPC3Wzc31bzLmx9",
-    "menuImages": []
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
   },
   {
     "id": "quan-an-vinh-yen-1",
@@ -283,7 +333,12 @@
     "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3166362,105.5935865",
     "sourceLabel": "Google Maps Crawler",
     "sourceUrl": "https://maps.app.goo.gl/3w73BYZ9QX5PyCHm9",
-    "menuImages": []
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
   },
   {
     "id": "quan-an-vinh-yen-12",
