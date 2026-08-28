@@ -128,7 +128,7 @@ if (importGmapsBtn) {
         en: ["Seasonal specialties", "Cold drinks"],
         zh: ["时令特色菜", "冷饮"]
       },
-      directionsUrl: url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(finalName + " " + finalAddress)}`,
+      directionsUrl: (parsed.lat && parsed.lng) ? `https://www.google.com/maps/dir/?api=1&origin=current+location&destination=${parsed.lat},${parsed.lng}` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(finalName + " " + finalAddress)}`,
       sourceLabel: "Thêm thủ công",
       sourceUrl: url
     };

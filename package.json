@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "import": "node pipeline/scripts/import-gmaps.mjs",
+    "fix-directions": "node pipeline/scripts/fix-directions.mjs",
     "publish": "node pipeline/scripts/publish.mjs"
   },
   "dependencies": {
