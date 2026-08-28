@@ -1,3 +1,6 @@
+/* ==========================================================================
+   PHẦN 1: TỪ ĐIỂN ĐA NGÔN NGỮ & CẤU HÌNH FRONTEND
+   ========================================================================== */
 const translations = {
   vi: {
     title: "Bia & Nhậu Vĩnh Yên",
@@ -47,10 +50,10 @@ const translations = {
     resultTitle: "Danh sách quán",
     geoNoteLabel: "Lưu ý khi dùng định vị",
     geoNoteText:
-      "Trình duyệt cần được chạy qua `localhost` hoặc một website có `https` để lấy vị trí ổn định. Nếu mở file trực tiếp, một số trình duyệt có thể không cho phép truy cập vị trí hiện tại.",
+      "Trình duyệt cần được chạy qua `localhost` hoặc một website có `https` để lấy vị trí ổn định.",
     futureLabel: "Mở rộng sau này",
     futureText:
-      "Bạn có thể bổ sung trang chi tiết quán, biểu mẫu đánh giá từ người dùng, bản đồ tương tác hoặc phần quản trị để tự thêm và chỉnh sửa quán.",
+      "Bạn có thể bổ sung trang chi tiết quán, biểu mẫu đánh giá từ người dùng, bản đồ tương tác hoặc phần quản trị.",
     highlightBest: "Đánh giá cao",
     highlightPopular: "Nhiều review",
     highlightNear: "Gần bạn",
@@ -96,35 +99,28 @@ const translations = {
     writeReviewFromAllBtn: "➕ Đánh giá quán này",
     reviewSuccessAlert: "🎉 Cảm ơn bạn đã gửi đánh giá thành công!",
     recentTime: "Gần đây",
-    locationIdle:
-      "Chưa lấy vị trí. Bấm vào nút phía trên để tính khoảng cách đến từng quán.",
+    locationIdle: "Chưa lấy vị trí. Bấm vào nút phía trên để tính khoảng cách đến từng quán.",
     locationUnsupported: "Trình duyệt này không hỗ trợ định vị vị trí hiện tại.",
     locationLoading: "Đang lấy vị trí hiện tại của bạn để tính khoảng cách...",
-    locationSuccess:
-      "Đã lấy vị trí thành công. Danh sách quán đã được cập nhật khoảng cách gần đúng từ chỗ bạn.",
-    locationDenied: "Bạn đã từ chối quyền truy cập vị trí. Hãy bật lại quyền và thử thêm lần nữa.",
-    locationUnavailable: "Không xác định được vị trí hiện tại. Bạn có thể thử lại sau ít phút.",
-    locationTimeout: "Hết thời gian lấy vị trí. Hãy thử bấm lại nút định vị.",
-    locationError:
-      "Không thể lấy vị trí của bạn. Hãy kiểm tra lại quyền truy cập vị trí trên trình duyệt.",
-    locationSortWarning:
-      "Bạn chưa bật định vị, nên danh sách chưa thể sắp xếp chính xác theo khoảng cách.",
+    locationSuccess: "Đã lấy vị trí thành công. Danh sách quán đã được cập nhật khoảng cách.",
+    locationDenied: "Bạn đã từ chối quyền truy cập vị trí. Hãy bật lại quyền và thử lại.",
+    locationUnavailable: "Không xác định được vị trí hiện tại. Thử lại sau ít phút.",
+    locationTimeout: "Hết thời gian lấy vị trí. Thử bấm lại nút định vị.",
+    locationError: "Không thể lấy vị trí của bạn. Kiểm tra lại quyền trình duyệt.",
+    locationSortWarning: "Chưa bật định vị, nên danh sách chưa thể sắp xếp chính xác theo khoảng cách.",
     dataLoading: "Đang tải dữ liệu quán...",
     dataLoadError: "Không tải được dữ liệu quán.",
-    dataLoadErrorHint:
-      "Hãy kiểm tra web server local và chạy lại bước publish dữ liệu trong thư mục pipeline.",
+    dataLoadErrorHint: "Hãy kiểm tra web server local và chạy lại bước publish dữ liệu.",
   },
   en: {
     title: "Vinh Yen Beer & Food",
-    metaDescription:
-      "A website about beer spots and casual dining venues in Vinh Yen, Vinh Phuc with addresses, ratings, venue photos and distance from your location.",
+    metaDescription: "A website about beer spots and casual dining venues in Vinh Yen, Vinh Phuc.",
     brandTitle: "Vinh Yen Beer & Food",
     brandSubtitle: "Discover places near you",
     topCta: "Browse venues",
     heroEyebrow: "A local guide for drinking and dining in Vinh Yen",
     heroTitle: "Find beer spots and local eateries that match your location",
-    heroText:
-      "Quickly view venue details, addresses, opening hours, reference ratings, venue photos and the distance from your current location to each place in Vinh Yen city.",
+    heroText: "Quickly view venue details, addresses, opening hours, reference ratings, and distance.",
     locateButton: "📍 Use my location",
     heroExploreButton: "🔍 Explore now",
     howItWorksButton: "How it works",
@@ -139,8 +135,7 @@ const translations = {
     ],
     introLabel: "Built for friend groups and family outings",
     introTitle: "Simple layout that works well on mobile",
-    introText:
-      "The page focuses on fast browsing: search by venue name, filter by venue type, view real photos and sort by ratings or distance after location access is granted.",
+    introText: "The page focuses on fast browsing: search by venue name, filter by type, and sort.",
     statsLabel: "Highlights",
     statVenueCountText: "venues in sample data",
     statTapTitle: "1 tap",
@@ -161,11 +156,9 @@ const translations = {
     sortName: "Name A-Z",
     resultTitle: "Venue list",
     geoNoteLabel: "Location note",
-    geoNoteText:
-      "For stable geolocation, the browser should load the site through `localhost` or `https`. If you open the file directly, some browsers may block location access.",
+    geoNoteText: "For stable geolocation, load the site through `localhost` or `https`.",
     futureLabel: "Possible next steps",
-    futureText:
-      "You can later add venue detail pages, user review forms, an interactive map, or an admin panel to manage venues.",
+    futureText: "You can later add venue detail pages, user review forms, or an interactive map.",
     highlightBest: "Top rated",
     highlightPopular: "Most reviewed",
     highlightNear: "Near you",
@@ -184,8 +177,8 @@ const translations = {
     imageAltMenu: "Menu image for {name}",
     menuPanelTitle: "Menu photos and signature items",
     menuPanelHasImages: "{count} public menu images available.",
-    menuPanelNoImages: "No public menu image was found, so the section below shows popular items instead.",
-    menuEmpty: "No public menu image is currently available for this venue.",
+    menuPanelNoImages: "No public menu image was found.",
+    menuEmpty: "No public menu image is currently available.",
     directionsBtn: "📍 Get Directions",
     reviewBtn: "⭐ Write Review",
     viewReviewsBtn: "💬 View Reviews ({count})",
@@ -203,7 +196,7 @@ const translations = {
     optRating2: "⭐⭐ (2/5) - Poor",
     optRating1: "⭐ (1/5) - Terrible",
     lblReviewerComment: "Your Review:",
-    phReviewerComment: "Share your experience about food, service, or prices...",
+    phReviewerComment: "Share your experience...",
     btnCancel: "Cancel",
     btnSubmitReview: "Submit Review",
     modalAllTitle: "All Reviews for {name}",
@@ -211,32 +204,28 @@ const translations = {
     writeReviewFromAllBtn: "➕ Write a Review",
     reviewSuccessAlert: "🎉 Thank you for submitting your review!",
     recentTime: "Recently",
-    locationIdle: "Location has not been used yet. Press the button above to calculate distances.",
+    locationIdle: "Location has not been used yet.",
     locationUnsupported: "This browser does not support geolocation.",
-    locationLoading: "Getting your current location to calculate distances...",
-    locationSuccess: "Location retrieved successfully. Approximate distances have been updated.",
-    locationDenied: "You denied location access. Please enable it and try again.",
-    locationUnavailable: "Your current location is unavailable. Please try again later.",
-    locationTimeout: "Location request timed out. Please try again.",
-    locationError: "Your location could not be retrieved. Please check browser permissions.",
-    locationSortWarning:
-      "Location is not enabled yet, so sorting by distance cannot be accurate.",
+    locationLoading: "Getting your current location...",
+    locationSuccess: "Location retrieved successfully.",
+    locationDenied: "You denied location access.",
+    locationUnavailable: "Your location is unavailable.",
+    locationTimeout: "Location request timed out.",
+    locationError: "Your location could not be retrieved.",
+    locationSortWarning: "Location is not enabled yet.",
     dataLoading: "Loading venue data...",
     dataLoadError: "Unable to load venue data.",
-    dataLoadErrorHint:
-      "Please check the local web server and run the publish step again inside the pipeline folder.",
+    dataLoadErrorHint: "Please check the web server.",
   },
   zh: {
     title: "永安市啤酒与聚餐指南",
-    metaDescription:
-      "介绍越南永安市啤酒馆和聚餐餐厅的网站，包含地址、评分、店铺照片以及与您当前位置的距离。",
+    metaDescription: "介绍越南永安市啤酒馆和聚餐餐厅的网站。",
     brandTitle: "永安市啤酒与聚餐指南",
     brandSubtitle: "发现你附近的好店",
     topCta: "查看店铺列表",
     heroEyebrow: "永安聚餐与喝啤酒地点介绍网站",
     heroTitle: "按你的位置寻找合适的啤酒馆和聚餐餐厅",
-    heroText:
-      "快速查看店铺信息、地址、营业时间、参考评分、店铺照片，以及你当前位置到永安市各家店的距离。",
+    heroText: "快速查看店铺信息、地址、营业时间、参考评分与距离。",
     locateButton: "📍 使用我的位置",
     heroExploreButton: "🔍 立即探索",
     howItWorksButton: "使用说明",
@@ -251,8 +240,7 @@ const translations = {
     ],
     introLabel: "适合朋友聚会和家庭聚餐",
     introTitle: "界面简洁，手机上也很好看",
-    introText:
-      "网页强调快速浏览体验：可按店名搜索、按类型筛选、查看真实照片，并在允许定位后按评分或距离排序。",
+    introText: "网页强调快速浏览体验：可按店名搜索、按类型筛选。",
     statsLabel: "亮点功能",
     statVenueCountText: "示例数据中的店铺",
     statTapTitle: "一键",
@@ -273,11 +261,9 @@ const translations = {
     sortName: "名称 A-Z",
     resultTitle: "店铺列表",
     geoNoteLabel: "定位说明",
-    geoNoteText:
-      "为了稳定使用定位功能，浏览器最好通过 `localhost` 或 `https` 打开网站。如果直接打开文件，部分浏览器可能会阻止定位权限。",
+    geoNoteText: "为了稳定使用定位功能，请通过 `localhost` 或 `https` 打开。",
     futureLabel: "后续可扩展",
-    futureText:
-      "后面可以继续增加店铺详情页、用户评价表单、互动地图，或者后台管理页面来维护店铺数据。",
+    futureText: "后面可以继续增加店铺详情页、用户评价表单。",
     highlightBest: "评分最高",
     highlightPopular: "评论最多",
     highlightNear: "离你最近",
@@ -296,7 +282,7 @@ const translations = {
     imageAltMenu: "{name} 菜单照片",
     menuPanelTitle: "菜单图片与推荐菜品",
     menuPanelHasImages: "已找到 {count} 张公开菜单图片。",
-    menuPanelNoImages: "暂未找到公开菜单图片，下面提供推荐菜品供你参考。",
+    menuPanelNoImages: "暂未找到公开菜单图片。",
     menuEmpty: "这家店目前没有公开菜单图片。",
     directionsBtn: "📍 地图导航",
     reviewBtn: "⭐ 评价店铺",
@@ -323,18 +309,18 @@ const translations = {
     writeReviewFromAllBtn: "➕ 评价这家店",
     reviewSuccessAlert: "🎉 感谢您的评价！",
     recentTime: "最近",
-    locationIdle: "尚未获取位置。点击上方按钮后即可计算到每家店的距离。",
+    locationIdle: "尚未获取位置。",
     locationUnsupported: "当前浏览器不支持定位功能。",
-    locationLoading: "正在获取你的位置并计算距离...",
-    locationSuccess: "位置获取成功，列表已更新为你当前位置的大致距离。",
-    locationDenied: "你拒绝了定位权限，请重新开启后再试。",
-    locationUnavailable: "暂时无法确定你的位置，请稍后再试。",
-    locationTimeout: "定位超时，请再点击一次按钮。",
-    locationError: "无法获取你的位置，请检查浏览器定位权限。",
-    locationSortWarning: "你还没有开启定位，因此按距离排序暂时不准确。",
+    locationLoading: "正在获取你的位置...",
+    locationSuccess: "位置获取成功。",
+    locationDenied: "你拒绝了定位权限。",
+    locationUnavailable: "暂时无法确定你的位置。",
+    locationTimeout: "定位超时。",
+    locationError: "无法获取你的位置。",
+    locationSortWarning: "你还没有开启定位。",
     dataLoading: "正在加载店铺数据...",
     dataLoadError: "无法加载店铺数据。",
-    dataLoadErrorHint: "请检查本地 web 服务，并重新执行 pipeline 中的数据发布步骤。",
+    dataLoadErrorHint: "请检查本地 web 服务。",
   },
 };
 
@@ -368,8 +354,11 @@ const tagTranslations = {
   lightDrinks: { vi: "Nhậu nhẹ", en: "Light snacks", zh: "轻松小酌" },
 };
 
+/* ==========================================================================
+   PHẦN 2: XỬ LÝ DỮ LIỆU CẮT BẢN ĐỒ LEAFLET & GIAO DIỆN CLIENT
+   ========================================================================== */
 let venues = [];
-let globalReviews = []; // Mảng toàn cục lưu danh sách đánh giá tải từ Server
+let globalReviews = [];
 let mapInstance = null;
 let markersGroup = null;
 
@@ -409,7 +398,7 @@ async function loadVenueData() {
   state.dataError = false;
 }
 
-// Hàm tải toàn bộ đánh giá từ Server thay vì localStorage
+// Tải đánh giá toàn cục từ Server
 async function loadServerReviews() {
   try {
     const res = await fetch("/api/reviews?v=" + Date.now());
@@ -552,7 +541,6 @@ function getFilteredVenues() {
   return result;
 }
 
-// Khởi tạo và vẽ ghim trên bản đồ Leaflet
 function renderMap(currentVenues) {
   const mapContainer = document.getElementById("map");
   if (!mapContainer || typeof L === "undefined") return;
@@ -670,10 +658,10 @@ function updateStaticText() {
     }
   });
 
-  locateButton.textContent = t("locateButton");
+  if (locateButton) locateButton.textContent = t("locateButton");
   const heroExploreBtn = document.getElementById("heroExploreButton");
   if (heroExploreBtn) heroExploreBtn.textContent = t("heroExploreButton");
-  searchInput.placeholder = t("searchPlaceholder");
+  if (searchInput) searchInput.placeholder = t("searchPlaceholder");
 
   const reviewerNameInput = document.getElementById("reviewerName");
   if (reviewerNameInput) reviewerNameInput.placeholder = t("phReviewerName");
@@ -682,12 +670,14 @@ function updateStaticText() {
   if (reviewerCommentInput) reviewerCommentInput.placeholder = t("phReviewerComment");
 
   const featureList = document.querySelector("#featureList");
-  featureList.innerHTML = "";
-  t("featureList").forEach((item) => {
-    const li = document.createElement("li");
-    li.textContent = item;
-    featureList.appendChild(li);
-  });
+  if (featureList) {
+    featureList.innerHTML = "";
+    t("featureList").forEach((item) => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      featureList.appendChild(li);
+    });
+  }
 
   languageButtons.forEach((button) => {
     button.classList.toggle("active", button.dataset.lang === state.language);
@@ -695,6 +685,7 @@ function updateStaticText() {
 }
 
 function populateFilters() {
+  if (!categoryFilter || !sortSelect) return;
   categoryFilter.innerHTML = "";
   sortSelect.innerHTML = "";
 
@@ -730,8 +721,8 @@ function populateFilters() {
 }
 
 function renderHighlights(currentVenues) {
-  if (!venues.length) {
-    highlightGrid.innerHTML = "";
+  if (!venues.length || !highlightGrid) {
+    if (highlightGrid) highlightGrid.innerHTML = "";
     return;
   }
 
@@ -786,7 +777,7 @@ function renderMenuPanel(fragment, venue) {
 
   if (!venue.imageUrl || venue.imageUrl.includes("restaurant-placeholder")) {
     if (venueImageWrap) venueImageWrap.style.display = "none";
-  } else {
+  } else if (venueImage) {
     venueImage.src = venue.imageUrl;
     venueImage.alt = formatText(t("imageAltRestaurant"), { name: venue.name });
   }
@@ -829,6 +820,8 @@ function renderMenuPanel(fragment, venue) {
 }
 
 function renderVenues() {
+  if (!venueGrid) return;
+
   if (state.dataError) {
     renderDataError();
     return;
@@ -841,13 +834,13 @@ function renderVenues() {
 
   const currentVenues = getFilteredVenues();
   venueGrid.innerHTML = "";
-  venueCount.textContent = String(venues.length);
+  if (venueCount) venueCount.textContent = String(venues.length);
 
   renderHighlights(currentVenues);
   renderMap(currentVenues);
 
   if (!currentVenues.length) {
-    resultText.textContent = t("resultEmpty");
+    if (resultText) resultText.textContent = t("resultEmpty");
     const emptyState = document.createElement("div");
     emptyState.className = "empty-state";
     emptyState.textContent = t("emptyHint");
@@ -855,7 +848,7 @@ function renderVenues() {
     return;
   }
 
-  resultText.textContent = formatText(t("resultLoaded"), { count: currentVenues.length });
+  if (resultText) resultText.textContent = formatText(t("resultLoaded"), { count: currentVenues.length });
 
   currentVenues.forEach((venue) => {
     const fragment = venueTemplate.content.cloneNode(true);
@@ -865,7 +858,6 @@ function renderVenues() {
 
     renderMenuPanel(fragment, venue);
 
-    // Tính điểm đánh giá trung bình từ mảng globalReviews
     const userReviews = globalReviews.filter((r) => r.venueId === venue.id);
     let displayRating = venue.rating || 4.0;
     if (userReviews.length > 0) {
@@ -890,10 +882,12 @@ function renderVenues() {
     });
 
     const metaLabels = fragment.querySelectorAll(".meta-list span");
-    metaLabels[0].textContent = t("fieldAddress");
-    metaLabels[1].textContent = t("fieldHours");
-    metaLabels[2].textContent = t("fieldPhone");
-    metaLabels[3].textContent = t("fieldDistance");
+    if (metaLabels.length >= 4) {
+      metaLabels[0].textContent = t("fieldAddress");
+      metaLabels[1].textContent = t("fieldHours");
+      metaLabels[2].textContent = t("fieldPhone");
+      metaLabels[3].textContent = t("fieldDistance");
+    }
 
     const tagList = fragment.querySelector(".tag-list");
     venue.tags.forEach((tag) => {
@@ -953,16 +947,10 @@ function openAllReviewsModal(venue) {
   const writeBtn = document.getElementById("writeReviewFromAllBtn");
 
   title.textContent = formatText(t("modalAllTitle"), { name: venue.name });
-
-  // Lọc đánh giá thuộc về quán này từ mảng globalReviews
   const userReviews = globalReviews.filter((r) => r.venueId === venue.id);
 
   if (userReviews.length === 0) {
-    list.innerHTML = `
-      <div class="empty-state">
-        ${t("noReviewsYet")}
-      </div>
-    `;
+    list.innerHTML = `<div class="empty-state">${t("noReviewsYet")}</div>`;
   } else {
     const langLocales = { vi: "vi-VN", en: "en-US", zh: "zh-CN" };
     const locale = langLocales[state.language] || "vi-VN";
@@ -1023,7 +1011,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         if (response.ok) {
-          await loadServerReviews(); // Tải lại toàn bộ review từ Server
+          await loadServerReviews();
           reviewForm.reset();
           reviewModal.style.display = "none";
           alert(t("reviewSuccessAlert"));
@@ -1039,6 +1027,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function setStatus(message, tone = "") {
+  if (!locationStatus) return;
   locationStatus.textContent = message;
   locationStatus.className = "status-card";
   if (tone) {
@@ -1060,8 +1049,10 @@ function requestLocation() {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       };
-      locationStatus.dataset.statusKey = "locationSuccess";
-      locationStatus.dataset.statusTone = "success";
+      if (locationStatus) {
+        locationStatus.dataset.statusKey = "locationSuccess";
+        locationStatus.dataset.statusTone = "success";
+      }
       setStatus(t("locationSuccess"), "success");
       renderVenues();
     },
@@ -1080,15 +1071,13 @@ function requestLocation() {
         statusKey = "locationTimeout";
       }
 
-      locationStatus.dataset.statusKey = statusKey;
-      locationStatus.dataset.statusTone = "error";
+      if (locationStatus) {
+        locationStatus.dataset.statusKey = statusKey;
+        locationStatus.dataset.statusTone = "error";
+      }
       setStatus(message, "error");
     },
-    {
-      enableHighAccuracy: true,
-      timeout: 10000,
-      maximumAge: 60000,
-    },
+    { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 },
   );
 }
 
@@ -1100,38 +1089,48 @@ function applyLanguage() {
   }
   renderVenues();
 
-  if (locationStatus.dataset.statusKey) {
+  if (locationStatus && locationStatus.dataset.statusKey) {
     setStatus(t(locationStatus.dataset.statusKey), locationStatus.dataset.statusTone || "");
   } else {
     setStatus(t("locationIdle"));
   }
 }
 
-searchInput.addEventListener("input", (event) => {
-  state.query = event.target.value;
-  renderVenues();
-});
+if (searchInput) {
+  searchInput.addEventListener("input", (event) => {
+    state.query = event.target.value;
+    renderVenues();
+  });
+}
 
-categoryFilter.addEventListener("change", (event) => {
-  state.category = event.target.value;
-  renderVenues();
-});
+if (categoryFilter) {
+  categoryFilter.addEventListener("change", (event) => {
+    state.category = event.target.value;
+    renderVenues();
+  });
+}
 
-sortSelect.addEventListener("change", (event) => {
-  state.sortBy = event.target.value;
-  if (state.sortBy === "distance" && state.userLocation == null) {
-    locationStatus.dataset.statusKey = "locationSortWarning";
-    locationStatus.dataset.statusTone = "warning";
-    setStatus(t("locationSortWarning"), "warning");
-  }
-  renderVenues();
-});
+if (sortSelect) {
+  sortSelect.addEventListener("change", (event) => {
+    state.sortBy = event.target.value;
+    if (state.sortBy === "distance" && state.userLocation == null && locationStatus) {
+      locationStatus.dataset.statusKey = "locationSortWarning";
+      locationStatus.dataset.statusTone = "warning";
+      setStatus(t("locationSortWarning"), "warning");
+    }
+    renderVenues();
+  });
+}
 
-locateButton.addEventListener("click", () => {
-  locationStatus.dataset.statusKey = "locationLoading";
-  locationStatus.dataset.statusTone = "warning";
-  requestLocation();
-});
+if (locateButton) {
+  locateButton.addEventListener("click", () => {
+    if (locationStatus) {
+      locationStatus.dataset.statusKey = "locationLoading";
+      locationStatus.dataset.statusTone = "warning";
+    }
+    requestLocation();
+  });
+}
 
 languageButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -1148,12 +1147,14 @@ window.switchLanguage = (lang) => {
 
 async function bootstrap() {
   state.language = translations[state.language] ? state.language : "vi";
-  locationStatus.dataset.statusKey = "locationIdle";
-  locationStatus.dataset.statusTone = "";
+  if (locationStatus) {
+    locationStatus.dataset.statusKey = "locationIdle";
+    locationStatus.dataset.statusTone = "";
+  }
   applyLanguage();
 
   try {
-    await loadServerReviews(); // Khởi tạo tải đánh giá toàn cục từ Server
+    await loadServerReviews();
     await loadVenueData();
     populateFilters();
     renderVenues();
@@ -1165,4 +1166,7 @@ async function bootstrap() {
   }
 }
 
-bootstrap();
+// Khởi chạy giao diện Client
+if (typeof window !== "undefined") {
+  bootstrap();
+}
