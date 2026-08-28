@@ -1,10 +1,10 @@
 import express from "express";
-import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import mongoose from "mongoose";
 
 /* ==========================================================================
-   PHẦN 1: BACKEND SERVER (NODE.JS / EXPRESS)
+   PHẦN 1: MÁY CHỦ EXPRESS & KẾT NỐI MONGODB ATLAS DATABASE
    ========================================================================== */
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,51 +15,60 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.static(__dirname));
 
-const reviewsPath = path.join(__dirname, "data", "published", "reviews.json");
+// Chuỗi kết nối MongoDB Atlas của bạn
+const MONGODB_URI =
+  process.env.MONGODB_URI ||
+  "mongodb+srv://dvanh1392_db_user:2snY4Qwe60ot0nme@cluster0.hijknxb.mongodb.net/vinyen_db?retryWrites=true&w=majority&appName=Cluster0";
 
-function ensureReviewsFile() {
-  const dirPath = path.dirname(reviewsPath);
-  if (!fs.existsSync(dirPath)) fs.mkdirSync(dirPath, { recursive: true });
-  if (!fs.existsSync(reviewsPath)) fs.writeFileSync(reviewsPath, "[]", "utf8");
-}
+// Kết nối MongoDB Cloud
+mongoose
+  .connect(MONGODB_URI)
+  .then(() => console.log("✅ Kết nối thành công Cơ sở dữ liệu MongoDB Atlas!"))
+  .catch((err) => console.error("❌ Lỗi kết nối MongoDB Atlas:", err.message));
 
-// 1. API LẤY TẤT CẢ ĐÁNH GIÁ
-app.get("/api/reviews", (req, res) => {
+// Định nghĩa Schema dữ liệu đánh giá
+const reviewSchema = new mongoose.Schema({
+  venueId: { type: String, required: true },
+  name: { type: String, required: true },
+  rating: { type: Number, required: true, default: 5 },
+  comment: { type: String, required: true },
+  date: { type: Date, default: Date.now },
+});
+
+const Review = mongoose.model("Review", reviewSchema);
+
+// 1. API LẤY TẤT CẢ ĐÁNH GIÁ TỪ DATABASE
+app.get("/api/reviews", async (req, res) => {
   try {
-    ensureReviewsFile();
-    const data = fs.readFileSync(reviewsPath, "utf8");
-    res.json(JSON.parse(data || "[]"));
+    const reviews = await Review.find().sort({ date: -1 });
+    res.json(reviews);
   } catch (err) {
-    res.status(500).json({ error: "Lỗi đọc file đánh giá" });
+    console.error("Lỗi đọc đánh giá:", err);
+    res.status(500).json({ error: "Lỗi lấy danh sách đánh giá từ database." });
   }
 });
 
-// 2. API GỬI ĐÁNH GIÁ MỚI
-app.post("/api/reviews", (req, res) => {
+// 2. API GỬI VÀ LƯU ĐÁNH GIÁ MỚI VÀO DATABASE
+app.post("/api/reviews", async (req, res) => {
   try {
     const { venueId, name, rating, comment } = req.body;
     if (!venueId || !name || !comment) {
       return res.status(400).json({ error: "Thiếu thông tin đánh giá" });
     }
 
-    ensureReviewsFile();
-    const reviews = JSON.parse(fs.readFileSync(reviewsPath, "utf8") || "[]");
-
-    const newReview = {
-      id: "rev-" + Date.now(),
+    const newReview = new Review({
       venueId,
       name: name.trim(),
       rating: parseInt(rating) || 5,
       comment: comment.trim(),
-      date: new Date().toISOString(),
-    };
+    });
 
-    reviews.unshift(newReview);
-    fs.writeFileSync(reviewsPath, JSON.stringify(reviews, null, 2), "utf8");
-
+    await newReview.save();
+    console.log(`✅ [Review mới] Quán ID: ${venueId} | Tác giả: ${name}`);
     res.status(201).json({ success: true, review: newReview });
   } catch (err) {
-    res.status(500).json({ error: "Lỗi lưu đánh giá" });
+    console.error("Lỗi lưu đánh giá:", err);
+    res.status(500).json({ error: "Không thể lưu đánh giá vào database." });
   }
 });
 
@@ -68,7 +77,7 @@ app.listen(PORT, () => {
 });
 
 /* ==========================================================================
-   PHẦN 2: FRONTEND CLIENT LOGIC (CHỈ CHẠY TRÊN TRÌNH DUYỆT)
+   PHẦN 2: FRONTEND LOGIC (GIAO DIỆN CLIENT CHẠY TRÊN TRÌNH DUYỆT)
    ========================================================================== */
 if (typeof window !== "undefined") {
   const translations = {
