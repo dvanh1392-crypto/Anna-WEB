@@ -10,6 +10,7 @@
     "discover-osm": "node pipeline/scripts/discover-osm.mjs"
   },
   "dependencies": {
+    "express": "^5.2.1",
     "puppeteer": "^25.9.0"
   },
   "allowScripts": {
