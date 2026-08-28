@@ -369,6 +369,7 @@ const tagTranslations = {
 };
 
 let venues = [];
+let globalReviews = []; // Mảng toàn cục lưu danh sách đánh giá tải từ Server
 let mapInstance = null;
 let markersGroup = null;
 
@@ -406,6 +407,18 @@ async function loadVenueData() {
   venues = data;
   state.dataLoaded = true;
   state.dataError = false;
+}
+
+// Hàm tải toàn bộ đánh giá từ Server thay vì localStorage
+async function loadServerReviews() {
+  try {
+    const res = await fetch("/api/reviews?v=" + Date.now());
+    if (res.ok) {
+      globalReviews = await res.json();
+    }
+  } catch (err) {
+    console.error("Không thể tải đánh giá từ server:", err);
+  }
 }
 
 function renderLoadingState() {
@@ -852,8 +865,8 @@ function renderVenues() {
 
     renderMenuPanel(fragment, venue);
 
-    const storedReviewsKey = `reviews_${venue.id}`;
-    const userReviews = JSON.parse(localStorage.getItem(storedReviewsKey) || "[]");
+    // Tính điểm đánh giá trung bình từ mảng globalReviews
+    const userReviews = globalReviews.filter((r) => r.venueId === venue.id);
     let displayRating = venue.rating || 4.0;
     if (userReviews.length > 0) {
       const sum = userReviews.reduce((acc, curr) => acc + (parseFloat(curr.rating) || 4), 0);
@@ -940,8 +953,9 @@ function openAllReviewsModal(venue) {
   const writeBtn = document.getElementById("writeReviewFromAllBtn");
 
   title.textContent = formatText(t("modalAllTitle"), { name: venue.name });
-  const storedReviewsKey = `reviews_${venue.id}`;
-  const userReviews = JSON.parse(localStorage.getItem(storedReviewsKey) || "[]");
+
+  // Lọc đánh giá thuộc về quán này từ mảng globalReviews
+  const userReviews = globalReviews.filter((r) => r.venueId === venue.id);
 
   if (userReviews.length === 0) {
     list.innerHTML = `
@@ -992,7 +1006,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (reviewForm) {
-    reviewForm.addEventListener("submit", (e) => {
+    reviewForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       const venueId = document.getElementById("modalVenueId").value;
       const name = document.getElementById("reviewerName").value.trim();
@@ -1001,15 +1015,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!name || !comment) return;
 
-      const storedReviewsKey = `reviews_${venueId}`;
-      const userReviews = JSON.parse(localStorage.getItem(storedReviewsKey) || "[]");
-      userReviews.unshift({ name, rating, comment, date: new Date().toISOString() });
-      localStorage.setItem(storedReviewsKey, JSON.stringify(userReviews));
+      try {
+        const response = await fetch("/api/reviews", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ venueId, name, rating, comment }),
+        });
 
-      reviewForm.reset();
-      reviewModal.style.display = "none";
-      alert(t("reviewSuccessAlert"));
-      renderVenues();
+        if (response.ok) {
+          await loadServerReviews(); // Tải lại toàn bộ review từ Server
+          reviewForm.reset();
+          reviewModal.style.display = "none";
+          alert(t("reviewSuccessAlert"));
+          renderVenues();
+        } else {
+          alert("Có lỗi xảy ra khi gửi đánh giá. Vui lòng thử lại!");
+        }
+      } catch (err) {
+        console.error("Lỗi gửi đánh giá:", err);
+      }
     });
   }
 });
@@ -1129,6 +1153,7 @@ async function bootstrap() {
   applyLanguage();
 
   try {
+    await loadServerReviews(); // Khởi tạo tải đánh giá toàn cục từ Server
     await loadVenueData();
     populateFilters();
     renderVenues();

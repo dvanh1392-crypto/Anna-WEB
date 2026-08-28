@@ -369,7 +369,8 @@ const tagTranslations = {
 };
 
 let venues = [];
-const DATA_URL = "./data/published/venues.json?v=20260821b";
+let mapInstance = null;
+let markersGroup = null;
 
 const venueGrid = document.querySelector("#venueGrid");
 const resultText = document.querySelector("#resultText");
@@ -394,7 +395,6 @@ const state = {
 };
 
 async function loadVenueData() {
-  // Đọc trực tiếp file published venues.json
   const response = await fetch("./data/published/venues.json?v=" + Date.now());
   if (!response.ok) {
     throw new Error(`Không tải được dữ liệu quán: ${response.status}`);
@@ -537,6 +537,69 @@ function getFilteredVenues() {
   }
 
   return result;
+}
+
+// Khởi tạo và vẽ ghim trên bản đồ Leaflet
+function renderMap(currentVenues) {
+  const mapContainer = document.getElementById("map");
+  if (!mapContainer || typeof L === "undefined") return;
+
+  if (!mapInstance) {
+    mapInstance = L.map("map").setView([21.3089, 105.6049], 13);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "© OpenStreetMap contributors",
+    }).addTo(mapInstance);
+    markersGroup = L.layerGroup().addTo(mapInstance);
+  }
+
+  markersGroup.clearLayers();
+
+  if (state.userLocation) {
+    const userMarker = L.circleMarker([state.userLocation.lat, state.userLocation.lng], {
+      radius: 8,
+      fillColor: "#2563eb",
+      color: "#ffffff",
+      weight: 2,
+      opacity: 1,
+      fillOpacity: 0.9,
+    }).bindPopup("<b>📍 Vị trí của bạn</b>");
+    markersGroup.addLayer(userMarker);
+  }
+
+  const bounds = [];
+
+  currentVenues.forEach((venue) => {
+    if (venue.lat && venue.lng) {
+      const latLng = [venue.lat, venue.lng];
+      bounds.push(latLng);
+
+      const marker = L.marker(latLng);
+      marker.bindPopup(`
+        <div style="font-family: sans-serif;">
+          <b style="font-size: 14px; color: #1e293b;">${venue.name}</b><br>
+          <span style="font-size: 12px; color: #64748b;">${venue.address}</span>
+        </div>
+      `);
+
+      marker.on("click", () => {
+        const cardEl = document.querySelector(`[data-id="${venue.id}"]`);
+        if (cardEl) {
+          cardEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          cardEl.style.transition = "outline 0.3s ease";
+          cardEl.style.outline = "3px solid #2563eb";
+          setTimeout(() => {
+            cardEl.style.outline = "none";
+          }, 2000);
+        }
+      });
+
+      markersGroup.addLayer(marker);
+    }
+  });
+
+  if (bounds.length > 0) {
+    mapInstance.fitBounds(bounds, { padding: [30, 30], maxZoom: 15 });
+  }
 }
 
 function updateStaticText() {
@@ -708,7 +771,6 @@ function renderMenuPanel(fragment, venue) {
   const venueImage = fragment.querySelector(".venue-image");
   const menuPanel = fragment.querySelector(".menu-panel");
 
-  // Ẩn ảnh quán nếu chỉ là placeholder mặc định
   if (!venue.imageUrl || venue.imageUrl.includes("restaurant-placeholder")) {
     if (venueImageWrap) venueImageWrap.style.display = "none";
   } else {
@@ -716,7 +778,6 @@ function renderMenuPanel(fragment, venue) {
     venueImage.alt = formatText(t("imageAltRestaurant"), { name: venue.name });
   }
 
-  // Ẩn hoàn toàn khung menu nếu không có ảnh menu công khai
   if (!venue.menuImages || !venue.menuImages.length) {
     if (menuPanel) menuPanel.style.display = "none";
   } else {
@@ -749,7 +810,6 @@ function renderMenuPanel(fragment, venue) {
     });
   }
 
-  // Nếu cả 2 đều ẩn thì ẩn luôn media container
   if ((!venue.imageUrl || venue.imageUrl.includes("restaurant-placeholder")) && (!venue.menuImages || !venue.menuImages.length)) {
     if (venueMedia) venueMedia.style.display = "none";
   }
@@ -771,6 +831,7 @@ function renderVenues() {
   venueCount.textContent = String(venues.length);
 
   renderHighlights(currentVenues);
+  renderMap(currentVenues);
 
   if (!currentVenues.length) {
     resultText.textContent = t("resultEmpty");
@@ -786,9 +847,11 @@ function renderVenues() {
   currentVenues.forEach((venue) => {
     const fragment = venueTemplate.content.cloneNode(true);
 
+    const cardArticle = fragment.querySelector(".venue-card");
+    if (cardArticle) cardArticle.setAttribute("data-id", venue.id);
+
     renderMenuPanel(fragment, venue);
 
-    // Tính điểm trung bình cộng từ các đánh giá người dùng
     const storedReviewsKey = `reviews_${venue.id}`;
     const userReviews = JSON.parse(localStorage.getItem(storedReviewsKey) || "[]");
     let displayRating = venue.rating || 4.0;
@@ -827,14 +890,12 @@ function renderVenues() {
       tagList.appendChild(span);
     });
 
-    // Nút Chỉ đường Maps
     const mapsBtn = fragment.querySelector(".primary-action-btn");
     if (mapsBtn) {
       mapsBtn.textContent = t("directionsBtn");
       mapsBtn.href = venue.directionsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venue.name)}`;
     }
 
-    // Nút Đánh giá quán & Xem đánh giá
     const reviewBtn = fragment.querySelector(".review-btn");
     if (reviewBtn) {
       reviewBtn.textContent = t("reviewBtn");
@@ -851,7 +912,6 @@ function renderVenues() {
       });
     }
 
-    // Xem trước 1 đánh giá mới nhất (nếu có)
     const reviewsPreview = fragment.querySelector(".user-reviews-preview");
     if (userReviews.length > 0 && reviewsPreview) {
       const latest = userReviews[0];
@@ -912,7 +972,6 @@ function openAllReviewsModal(venue) {
   modal.style.display = "grid";
 }
 
-// Global modal handling
 document.addEventListener("DOMContentLoaded", () => {
   const closeModalBtn = document.getElementById("closeModalBtn");
   const reviewModal = document.getElementById("reviewModal");
