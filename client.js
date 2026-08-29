@@ -965,14 +965,16 @@ function renderVenues() {
     const mapsBtn = fragment.querySelector(".primary-action-btn");
     if (mapsBtn) {
       mapsBtn.textContent = t("directionsBtn");
-      const destQuery = (venue.lat && venue.lng) 
+      // Ưu tiên tọa độ thật nếu khác vị trí mặc định, nếu không dùng Tên quán + Địa chỉ chi tiết
+      const isDefaultCoord = (venue.lat === 21.3089 && venue.lng === 105.6049);
+      const destQuery = (venue.lat && venue.lng && !isDefaultCoord) 
         ? `${venue.lat},${venue.lng}` 
         : encodeURIComponent(`${venue.name}, ${venue.address}`);
       
       if (state.userLocation) {
         mapsBtn.href = `https://www.google.com/maps/dir/?api=1&origin=${state.userLocation.lat},${state.userLocation.lng}&destination=${destQuery}`;
       } else {
-        mapsBtn.href = venue.directionsUrl || `https://www.google.com/maps/dir/?api=1&destination=${destQuery}`;
+        mapsBtn.href = `https://www.google.com/maps/dir/?api=1&destination=${destQuery}`;
       }
     }
 

@@ -1,47 +1,384 @@
 [
   {
-    "id": "quan-nhau-hai-san-bui",
-    "name": "Quán nhậu Hải Sản Bụi",
+    "id": "quan-an-vinh-yen-11",
+    "name": "Quán ăn Vĩnh Yên #11",
     "categoryKey": "family-pub",
     "description": {
-      "vi": "Quán ăn nhậu gia đình ấm cúng, không gian thoáng mát tại khu vực Vĩnh Yên, phù hợp tụ họp bạn bè.",
-      "en": "Cozy family dining & drinking spot with a spacious atmosphere in Vinh Yen, perfect for gatherings.",
-      "zh": "永安地区温馨的家庭聚餐与小酌场所，环境舒适，非常适合朋友聚会。"
+      "vi": "Quán ăn nhậu nổi tiếng tại khu vực Vĩnh Yên, Vĩnh Phúc.",
+      "en": "Popular dining and beer venue in Vinh Yen.",
+      "zh": "永安市特色餐馆。"
     },
-    "address": "Đ. Tôn Đức Thắng, Vĩnh Phúc, Phú Thọ, Việt Nam",
-    "phone": "0862389386",
-    "hours": "10:00–22:00",
-    "rating": 4.7,
-    "reviewCount": 15,
-    "lat": 21.3089,
-    "lng": 105.6049,
+    "address": "Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0709508357",
+    "hours": "10:00 - 23:00",
+    "rating": 4.5,
+    "reviewCount": 20,
+    "lat": 21.315948,
+    "lng": 105.6012515,
     "tags": [
-      "family",
-      "gathering",
+      "family-pub",
+      "vinhYen"
+    ],
+    "imageUrl": "./assets/restaurant-placeholder.svg",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.315948,105.6012515",
+    "sourceLabel": "Google Maps Crawler",
+    "sourceUrl": "https://maps.app.goo.gl/cHemxkaXcJx5TQVR6",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
+  },
+  {
+    "id": "quan-an-vinh-yen-10",
+    "name": "Quán ăn Vĩnh Yên #10",
+    "categoryKey": "family-pub",
+    "description": {
+      "vi": "Quán ăn nhậu nổi tiếng tại khu vực Vĩnh Yên, Vĩnh Phúc.",
+      "en": "Popular dining and beer venue in Vinh Yen.",
+      "zh": "永安市特色餐馆。"
+    },
+    "address": "Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0949362874",
+    "hours": "10:00 - 23:00",
+    "rating": 4.5,
+    "reviewCount": 20,
+    "lat": 21.3107106,
+    "lng": 105.6112937,
+    "tags": [
+      "family-pub",
+      "vinhYen"
+    ],
+    "imageUrl": "./assets/restaurant-placeholder.svg",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3107106,105.6112937",
+    "sourceLabel": "Google Maps Crawler",
+    "sourceUrl": "https://maps.app.goo.gl/iEccmnk9NEqyqJm57",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
+  },
+  {
+    "id": "quan-an-vinh-yen-9",
+    "name": "Quán ăn Vĩnh Yên #9",
+    "categoryKey": "family-pub",
+    "description": {
+      "vi": "Quán ăn nhậu nổi tiếng tại khu vực Vĩnh Yên, Vĩnh Phúc.",
+      "en": "Popular dining and beer venue in Vinh Yen.",
+      "zh": "永安市特色餐馆。"
+    },
+    "address": "Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0999999977",
+    "hours": "10:00 - 23:00",
+    "rating": 4.5,
+    "reviewCount": 20,
+    "lat": 21.3149885,
+    "lng": 105.6113795,
+    "tags": [
+      "family-pub",
+      "vinhYen"
+    ],
+    "imageUrl": "./assets/restaurant-placeholder.svg",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3149885,105.6113795",
+    "sourceLabel": "Google Maps Crawler",
+    "sourceUrl": "https://maps.app.goo.gl/SgVVCBytVMUQVRPz8",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
+  },
+  {
+    "id": "quan-an-vinh-yen-8",
+    "name": "Quán ăn Vĩnh Yên #8",
+    "categoryKey": "family-pub",
+    "description": {
+      "vi": "Quán ăn nhậu nổi tiếng tại khu vực Vĩnh Yên, Vĩnh Phúc.",
+      "en": "Popular dining and beer venue in Vinh Yen.",
+      "zh": "永安市特色餐馆。"
+    },
+    "address": "Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0999999977",
+    "hours": "10:00 - 23:00",
+    "rating": 4.5,
+    "reviewCount": 20,
+    "lat": 21.3211453,
+    "lng": 105.5968312,
+    "tags": [
+      "family-pub",
+      "vinhYen"
+    ],
+    "imageUrl": "./assets/restaurant-placeholder.svg",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3211453,105.5968312",
+    "sourceLabel": "Google Maps Crawler",
+    "sourceUrl": "https://maps.app.goo.gl/hGJvw73UWq8nt1a99",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
+  },
+  {
+    "id": "quan-an-vinh-yen-7",
+    "name": "Quán ăn Vĩnh Yên #7",
+    "categoryKey": "family-pub",
+    "description": {
+      "vi": "Quán ăn nhậu nổi tiếng tại khu vực Vĩnh Yên, Vĩnh Phúc.",
+      "en": "Popular dining and beer venue in Vinh Yen.",
+      "zh": "永安市特色餐馆。"
+    },
+    "address": "Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0999999977",
+    "hours": "10:00 - 23:00",
+    "rating": 4.5,
+    "reviewCount": 20,
+    "lat": 21.3115175,
+    "lng": 105.595817,
+    "tags": [
+      "family-pub",
+      "vinhYen"
+    ],
+    "imageUrl": "./assets/restaurant-placeholder.svg",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3115175,105.595817",
+    "sourceLabel": "Google Maps Crawler",
+    "sourceUrl": "https://maps.app.goo.gl/9sdsYnkygRSsZsN8A",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
+  },
+  {
+    "id": "quan-an-vinh-yen-6",
+    "name": "Quán ăn Vĩnh Yên #6",
+    "categoryKey": "family-pub",
+    "description": {
+      "vi": "Quán ăn nhậu nổi tiếng tại khu vực Vĩnh Yên, Vĩnh Phúc.",
+      "en": "Popular dining and beer venue in Vinh Yen.",
+      "zh": "永安市特色餐馆。"
+    },
+    "address": "Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0999999977",
+    "hours": "10:00 - 23:00",
+    "rating": 4.5,
+    "reviewCount": 20,
+    "lat": 21.3115175,
+    "lng": 105.595817,
+    "tags": [
+      "family-pub",
+      "vinhYen"
+    ],
+    "imageUrl": "./assets/restaurant-placeholder.svg",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3115175,105.595817",
+    "sourceLabel": "Google Maps Crawler",
+    "sourceUrl": "https://maps.app.goo.gl/44XFt6sfgB33WhdBA",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
+  },
+  {
+    "id": "quan-an-vinh-yen-5",
+    "name": "Quán ăn Vĩnh Yên #5",
+    "categoryKey": "family-pub",
+    "description": {
+      "vi": "Quán ăn nhậu nổi tiếng tại khu vực Vĩnh Yên, Vĩnh Phúc.",
+      "en": "Popular dining and beer venue in Vinh Yen.",
+      "zh": "永安市特色餐馆。"
+    },
+    "address": "Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0999999977",
+    "hours": "10:00 - 23:00",
+    "rating": 4.5,
+    "reviewCount": 20,
+    "lat": 21.3087269,
+    "lng": 105.5836727,
+    "tags": [
+      "family-pub",
+      "vinhYen"
+    ],
+    "imageUrl": "./assets/restaurant-placeholder.svg",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3087269,105.5836727",
+    "sourceLabel": "Google Maps Crawler",
+    "sourceUrl": "https://maps.app.goo.gl/mMHPXHKKym1ghSv39",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
+  },
+  {
+    "id": "quan-an-vinh-yen-4",
+    "name": "Quán ăn Vĩnh Yên #4",
+    "categoryKey": "family-pub",
+    "description": {
+      "vi": "Quán ăn nhậu nổi tiếng tại khu vực Vĩnh Yên, Vĩnh Phúc.",
+      "en": "Popular dining and beer venue in Vinh Yen.",
+      "zh": "永安市特色餐馆。"
+    },
+    "address": "Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0999999977",
+    "hours": "10:00 - 23:00",
+    "rating": 4.5,
+    "reviewCount": 20,
+    "lat": 21.3226518,
+    "lng": 105.5924541,
+    "tags": [
+      "family-pub",
+      "vinhYen"
+    ],
+    "imageUrl": "./assets/restaurant-placeholder.svg",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3226518,105.5924541",
+    "sourceLabel": "Google Maps Crawler",
+    "sourceUrl": "https://maps.app.goo.gl/36U1GTPNTrXgZdPv8",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
+  },
+  {
+    "id": "quan-an-vinh-yen-3",
+    "name": "Quán ăn Vĩnh Yên #3",
+    "categoryKey": "family-pub",
+    "description": {
+      "vi": "Quán ăn nhậu nổi tiếng tại khu vực Vĩnh Yên, Vĩnh Phúc.",
+      "en": "Popular dining and beer venue in Vinh Yen.",
+      "zh": "永安市特色餐馆。"
+    },
+    "address": "Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0999999977",
+    "hours": "10:00 - 23:00",
+    "rating": 4.5,
+    "reviewCount": 20,
+    "lat": 21.3157013,
+    "lng": 105.6042278,
+    "tags": [
+      "family-pub",
+      "vinhYen"
+    ],
+    "imageUrl": "./assets/restaurant-placeholder.svg",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3157013,105.6042278",
+    "sourceLabel": "Google Maps Crawler",
+    "sourceUrl": "https://maps.app.goo.gl/5b8dpp4J3fUWGyqbA",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
+  },
+  {
+    "id": "quan-an-vinh-yen-2",
+    "name": "Quán ăn Vĩnh Yên #2",
+    "categoryKey": "family-pub",
+    "description": {
+      "vi": "Quán ăn nhậu nổi tiếng tại khu vực Vĩnh Yên, Vĩnh Phúc.",
+      "en": "Popular dining and beer venue in Vinh Yen.",
+      "zh": "永安市特色餐馆。"
+    },
+    "address": "Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0999999977",
+    "hours": "10:00 - 23:00",
+    "rating": 4.5,
+    "reviewCount": 20,
+    "lat": 21.3166362,
+    "lng": 105.5935865,
+    "tags": [
+      "family-pub",
+      "vinhYen"
+    ],
+    "imageUrl": "./assets/restaurant-placeholder.svg",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3166362,105.5935865",
+    "sourceLabel": "Google Maps Crawler",
+    "sourceUrl": "https://maps.app.goo.gl/MfBPC3Wzc31bzLmx9",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
+  },
+  {
+    "id": "quan-an-vinh-yen-1",
+    "name": "Quán ăn Vĩnh Yên #1",
+    "categoryKey": "family-pub",
+    "description": {
+      "vi": "Quán ăn nhậu nổi tiếng tại khu vực Vĩnh Yên, Vĩnh Phúc.",
+      "en": "Popular dining and beer venue in Vinh Yen.",
+      "zh": "永安市特色餐馆。"
+    },
+    "address": "Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0999999977",
+    "hours": "10:00 - 23:00",
+    "rating": 4.5,
+    "reviewCount": 20,
+    "lat": 21.3166362,
+    "lng": 105.5935865,
+    "tags": [
+      "family-pub",
+      "vinhYen"
+    ],
+    "imageUrl": "./assets/restaurant-placeholder.svg",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3166362,105.5935865",
+    "sourceLabel": "Google Maps Crawler",
+    "sourceUrl": "https://maps.app.goo.gl/3w73BYZ9QX5PyCHm9",
+    "menuImages": [],
+    "menuHighlights": {
+      "vi": [],
+      "en": [],
+      "zh": []
+    }
+  },
+  {
+    "id": "quan-an-vinh-yen-12",
+    "name": "Quán ăn Vĩnh Yên #12",
+    "categoryKey": "family-pub",
+    "description": {
+      "vi": "Quán ăn nhậu nổi tiếng tại khu vực Vĩnh Yên, Vĩnh Phúc.",
+      "en": "Popular dining and beer venue in Vinh Yen.",
+      "zh": "永安市特色餐馆。"
+    },
+    "address": "Vĩnh Yên, Vĩnh Phúc",
+    "phone": "0999999977",
+    "hours": "10:00 - 23:00",
+    "rating": 4.5,
+    "reviewCount": 20,
+    "lat": 21.3167878,
+    "lng": 105.596956,
+    "tags": [
+      "family-pub",
       "vinhYen"
     ],
     "imageUrl": "./assets/restaurant-placeholder.svg",
     "menuImages": [],
     "menuHighlights": {
       "vi": [
-        "Lẩu thập cẩm",
-        "Gà chạy bộ hấp lá chanh",
-        "Bia lạnh / Đồ uống giải khát"
+        "Món ăn đặc sản",
+        "Đồ uống / Bia lạnh"
       ],
       "en": [
-        "Hotpot combo",
-        "Steamed free-range chicken with lime leaves",
-        "Cold beer & Refreshments"
+        "House specialties",
+        "Cold drinks"
       ],
       "zh": [
-        "什锦火锅",
-        "柠檬叶蒸走地鸡",
-        "冰镇啤酒 / 凉饮"
+        "招牌菜",
+        "冷饮"
       ]
     },
-    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Qu%C3%A1n%20nh%E1%BA%ADu%20H%E1%BA%A3i%20S%E1%BA%A3n%20B%E1%BB%A5i%20%C4%90.%20T%C3%B4n%20%C4%90%E1%BB%A9c%20Th%E1%BA%AFng%2C%20V%C4%A9nh%20Ph%C3%BAc%2C%20Ph%C3%BA%20Th%E1%BB%8D%2C%20Vi%E1%BB%87t%20Nam",
-    "sourceLabel": "Thêm từ Admin",
-    "sourceUrl": "https://maps.app.goo.gl/Kcs3J6UyGfYmuqECA"
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3167878,105.596956",
+    "sourceLabel": "Google Maps Crawler",
+    "sourceUrl": "https://maps.app.goo.gl/TFP4qaHAFVHMJaWR7"
   },
   {
     "id": "huong-que",
@@ -618,49 +955,5 @@
     "directionsUrl": "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=21.3112,105.5954",
     "sourceLabel": "Địa phương",
     "sourceUrl": ""
-  },
-  {
-    "id": "co-xanh-quan-am-thuc-ong-que",
-    "name": "Cọ Xanh Quán - Ẩm Thực đồng quê",
-    "categoryKey": "family-pub",
-    "description": {
-      "vi": "Quán ăn nhậu gia đình ấm cúng, không gian thoáng mát tại khu vực Vĩnh Yên, phù hợp tụ họp bạn bè.",
-      "en": "Cozy family dining & drinking spot with a spacious atmosphere in Vinh Yen, perfect for gatherings.",
-      "zh": "永安地区温馨的家庭聚餐与小酌场所，环境舒适，非常适合朋友聚会。"
-    },
-    "address": "26 Phan Đình Giót, Trại Giao, Vĩnh Phúc, Phú Thọ, Việt Nam",
-    "phone": "0929943333",
-    "hours": "8:00-23:00",
-    "rating": 4.3,
-    "reviewCount": 15,
-    "lat": 21.3089,
-    "lng": 105.6049,
-    "tags": [
-      "family",
-      "gathering",
-      "vinhYen"
-    ],
-    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlmUCVg5TFeAi4uA_aYvugbwrgcuDmJMRHsrcqwHiLSAs9WtmfP3-Nndx47YBQP1dDVij5OabaI6kP7fyu_06WR5K8_XhmXM7g3jXnlAonyHe_NDzUD3Ud-G92I3YTiG3YsUj19CK8vMeYf=w408-h544-k-no",
-    "menuImages": [],
-    "menuHighlights": {
-      "vi": [
-        "Lẩu thập cẩm",
-        "Gà chạy bộ hấp lá chanh",
-        "Bia lạnh / Đồ uống giải khát"
-      ],
-      "en": [
-        "Hotpot combo",
-        "Steamed free-range chicken with lime leaves",
-        "Cold beer & Refreshments"
-      ],
-      "zh": [
-        "什锦火锅",
-        "柠檬叶蒸走地鸡",
-        "冰镇啤酒 / 凉饮"
-      ]
-    },
-    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=C%E1%BB%8D%20Xanh%20Qu%C3%A1n%20-%20%E1%BA%A8m%20Th%E1%BB%B1c%20%C4%91%E1%BB%93ng%20qu%C3%AA%2026%20Phan%20%C4%90%C3%ACnh%20Gi%C3%B3t%2C%20Tr%E1%BA%A1i%20Giao%2C%20V%C4%A9nh%20Ph%C3%BAc%2C%20Ph%C3%BA%20Th%E1%BB%8D%2C%20Vi%E1%BB%87t%20Nam",
-    "sourceLabel": "Thêm từ Admin",
-    "sourceUrl": "https://maps.app.goo.gl/DDJnTVZFvtzirpmH8"
   }
 ]

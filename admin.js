@@ -256,15 +256,15 @@ if (importGmapsBtn) {
       hours: manualHours || "10:00 - 23:00",
       rating: manualRating,
       reviewCount: 15,
-      lat: parsed.lat || 21.3089,
-      lng: parsed.lng || 105.6049,
+      lat: parsed.lat || null,
+      lng: parsed.lng || null,
       tags: template.tags,
       imageUrl: "./assets/restaurant-placeholder.svg",
       menuImages: [],
       menuHighlights: template.menu,
       directionsUrl: (parsed.lat && parsed.lng) 
         ? `https://www.google.com/maps/dir/?api=1&destination=${parsed.lat},${parsed.lng}` 
-        : `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(finalName + " " + finalAddress)}`,
+        : `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(finalName + ", " + finalAddress)}`,
       sourceLabel: "Thêm từ Admin",
       sourceUrl: url
     };
