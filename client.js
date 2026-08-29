@@ -1065,7 +1065,6 @@ document.addEventListener("DOMContentLoaded", () => {
           reviewForm.reset();
           reviewModal.style.display = "none";
           renderVenues();
-          alert(t("reviewSuccessAlert"));
 
           const cardEl = document.querySelector(`[data-id="${venueId}"]`);
           if (cardEl) {
