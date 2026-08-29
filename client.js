@@ -846,7 +846,8 @@ function renderVenues() {
 
     renderMenuPanel(fragment, venue);
 
-    const userReviews = globalReviews.filter((r) => r.venueId === venue.id);
+    // ÉP KIỂU STRING ĐỂ LỌC REVIEW CHÍNH XÁC
+    const userReviews = globalReviews.filter((r) => String(r.venueId) === String(venue.id));
     let displayRating = venue.rating || 4.0;
     if (userReviews.length > 0) {
       const sum = userReviews.reduce((acc, curr) => acc + (parseFloat(curr.rating) || 4), 0);
@@ -885,10 +886,15 @@ function renderVenues() {
       tagList.appendChild(span);
     });
 
+    // CẬP NHẬT LINK CHỈ ĐƯỜNG MAPS TỰ ĐỘNG TẠO TUYẾN TỪ VỊ TRÍ HIỆN TẠI
     const mapsBtn = fragment.querySelector(".primary-action-btn");
     if (mapsBtn) {
       mapsBtn.textContent = t("directionsBtn");
-      mapsBtn.href = venue.directionsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venue.name)}`;
+      if (state.userLocation && venue.lat && venue.lng) {
+        mapsBtn.href = `https://www.google.com/maps/dir/?api=1&origin=${state.userLocation.lat},${state.userLocation.lng}&destination=${venue.lat},${venue.lng}`;
+      } else {
+        mapsBtn.href = venue.directionsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venue.name)}`;
+      }
     }
 
     const reviewBtn = fragment.querySelector(".review-btn");
@@ -907,6 +913,7 @@ function renderVenues() {
       });
     }
 
+    // HIỂN THỊ ĐÁNH GIÁ MỚI NHẤT
     const reviewsPreview = fragment.querySelector(".user-reviews-preview");
     if (reviewsPreview) {
       if (userReviews.length > 0) {
@@ -943,7 +950,9 @@ function openAllReviewsModal(venue) {
   const writeBtn = document.getElementById("writeReviewFromAllBtn");
 
   title.textContent = formatText(t("modalAllTitle"), { name: venue.name });
-  const userReviews = globalReviews.filter((r) => r.venueId === venue.id);
+  
+  // ÉP KIỂU STRING ĐỂ TẢI ĐÚNG DANH SÁCH REVIEW CỦA QUÁN
+  const userReviews = globalReviews.filter((r) => String(r.venueId) === String(venue.id));
 
   if (userReviews.length === 0) {
     list.innerHTML = `<div class="empty-state">${t("noReviewsYet")}</div>`;
