@@ -1061,10 +1061,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         if (response.ok) {
-          await syncServerReviews({ rerender: false, silent: true });
+          await syncServerReviews({ rerender: true, silent: true });
           reviewForm.reset();
           reviewModal.style.display = "none";
-          renderVenues();
 
           const cardEl = document.querySelector(`[data-id="${venueId}"]`);
           if (cardEl) {
