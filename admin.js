@@ -166,6 +166,61 @@ const presetTemplates = {
   }
 };
 
+// Bóc tách real-time khi vừa dán link Google Maps vào ô nhập
+async function autoParseGmapsInput(urlValue) {
+  if (!urlValue) return;
+
+  showImportStatus("⏳ Đang phân tích link Google Maps...", false);
+
+  // 1. Thử bóc tách local client-side
+  let parsed = parseGmapsUrl(urlValue);
+
+  // 2. Nếu là link rút gọn hoặc chưa có tên -> gọi Server API /api/parse-gmaps giải mã
+  if ((!parsed.name || urlValue.includes("goo.gl")) && typeof window !== "undefined") {
+    try {
+      const res = await fetch(`${window.location.origin}/api/parse-gmaps?url=${encodeURIComponent(urlValue)}`);
+      if (res.ok) {
+        const apiData = await res.json();
+        if (apiData.name) parsed.name = apiData.name;
+        if (apiData.address) parsed.address = apiData.address;
+        if (apiData.lat) parsed.lat = apiData.lat;
+        if (apiData.lng) parsed.lng = apiData.lng;
+      }
+    } catch (e) {
+      console.warn("Không gọi được API parse-gmaps:", e);
+    }
+  }
+
+  // Auto-fill vào các ô input trên giao diện nếu hiện tại đang trống
+  const nameInput = document.getElementById("manualNameInput");
+  const addressInput = document.getElementById("manualAddressInput");
+
+  if (nameInput && parsed.name) {
+    nameInput.value = parsed.name;
+  }
+  if (addressInput && parsed.address) {
+    addressInput.value = parsed.address;
+  }
+
+  if (parsed.name) {
+    showImportStatus(`✨ Đã tự động bóc tách: Tên quán "${parsed.name}" ${parsed.address ? '- Địa chỉ: ' + parsed.address : ''}`);
+  } else {
+    showImportStatus("Sẵn sàng thêm quán.");
+  }
+}
+
+if (gmapsUrlInput) {
+  gmapsUrlInput.addEventListener("paste", (e) => {
+    setTimeout(() => {
+      autoParseGmapsInput(gmapsUrlInput.value.trim());
+    }, 100);
+  });
+
+  gmapsUrlInput.addEventListener("change", () => {
+    autoParseGmapsInput(gmapsUrlInput.value.trim());
+  });
+}
+
 if (importGmapsBtn) {
   importGmapsBtn.addEventListener("click", async () => {
     const manualName = document.getElementById("manualNameInput")?.value.trim() || "";

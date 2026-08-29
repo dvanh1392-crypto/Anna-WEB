@@ -90,6 +90,82 @@ function normalizeReviewPayload(payload = {}) {
   return { venueId, name, rating, comment };
 }
 
+app.get("/api/parse-gmaps", async (req, res) => {
+  const urlStr = String(req.query.url || "").trim();
+  if (!urlStr) {
+    return res.status(400).json({ error: "Thiếu tham số URL." });
+  }
+
+  try {
+    let targetUrl = urlStr;
+
+    // Giải mã link rút gọn (maps.app.goo.gl hoặc goo.gl) bằng HEAD/GET redirect check
+    if (urlStr.includes("goo.gl") || urlStr.includes("maps.app.goo.gl")) {
+      try {
+        const response = await fetch(urlStr, { method: "HEAD", redirect: "follow" });
+        if (response.url) {
+          targetUrl = response.url;
+        }
+      } catch (e) {
+        console.warn("Không theo dõi được redirect:", e.message);
+      }
+    }
+
+    const decodedUrl = decodeURIComponent(targetUrl);
+    let lat = null;
+    let lng = null;
+    let name = "";
+    let address = "";
+
+    // 1. Tọa độ @lat,lng
+    const coordMatch = targetUrl.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
+    if (coordMatch) {
+      lat = parseFloat(coordMatch[1]);
+      lng = parseFloat(coordMatch[2]);
+    }
+
+    // 2. Tên quán từ !2sTEN_QUAN
+    const shareMatch = decodedUrl.match(/!2s([^!]+)/);
+    if (shareMatch && shareMatch[1]) {
+      name = shareMatch[1].replace(/\+/g, " ").trim();
+    }
+
+    // 3. Tên quán từ /place/TEN_QUAN/
+    if (!name) {
+      const placeMatch = decodedUrl.match(/\/place\/([^\/@?#]+)/);
+      if (placeMatch && placeMatch[1]) {
+        name = placeMatch[1].replace(/\+/g, " ").trim();
+      }
+    }
+
+    // 4. Tên quán từ /search/TEN_QUAN/
+    if (!name) {
+      const searchMatch = decodedUrl.match(/\/search\/([^\/@?#]+)/);
+      if (searchMatch && searchMatch[1]) {
+        name = searchMatch[1].replace(/\+/g, " ").trim();
+      }
+    }
+
+    if (name.includes(",")) {
+      const parts = name.split(",");
+      name = parts[0].trim();
+      address = parts.slice(1).join(",").trim();
+    }
+
+    res.json({
+      success: true,
+      originalUrl: urlStr,
+      resolvedUrl: targetUrl,
+      name,
+      address,
+      lat,
+      lng,
+    });
+  } catch (error) {
+    res.status(500).json({ error: "Không thể bóc tách link Google Maps này." });
+  }
+});
+
 app.get("/api/health", (req, res) => {
   res.json({
     ok: true,
