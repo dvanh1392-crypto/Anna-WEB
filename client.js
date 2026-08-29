@@ -928,10 +928,14 @@ function renderVenues() {
     const mapsBtn = fragment.querySelector(".primary-action-btn");
     if (mapsBtn) {
       mapsBtn.textContent = t("directionsBtn");
-      if (state.userLocation && venue.lat && venue.lng) {
-        mapsBtn.href = `https://www.google.com/maps/dir/?api=1&origin=${state.userLocation.lat},${state.userLocation.lng}&destination=${venue.lat},${venue.lng}`;
+      const destQuery = (venue.lat && venue.lng) 
+        ? `${venue.lat},${venue.lng}` 
+        : encodeURIComponent(`${venue.name}, ${venue.address}`);
+      
+      if (state.userLocation) {
+        mapsBtn.href = `https://www.google.com/maps/dir/?api=1&origin=${state.userLocation.lat},${state.userLocation.lng}&destination=${destQuery}`;
       } else {
-        mapsBtn.href = venue.directionsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venue.name)}`;
+        mapsBtn.href = venue.directionsUrl || `https://www.google.com/maps/dir/?api=1&destination=${destQuery}`;
       }
     }
 
