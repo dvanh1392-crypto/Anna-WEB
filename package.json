@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "start": "node app.js",
     "import": "node pipeline/scripts/import-gmaps.mjs",
     "fix-directions": "node pipeline/scripts/fix-directions.mjs",
     "fill-missing": "node pipeline/scripts/fill-missing-fields.mjs",

@@ -2,10 +2,10 @@
    FRONTEND LOGIC (GIAO DIỆN CLIENT CHẠY TRÊN TRÌNH DUYỆT)
    ========================================================================== */
 
-// Thay link Render Backend của bạn vào đây (ví dụ: "https://vinh-yen-beer.onrender.com")
-const API_BASE_URL = window.location.origin.includes("localhost")
-  ? ""
-  : window.location.origin;
+// Web trên Render Web Service và API review dùng chung 1 origin.
+const API_BASE_URL = typeof window !== "undefined" ? window.location.origin : "";
+const REVIEWS_API_PATH = "/api/reviews";
+const REVIEWS_AUTO_REFRESH_MS = 15000;
 
 const translations = {
   vi: {
@@ -99,6 +99,9 @@ const translations = {
     noReviewsYet: "Chưa có đánh giá nào từ thực khách.",
     writeReviewFromAllBtn: "➕ Đánh giá quán này",
     reviewSuccessAlert: "🎉 Cảm ơn bạn đã gửi đánh giá thành công!",
+    reviewSubmitError: "Không gửi được đánh giá. Vui lòng thử lại sau.",
+    reviewLoadError: "Không tải được đánh giá mới nhất. Vui lòng thử tải lại trang.",
+    latestReviewLabel: "💬 Đánh giá mới nhất từ {name} ({rating}★):",
     recentTime: "Gần đây",
     locationIdle: "Chưa lấy vị trí.",
     locationUnsupported: "Trình duyệt không hỗ trợ định vị.",
@@ -198,6 +201,9 @@ const translations = {
     noReviewsYet: "No customer reviews yet.",
     writeReviewFromAllBtn: "➕ Write a Review",
     reviewSuccessAlert: "🎉 Thank you for submitting your review!",
+    reviewSubmitError: "Could not submit your review. Please try again later.",
+    reviewLoadError: "Could not load the latest reviews. Please refresh the page.",
+    latestReviewLabel: "💬 Latest review from {name} ({rating}★):",
     recentTime: "Recently",
     locationIdle: "Location has not been used yet.",
     locationUnsupported: "This browser does not support geolocation.",
@@ -297,6 +303,9 @@ const translations = {
     noReviewsYet: "暂无食客评价。",
     writeReviewFromAllBtn: "➕ 评价这家店",
     reviewSuccessAlert: "🎉 感谢您的评价！",
+    reviewSubmitError: "提交评价失败，请稍后再试。",
+    reviewLoadError: "暂时无法加载最新评价，请刷新页面后重试。",
+    latestReviewLabel: "💬 最新评价来自 {name}（{rating}★）：",
     recentTime: "最近",
     locationIdle: "尚未获取位置。",
     locationUnsupported: "当前浏览器不支持定位功能。",
@@ -345,6 +354,7 @@ const tagTranslations = {
 
 let venues = [];
 let globalReviews = [];
+let reviewsRefreshTimer = null;
 let mapInstance = null;
 let markersGroup = null;
 
@@ -385,13 +395,41 @@ async function loadVenueData() {
 }
 
 async function loadServerReviews() {
-  try {
-    const res = await fetch(`${API_BASE_URL}/api/reviews?v=` + Date.now());
-    if (res.ok) {
-      globalReviews = await res.json();
+  const res = await fetch(`${API_BASE_URL}${REVIEWS_API_PATH}?v=${Date.now()}`, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    let message = `Không tải được đánh giá từ server (${res.status})`;
+    try {
+      const data = await res.json();
+      if (data?.error) {
+        message = data.error;
+      }
+    } catch (error) {
+      // Bỏ qua lỗi parse JSON để giữ message mặc định.
     }
+    throw new Error(message);
+  }
+
+  const data = await res.json();
+  globalReviews = Array.isArray(data) ? data : [];
+  return globalReviews;
+}
+
+async function syncServerReviews({ rerender = false, silent = true } = {}) {
+  try {
+    await loadServerReviews();
+    if (rerender && state.dataLoaded && !state.dataError) {
+      renderVenues();
+    }
+    return true;
   } catch (err) {
     console.error("Không thể tải đánh giá từ server:", err);
+    if (!silent) {
+      alert(t("reviewLoadError"));
+    }
+    return false;
   }
 }
 
@@ -908,8 +946,8 @@ function renderVenues() {
     const viewReviewsBtn = fragment.querySelector(".view-reviews-btn");
     if (viewReviewsBtn) {
       viewReviewsBtn.innerHTML = formatText(t("viewReviewsBtn"), { count: `<span class="user-review-count">${userReviews.length}</span>` });
-      viewReviewsBtn.addEventListener("click", () => {
-        openAllReviewsModal(venue);
+      viewReviewsBtn.addEventListener("click", async () => {
+        await openAllReviewsModal(venue);
       });
     }
 
@@ -921,7 +959,7 @@ function renderVenues() {
         reviewsPreview.innerHTML = `
           <div class="user-review-item" style="margin-top: 10px; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 12px; border-radius: 14px;">
             <div style="font-weight: 700; color: #047857; font-size: 0.9rem; margin-bottom: 4px;">
-              💬 Đánh giá mới nhất từ ${latest.name} (${latest.rating}★):
+              ${formatText(t("latestReviewLabel"), { name: latest.name, rating: latest.rating })}
             </div>
             <div style="color: #1e293b; font-size: 0.92rem; line-height: 1.4;">
               "${latest.comment}"
@@ -943,15 +981,22 @@ function openWriteReviewModal(venue) {
   document.getElementById("reviewModal").style.display = "grid";
 }
 
-function openAllReviewsModal(venue) {
+async function openAllReviewsModal(venue) {
   const modal = document.getElementById("allReviewsModal");
   const title = document.getElementById("allReviewsTitle");
   const list = document.getElementById("allReviewsList");
   const writeBtn = document.getElementById("writeReviewFromAllBtn");
 
   title.textContent = formatText(t("modalAllTitle"), { name: venue.name });
-  
-  // ÉP KIỂU STRING ĐỂ TẢI ĐÚNG DANH SÁCH REVIEW CỦA QUÁN
+
+  const loaded = await syncServerReviews({ silent: true });
+
+  if (!loaded && !globalReviews.length) {
+    list.innerHTML = `<div class="empty-state">${t("reviewLoadError")}</div>`;
+    modal.style.display = "grid";
+    return;
+  }
+
   const userReviews = globalReviews.filter((r) => String(r.venueId) === String(venue.id));
 
   if (userReviews.length === 0) {
@@ -1016,20 +1061,31 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         if (response.ok) {
-          await loadServerReviews();
+          await syncServerReviews({ rerender: false, silent: true });
           reviewForm.reset();
           reviewModal.style.display = "none";
           renderVenues();
+          alert(t("reviewSuccessAlert"));
 
           const cardEl = document.querySelector(`[data-id="${venueId}"]`);
           if (cardEl) {
             cardEl.scrollIntoView({ behavior: "smooth", block: "center" });
           }
         } else {
-          alert("Có lỗi xảy ra khi gửi đánh giá. Vui lòng thử lại!");
+          let message = t("reviewSubmitError");
+          try {
+            const data = await response.json();
+            if (data?.error) {
+              message = data.error;
+            }
+          } catch (error) {
+            // Không làm gì, dùng message mặc định.
+          }
+          alert(message);
         }
       } catch (err) {
         console.error("Lỗi gửi đánh giá:", err);
+        alert(t("reviewSubmitError"));
       }
     });
   }
@@ -1163,7 +1219,6 @@ async function bootstrap() {
   applyLanguage();
 
   try {
-    await loadServerReviews();
     await loadVenueData();
     populateFilters();
     renderVenues();
@@ -1173,6 +1228,25 @@ async function bootstrap() {
     state.dataError = true;
     renderDataError();
   }
+
+  await syncServerReviews({ rerender: true, silent: true });
+
+  if (reviewsRefreshTimer) {
+    window.clearInterval(reviewsRefreshTimer);
+  }
+  reviewsRefreshTimer = window.setInterval(() => {
+    syncServerReviews({ rerender: true, silent: true });
+  }, REVIEWS_AUTO_REFRESH_MS);
 }
 
 bootstrap();
+
+window.addEventListener("focus", () => {
+  syncServerReviews({ rerender: true, silent: true });
+});
+
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") {
+    syncServerReviews({ rerender: true, silent: true });
+  }
+});

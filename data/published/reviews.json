@@ -1,0 +1,26 @@
+[
+  {
+    "id": "rev-1787973924974",
+    "venueId": "bia-hoi-ha-noi-kim-ngoc",
+    "name": "2",
+    "rating": 4,
+    "comment": "2",
+    "date": "2026-08-29T03:25:24.974Z"
+  },
+  {
+    "id": "rev-1787973917092",
+    "venueId": "bia-hoi-ha-noi-kim-ngoc",
+    "name": "1",
+    "rating": 4,
+    "comment": "1",
+    "date": "2026-08-29T03:25:17.092Z"
+  },
+  {
+    "id": "rev-1787969034351",
+    "venueId": "test-venue",
+    "name": "Trae Test",
+    "rating": 5,
+    "comment": "Ki?m tra luu d�nh gi�",
+    "date": "2026-08-29T02:03:54.351Z"
+  }
+]

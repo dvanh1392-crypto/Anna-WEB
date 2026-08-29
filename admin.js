@@ -221,7 +221,11 @@ function renderList() {
       card.querySelector(".venue-rating").textContent = `★ ${venue.rating || 4.0}`;
       card.querySelector(".venue-description").textContent = venue.description?.vi || "";
 
-      card.querySelector(".admin-id").value = venue.id;
+      const idInput = card.querySelector(".admin-id");
+      idInput.value = venue.id;
+      idInput.readOnly = true;
+      idInput.title = "ID cố định của quán (không thể sửa để tránh mất đánh giá)";
+      idInput.style.backgroundColor = "#f1f5f9";
       card.querySelector(".admin-category").value = venue.categoryKey || "family-pub";
       card.querySelector(".admin-rating").value = venue.rating || 4.0;
       card.querySelector(".admin-reviews").value = venue.reviewCount || 10;

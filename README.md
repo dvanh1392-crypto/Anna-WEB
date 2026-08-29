@@ -15,17 +15,25 @@ Website hiện đã tách dữ liệu quán ra khỏi `app.js`. Giao diện sẽ
 - Nút dùng vị trí hiện tại để tính khoảng cách từ bạn đến từng quán
 - Hỗ trợ tiếng Việt, tiếng Anh và tiếng Trung
 
-## Cách mở website
+## Cách chạy website (Chạy Web Server động)
 
-Bạn có thể mở trực tiếp `index.html`, nhưng để tính năng định vị hoạt động ổn định hơn nên chạy bằng một web server local.
-
-Ví dụ với Python:
+Để tính năng **Định vị GPS** và **Đồng bộ Đánh giá (Review) cho tất cả thiết bị** hoạt động chuẩn xác, bạn cần chạy bằng Node.js Server:
 
 ```bash
-python -m http.server 8080
+npm start
+# Hoặc: node app.js
 ```
 
-Sau đó mở trình duyệt tại `http://localhost:8080`.
+Sau đó mở trình duyệt tại `http://localhost:3000`.
+
+## Cấu hình Deploy Render (Render Web Service 🚀)
+
+1. Tạo **Web Service** mới trên Render kết nối với Repository GitHub này.
+2. Cấu hình các thông số:
+   - **Environment**: Node
+   - **Build Command**: `npm install`
+   - **Start Command**: `npm start` (hoặc `node app.js`)
+3. (Tùy chọn) Thêm biến môi trường `MONGODB_URI` nếu bạn muốn lưu Đánh giá vào MongoDB Atlas. Nếu không thêm `MONGODB_URI`, ứng dụng sẽ tự động lưu đánh giá vào file JSON trên server (`data/published/user-reviews.json`).
 
 ## Cấu trúc dữ liệu mới
 
