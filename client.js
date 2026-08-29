@@ -381,6 +381,21 @@ const state = {
 };
 
 async function loadVenueData() {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/venues?v=` + Date.now());
+    if (response.ok) {
+      const data = await response.json();
+      if (Array.isArray(data) && data.length > 0) {
+        venues = data;
+        state.dataLoaded = true;
+        state.dataError = false;
+        return;
+      }
+    }
+  } catch {
+    // Fallback sang file tĩnh công khai nếu API sự cố
+  }
+
   const response = await fetch("./data/published/venues.json?v=" + Date.now());
   if (!response.ok) {
     throw new Error(`Không tải được dữ liệu quán: ${response.status}`);

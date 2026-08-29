@@ -173,6 +173,107 @@ app.post("/api/reviews", async (req, res) => {
   }
 });
 
+const venueSchema = new mongoose.Schema(
+  {
+    id: { type: String, required: true, unique: true, trim: true, index: true },
+    name: { type: String, required: true, trim: true },
+    categoryKey: { type: String, default: "family-pub" },
+    description: {
+      vi: { type: String, default: "" },
+      en: { type: String, default: "" },
+      zh: { type: String, default: "" },
+    },
+    address: { type: String, required: true, trim: true },
+    phone: { type: String, default: "Đang cập nhật" },
+    hours: { type: String, default: "10:00 - 23:00" },
+    rating: { type: Number, default: 4.5 },
+    reviewCount: { type: Number, default: 10 },
+    lat: { type: Number, default: 21.3089 },
+    lng: { type: Number, default: 105.6049 },
+    tags: [{ type: String }],
+    imageUrl: { type: String, default: "./assets/restaurant-placeholder.svg" },
+    menuImages: [{ type: Object }],
+    menuHighlights: {
+      vi: [{ type: String }],
+      en: [{ type: String }],
+      zh: [{ type: String }],
+    },
+    directionsUrl: { type: String, default: "" },
+    sourceLabel: { type: String, default: "Admin thêm" },
+    createdAt: { type: Date, default: Date.now },
+  },
+  { versionKey: false }
+);
+
+const Venue = mongoose.models.Venue || mongoose.model("Venue", venueSchema);
+
+const VENUES_FILE_PATH = path.join(__dirname, "data", "published", "venues.json");
+
+async function readPublishedVenues() {
+  try {
+    const data = await fs.readFile(VENUES_FILE_PATH, "utf-8");
+    return JSON.parse(data);
+  } catch {
+    return [];
+  }
+}
+
+async function writePublishedVenues(venuesList) {
+  try {
+    const dir = path.dirname(VENUES_FILE_PATH);
+    await fs.mkdir(dir, { recursive: true });
+    await fs.writeFile(VENUES_FILE_PATH, JSON.stringify(venuesList, null, 2), "utf-8");
+  } catch (err) {
+    console.error("❌ Lỗi ghi file venues.json:", err);
+  }
+}
+
+// Endpoint lấy danh sách quán gộp giữa venues.json gốc và quán mới trong MongoDB
+app.get("/api/venues", async (req, res) => {
+  try {
+    const fileVenues = await readPublishedVenues();
+    let dbVenues = [];
+    if (isDatabaseReady) {
+      dbVenues = await Venue.find({}, { _id: 0 }).lean();
+    }
+
+    // Gộp mảng: Quán mới từ DB xếp lên đầu, tránh trùng lặp id
+    const existingIds = new Set(dbVenues.map((v) => v.id));
+    const combined = [...dbVenues, ...fileVenues.filter((v) => !existingIds.has(v.id))];
+    res.json(combined);
+  } catch (error) {
+    res.status(500).json({ error: "Không thể lấy danh sách quán." });
+  }
+});
+
+// Endpoint thêm/chỉnh sửa quán từ Admin
+app.post("/api/venues", async (req, res) => {
+  try {
+    const venueData = req.body;
+    if (!venueData.id || !venueData.name || !venueData.address) {
+      return res.status(400).json({ error: "Thiếu thông tin bắt buộc (id, name, address)." });
+    }
+
+    if (isDatabaseReady) {
+      await Venue.findOneAndUpdate({ id: venueData.id }, venueData, { upsert: true, new: true });
+    } else {
+      const venuesList = await readPublishedVenues();
+      const index = venuesList.findIndex((v) => v.id === venueData.id);
+      if (index >= 0) {
+        venuesList[index] = venueData;
+      } else {
+        venuesList.unshift(venueData);
+      }
+      await writePublishedVenues(venuesList);
+    }
+
+    res.status(201).json({ success: true, venue: venueData });
+  } catch (error) {
+    console.error("❌ Lỗi lưu quán mới:", error);
+    res.status(500).json({ error: "Không thể lưu thông tin quán." });
+  }
+});
+
 app.get(/^(?!\/api\/).*/, (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });

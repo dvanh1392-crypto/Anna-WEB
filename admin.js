@@ -84,8 +84,90 @@ function parseGmapsUrl(urlStr) {
   return { name, lat, lng, address };
 }
 
+// Bộ từ điển mẫu tự động dịch Mô tả & Món ăn chuẩn 3 ngôn ngữ theo loại quán
+const presetTemplates = {
+  "family-pub": {
+    desc: {
+      vi: "Quán ăn nhậu gia đình ấm cúng, không gian thoáng mát tại khu vực Vĩnh Yên, phù hợp tụ họp bạn bè.",
+      en: "Cozy family dining & drinking spot with a spacious atmosphere in Vinh Yen, perfect for gatherings.",
+      zh: "永安地区温馨的家庭聚餐与小酌场所，环境舒适，非常适合朋友聚会。"
+    },
+    menu: {
+      vi: ["Lẩu thập cẩm", "Gà chạy bộ hấp lá chanh", "Bia lạnh / Đồ uống giải khát"],
+      en: ["Hotpot combo", "Steamed free-range chicken with lime leaves", "Cold beer & Refreshments"],
+      zh: ["什锦火锅", "柠檬叶蒸走地鸡", "冰镇啤酒 / 凉饮"]
+    },
+    tags: ["family", "gathering", "vinhYen"]
+  },
+  "garden-pub": {
+    desc: {
+      vi: "Quán nhậu sân vườn rộng rãi, nhiều cây xanh, đồ ăn tươi ngon đặc sắc tại Vĩnh Yên.",
+      en: "Spacious garden pub with lush greenery and delicious fresh dishes in Vinh Yen.",
+      zh: "永安大型花园露天酒馆，绿树成荫，提供新鲜美味特色菜肴。"
+    },
+    menu: {
+      vi: ["Đồ nướng than hoa", "Bò nướng tảng", "Bia hơi tươi mát"],
+      en: ["Charcoal BBQ", "Grilled beef steak", "Fresh draft beer"],
+      zh: ["炭火烧烤", "烤大块牛肉", "清爽鲜啤酒"]
+    },
+    tags: ["gardenPub", "outdoor", "popular"]
+  },
+  "seafood": {
+    desc: {
+      vi: "Nhà hàng hải sản tươi sống nhập mới hàng ngày, chế biến đậm đà phục vụ thực khách Vĩnh Yên.",
+      en: "Fresh seafood restaurant sourced daily, skillfully prepared for Vinh Yen foodies.",
+      zh: "每日新鲜到货的海鲜餐厅，精心烹饪，服务永安食客。"
+    },
+    menu: {
+      vi: ["Cua / Ghẹ hấp sả", "Tôm hùm bỏ lò phô mai", "Mực trứng chiên mắm"],
+      en: ["Steamed crab with lemongrass", "Baked lobster with cheese", "Fried squid with fish sauce"],
+      zh: ["香茅蒸蟹", "芝麻烤龙虾", "鱼露炸蛋黄鱿鱼"]
+    },
+    tags: ["seafood", "fresh", "premium"]
+  },
+  "goat-pub": {
+    desc: {
+      vi: "Quán chuyên các món dê núi Ninh Bình tươi ngon, hương vị đậm đà hấp dẫn.",
+      en: "Specialty restaurant serving fresh Ninh Binh mountain goat dishes with rich flavors.",
+      zh: "专业提供新鲜宁平山羊肉菜肴的特色餐馆，风味浓郁吸引人。"
+    },
+    menu: {
+      vi: ["Dê tái chanh", "Dê nướng tảng", "Tiết canh dê đặc sản"],
+      en: ["Goat salad with lime", "Grilled mountain goat", "Specialty goat blood soup"],
+      zh: ["柠汁凉拌羊肉", "烤大块山羊肉", "特色羊血冻"]
+    },
+    tags: ["goatPub", "specialty", "ninhBinh"]
+  },
+  "goat-hotpot": {
+    desc: {
+      vi: "Quán lẩu dê thuốc bắc thơm nức, bổ dưỡng, nước dùng đậm đà cho những ngày tụ họp.",
+      en: "Nutritious herbal goat hotpot with rich flavorful broth, ideal for social gatherings.",
+      zh: "香气扑鼻滋补的中药羊肉火锅，汤底浓郁，非常适合聚会。"
+    },
+    menu: {
+      vi: ["Lẩu dê nhúng dấm", "Lẩu dê thuốc bắc", "Vú dê nướng sa tế"],
+      en: ["Goat hotpot in vinegar broth", "Herbal goat hotpot", "Sate grilled goat udder"],
+      zh: ["醋汤涮羊肉火锅", "中药滋补羊肉锅", "沙爹烤羊乳房"]
+    },
+    tags: ["goatHotpot", "nutritious", "popular"]
+  },
+  "snail-pub": {
+    desc: {
+      vi: "Quán ốc và đồ ăn vặt nhậu đêm nhộn nhịp, đa dạng các loại ốc tươi hấp sả ớt.",
+      en: "Lively night snail & snack pub featuring a variety of fresh snails steamed with lemongrass & chili.",
+      zh: "热闹的夜宵螺类与小吃酒馆，提供丰富多样香茅辣椒蒸鲜螺。"
+    },
+    menu: {
+      vi: ["Ốc hương xào bơ tỏi", "Ốc mồi hấp sả", "Nem chua rán nướng"],
+      en: ["Sweet snails sauteed in garlic butter", "Steamed snails with lemongrass", "Fried fermented pork rolls"],
+      zh: ["蒜蓉黄油炒香螺", "香茅蒸鲜螺", "炸发酵酸肉卷"]
+    },
+    tags: ["snailPub", "nightLife", "snacks"]
+  }
+};
+
 if (importGmapsBtn) {
-  importGmapsBtn.addEventListener("click", () => {
+  importGmapsBtn.addEventListener("click", async () => {
     const manualName = document.getElementById("manualNameInput")?.value.trim() || "";
     const manualAddress = document.getElementById("manualAddressInput")?.value.trim() || "";
     const manualPhone = document.getElementById("manualPhoneInput")?.value.trim() || "";
@@ -99,20 +181,21 @@ if (importGmapsBtn) {
       return;
     }
 
+    showImportStatus("⏳ Đang tự động xử lý và dịch thuật đa ngôn ngữ...", false);
+
     const parsed = parseGmapsUrl(url);
     const finalName = manualName || parsed.name || "Quán ăn mới Vĩnh Yên";
     const finalAddress = manualAddress || parsed.address || "TP. Vĩnh Yên, Vĩnh Phúc";
     const id = finalName.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || `quan-map-${Date.now()}`;
 
+    // Tự động chọn template dịch thuật tương ứng với loại quán
+    const template = presetTemplates[manualCategory] || presetTemplates["family-pub"];
+
     const newVenue = {
       id: id,
       name: finalName,
       categoryKey: manualCategory,
-      description: {
-        vi: `Quán ăn nhậu tại khu vực Vĩnh Yên, Vĩnh Phúc.`,
-        en: `Dining & drinking venue in Vinh Yen.`,
-        zh: `永安市餐馆。`
-      },
+      description: template.desc,
       address: finalAddress,
       phone: manualPhone || "Đang cập nhật",
       hours: manualHours || "10:00 - 23:00",
@@ -120,35 +203,51 @@ if (importGmapsBtn) {
       reviewCount: 15,
       lat: parsed.lat || 21.3089,
       lng: parsed.lng || 105.6049,
-      tags: ["gathering", "vinhYen"],
+      tags: template.tags,
       imageUrl: "./assets/restaurant-placeholder.svg",
       menuImages: [],
-      menuHighlights: {
-        vi: ["Đặc sản theo mùa", "Bia lạnh / Đồ uống"],
-        en: ["Seasonal specialties", "Cold drinks"],
-        zh: ["时令特色菜", "冷饮"]
-      },
-      directionsUrl: (parsed.lat && parsed.lng) ? `https://www.google.com/maps/dir/?api=1&origin=current+location&destination=${parsed.lat},${parsed.lng}` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(finalName + " " + finalAddress)}`,
-      sourceLabel: "Thêm thủ công",
+      menuHighlights: template.menu,
+      directionsUrl: (parsed.lat && parsed.lng) 
+        ? `https://www.google.com/maps/dir/?api=1&destination=${parsed.lat},${parsed.lng}` 
+        : `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(finalName + " " + finalAddress)}`,
+      sourceLabel: "Thêm từ Admin",
       sourceUrl: url
     };
 
-    // Thêm trực tiếp vào MasterVenues (Danh sách chính)
-    masterVenues.unshift(newVenue);
-    saveMasterToLocal();
+    try {
+      // 🚀 Gửi API lưu thẳng vào MongoDB/Server mà KHÔNG CẦN GIT PUSH!
+      const API_BASE = window.location.origin;
+      const res = await fetch(`${API_BASE}/api/venues`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newVenue),
+      });
 
-    if (document.getElementById("manualNameInput")) document.getElementById("manualNameInput").value = "";
-    if (document.getElementById("manualAddressInput")) document.getElementById("manualAddressInput").value = "";
-    if (document.getElementById("manualPhoneInput")) document.getElementById("manualPhoneInput").value = "";
-    if (document.getElementById("manualHoursInput")) document.getElementById("manualHoursInput").value = "";
-    if (document.getElementById("manualRatingInput")) document.getElementById("manualRatingInput").value = "";
-    if (gmapsUrlInput) gmapsUrlInput.value = "";
+      if (res.ok) {
+        masterVenues.unshift(newVenue);
+        saveMasterToLocal();
 
-    showImportStatus(`🎉 Đã thêm thành công quán "${finalName}" vào Master! (Tổng số quán: ${masterVenues.length})`);
+        if (document.getElementById("manualNameInput")) document.getElementById("manualNameInput").value = "";
+        if (document.getElementById("manualAddressInput")) document.getElementById("manualAddressInput").value = "";
+        if (document.getElementById("manualPhoneInput")) document.getElementById("manualPhoneInput").value = "";
+        if (document.getElementById("manualHoursInput")) document.getElementById("manualHoursInput").value = "";
+        if (document.getElementById("manualRatingInput")) document.getElementById("manualRatingInput").value = "";
+        if (gmapsUrlInput) gmapsUrlInput.value = "";
 
-    adminMode.value = "master";
-    currentMode = "master";
-    renderList();
+        showImportStatus(`🎉 ĐÃ LƯU TRỰC TIẾP QUÁN "${finalName}" VÀO DATABASE MONGODB! Quán mới đã hiển thị chuẩn 3 ngôn ngữ trên trang chủ.`);
+        adminMode.value = "master";
+        currentMode = "master";
+        renderList();
+      } else {
+        showImportStatus("❌ Không thể lưu quán mới lên Server.", true);
+      }
+    } catch (err) {
+      console.error(err);
+      // Fallback lưu local nếu mất mạng
+      masterVenues.unshift(newVenue);
+      saveMasterToLocal();
+      showImportStatus(`⚠️ Đã lưu quán "${finalName}" vào bộ nhớ tạm local (Server không phản hồi).`);
+    }
   });
 }
 
