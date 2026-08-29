@@ -10,6 +10,7 @@
     "discover-osm": "node pipeline/scripts/discover-osm.mjs"
   },
   "dependencies": {
+    "cors": "^2.8.6",
     "express": "^5.2.1",
     "mongoose": "^9.9.4",
     "puppeteer": "^25.9.0"

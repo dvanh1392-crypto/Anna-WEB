@@ -2,6 +2,7 @@ import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import mongoose from "mongoose";
+import cors from "cors";
 
 /* ==========================================================================
    PHẦN 1: MÁY CHỦ EXPRESS & KẾT NỐI MONGODB ATLAS DATABASE
@@ -12,6 +13,8 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Cho phép tất cả các tên miền (Frontend trên GitHub Pages / Render) truy cập API
+app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
 
@@ -80,6 +83,12 @@ app.listen(PORT, () => {
    PHẦN 2: FRONTEND LOGIC (GIAO DIỆN CLIENT CHẠY TRÊN TRÌNH DUYỆT)
    ========================================================================== */
 if (typeof window !== "undefined") {
+  // Nếu Frontend & Backend deploy riêng (ví dụ: Frontend trên GitHub Pages, Backend trên Render),
+  // hãy thay chuỗi bên dưới bằng URL Web Service Render của bạn (Ví dụ: "https://vinh-yen-beer.onrender.com")
+  const API_BASE_URL = window.location.origin.includes("localhost")
+    ? ""
+    : window.location.origin;
+
   const translations = {
     vi: {
       title: "Bia & Nhậu Vĩnh Yên",
@@ -459,7 +468,7 @@ if (typeof window !== "undefined") {
 
   async function loadServerReviews() {
     try {
-      const res = await fetch("/api/reviews?v=" + Date.now());
+      const res = await fetch(`${API_BASE_URL}/api/reviews?v=` + Date.now());
       if (res.ok) {
         globalReviews = await res.json();
       }
@@ -923,7 +932,7 @@ if (typeof window !== "undefined") {
       let displayRating = venue.rating || 4.0;
       if (userReviews.length > 0) {
         const sum = userReviews.reduce((acc, curr) => acc + (parseFloat(curr.rating) || 4), 0);
-        displayRating = (sum / userReviews.length);
+        displayRating = (sum + (venue.rating || 4.0)) / (userReviews.length + 1);
       }
 
       fragment.querySelector(".venue-category").textContent = getCategoryLabel(venue.categoryKey);
@@ -980,15 +989,24 @@ if (typeof window !== "undefined") {
         });
       }
 
+      // Hiển thị đánh giá mới nhất trực tiếp dưới thẻ quán
       const reviewsPreview = fragment.querySelector(".user-reviews-preview");
-      if (userReviews.length > 0 && reviewsPreview) {
-        const latest = userReviews[0];
-        reviewsPreview.innerHTML = `
-          <div class="user-review-item">
-            <span class="user-review-author">${latest.name} (${latest.rating}★):</span>
-            <span>${latest.comment}</span>
-          </div>
-        `;
+      if (reviewsPreview) {
+        if (userReviews.length > 0) {
+          const latest = userReviews[0];
+          reviewsPreview.innerHTML = `
+            <div class="user-review-item" style="margin-top: 10px; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 12px; border-radius: 14px;">
+              <div style="font-weight: 700; color: #047857; font-size: 0.9rem; margin-bottom: 4px;">
+                💬 Đánh giá mới nhất từ ${latest.name} (${latest.rating}★):
+              </div>
+              <div style="color: #1e293b; font-size: 0.92rem; line-height: 1.4;">
+                "${latest.comment}"
+              </div>
+            </div>
+          `;
+        } else {
+          reviewsPreview.innerHTML = "";
+        }
       }
 
       venueGrid.appendChild(fragment);
@@ -1065,18 +1083,28 @@ if (typeof window !== "undefined") {
         if (!name || !comment) return;
 
         try {
-          const response = await fetch("/api/reviews", {
+          const response = await fetch(`${API_BASE_URL}/api/reviews`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ venueId, name, rating, comment }),
           });
 
           if (response.ok) {
+            // 1. Tải lại đánh giá mới nhất từ Server
             await loadServerReviews();
+            
+            // 2. Reset form & Đóng Modal (Không hiện alert)
             reviewForm.reset();
             reviewModal.style.display = "none";
-            alert(t("reviewSuccessAlert"));
+            
+            // 3. Render lại danh sách để cập nhật hiển thị ngay lập tức
             renderVenues();
+
+            // 4. Tự động cuộn màn hình nhẹ về vị trí thẻ quán vừa đánh giá
+            const cardEl = document.querySelector(`[data-id="${venueId}"]`);
+            if (cardEl) {
+              cardEl.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
           } else {
             alert("Có lỗi xảy ra khi gửi đánh giá. Vui lòng thử lại!");
           }
